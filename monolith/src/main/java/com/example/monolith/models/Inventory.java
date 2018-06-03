@@ -8,13 +8,17 @@ import javax.persistence.*;
 @Entity @Table(name = "INVENTORY")
 public class Inventory {
 
-    public Inventory(int itemId) {
+    public Inventory(Long userId, int itemId) {
+        this.userId = userId;
         this.itemId = itemId;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long entryId;
+
+    @Column(name = "USER_ID")
+    private Long userId;
 
     @Column(name = "ITEM_ID")
     private int itemId;

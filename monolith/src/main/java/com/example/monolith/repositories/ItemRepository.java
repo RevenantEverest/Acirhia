@@ -8,4 +8,5 @@ import org.springframework.data.repository.query.Param;
 import java.util.*;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
+
 }

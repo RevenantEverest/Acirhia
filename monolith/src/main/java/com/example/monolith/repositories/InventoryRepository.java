@@ -8,4 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.*;
 
 public interface InventoryRepository extends CrudRepository<Inventory, Long> {
+
+    @Query(value = "SELECT * FROM inventory WHERE user_id = :userId", nativeQuery = true)
+    Iterable<Inventory> findByUserId(@Param("userId") Long userId);
 }
