@@ -1,0 +1,7 @@
+.ChooseCharacter {
+  height: 150vh;
+  width: 100%;
+  background-image: url(../../res/images/Environment/ChooseClassCastle.gif);
+  background-repeat: no-repeat;
+  background-size: 110%;
+}

@@ -1,0 +1,8 @@
+.Shop {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../../res/images/Environment/Shop.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}

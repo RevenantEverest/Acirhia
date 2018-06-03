@@ -1,0 +1,6 @@
+.Town {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../../res/images/Environment/FantasyTown.jpg);
+  background-repeat: no-repeat;
+}
