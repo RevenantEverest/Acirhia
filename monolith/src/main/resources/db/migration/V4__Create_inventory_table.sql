@@ -1,0 +1,4 @@
+CREATE TABLE INVENTORY (
+    ENTRY_ID serial,
+    ITEM_ID INT NOT NULL
+);
