@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway'); /* Raleway Font Import */
+@import url('https://fonts.googleapis.com/css?family=Roboto'); /* Roboto Font Import */
+
 html, body {
   height: 100vh;
   width: 100vw;
   margin: 0;
   overflow: hidden;
+  font-family: "Raleway", sans-serif;
 }

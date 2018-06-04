@@ -42,6 +42,9 @@ public class CharactersController {
         characterFromDb.setHealth(characterRequest.getHealth());
         characterFromDb.setAttack(characterRequest.getAttack());
         characterFromDb.setDefense(characterRequest.getDefense());
+        characterFromDb.setExp(characterRequest.getExp());
+        characterFromDb.setLvl(characterRequest.getLvl());
+        characterFromDb.setGold(characterRequest.getGold());
 
         return characterRepository.save(characterFromDb);
     }
