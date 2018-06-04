@@ -53,4 +53,14 @@ services.addToInventory = (data) => {
   })
 };
 
+//Items
+services.getItems  = (data) => {
+  return axios.get('/items');
+};
+
+//Enemies
+services.getEnemies  = (data) => {
+  return axios.get('/enemies');
+};
+
 export default services;

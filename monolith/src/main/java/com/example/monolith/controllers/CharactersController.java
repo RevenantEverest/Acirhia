@@ -32,19 +32,12 @@ public class CharactersController {
     @PostMapping("/characters")
     public Character createNewCharacter(@RequestBody Character newCharacter) { return characterRepository.save(newCharacter); }
 
-    @PatchMapping("/characters/{characterId}")
+    @PatchMapping("/characters/health/{characterId}")
     public Character updateCharacterById(@PathVariable Long characterId, @RequestBody Character characterRequest) {
 
         Character characterFromDb = characterRepository.findById(characterId).get();
 
-        characterFromDb.setUserId(characterRequest.getUserId());
-        characterFromDb.setCharacterName(characterRequest.getCharacterName());
         characterFromDb.setHealth(characterRequest.getHealth());
-        characterFromDb.setAttack(characterRequest.getAttack());
-        characterFromDb.setDefense(characterRequest.getDefense());
-        characterFromDb.setExp(characterRequest.getExp());
-        characterFromDb.setLvl(characterRequest.getLvl());
-        characterFromDb.setGold(characterRequest.getGold());
 
         return characterRepository.save(characterFromDb);
     }

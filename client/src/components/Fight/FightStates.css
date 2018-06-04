@@ -1,0 +1,65 @@
+.Knight-idle {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  height: 45vh;
+  width: 30%;
+  background-image: url(../../res/images/KnightOneStates/KnightIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Knight-attack {
+  position: absolute;
+  top: 28%;
+  left: 5%;
+  height: 50vh;
+  width: 33%;
+  background-image: url(../../res/images/KnightOneStates/KnightAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Wizard-idle {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../res/images/WizardStates/WizardIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Wizard-attack {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../res/images/WizardStates/WizardAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Archer-idle {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../res/images/ArcherStates/ArcherIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Archer-attack {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../res/images/ArcherStates/ArcherAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

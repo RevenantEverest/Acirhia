@@ -4,3 +4,75 @@
   background-image: url(../../res/images/Environment/ForestPixelBG.jpg);
   background-repeat: no-repeat;
 }
+
+.VitalsContainer {
+  position: absolute;
+  height: 15vh;
+  width: 99.6%;
+  border-style: double;
+  border-color: #dedede;
+  background-color: rgba(0,0,0,0.5);
+  color: #dedede;
+}
+
+/* Enemy Vitals */
+.EnemyVitals {
+  position: absolute;
+  width: 100%;
+  top: 5%;
+  left: 78%;
+}
+
+.EnemyName {
+  left: 300%;
+  text-align: left;
+}
+
+.EnemyHealth-container {
+  position: relative;
+  height: 2vh;
+  width: 20%;
+  border-style: solid;
+  border-color: #dedede;
+}
+
+.EnemyHealth-value {
+  position: relative;
+  height: 2vh;
+  width: 100%;
+  background-color: green;
+}
+
+/* Player Vitals */
+.PlayerVitals {
+  position: absolute;
+  width: 100%;
+  top: 5%;
+  left: 1.5%;
+}
+
+.PlayerName {
+  left: 300%;
+  text-align: left;
+}
+
+.PlayerHealth-container {
+  position: relative;
+  height: 2vh;
+  width: 20%;
+  border-style: solid;
+  border-color: #dedede;
+}
+
+.PlayerHealth-value {
+  position: relative;
+  height: 2vh;
+  width: 100%;
+  background-color: green;
+}
+
+/* Attacks */
+.AttackOne {
+  position: absolute;
+  top: 50%;
+}
