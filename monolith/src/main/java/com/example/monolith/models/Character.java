@@ -8,13 +8,16 @@ import javax.persistence.*;
 @Entity @Table(name = "CHARACTERS")
 public class Character {
 
-    public Character(Long userId, String characterName, int classID, int health, int attack, int defense) {
+    public Character(Long userId, String characterName, int classID, int health, int attack, int defense, int exp, int lvl, int gold) {
         this.userId = userId;
         this.characterName = characterName;
         this.classID = classID;
         this.health = health;
         this.attack = attack;
         this.defense = defense;
+        this.exp = exp;
+        this.lvl = lvl;
+        this.gold = gold;
     }
 
     @Id
@@ -38,4 +41,13 @@ public class Character {
 
     @Column(name = "DEFENSE")
     private int defense;
+
+    @Column(name = "EXP")
+    private int exp;
+
+    @Column(name = "LVL")
+    private int lvl;
+
+    @Column(name = "GOLD")
+    private int gold;
 }

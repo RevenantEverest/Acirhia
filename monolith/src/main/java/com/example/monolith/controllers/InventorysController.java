@@ -17,7 +17,7 @@ public class InventorysController {
     public Iterable<Inventory> findAllInventorys() { return inventoryRepository.findAll(); }
 
     @GetMapping("/inventory/users/{userId}")
-    public Iterable<Inventory> findByUserId(@PathVariable Long userId) { return inventoryRepository.findByUserId(userId); }
+    public Optional<Inventory> findByUserId(@PathVariable Long userId) { return inventoryRepository.findByUserId(userId); }
 
     @PostMapping("/inventory")
     public Inventory addToInventory(@RequestBody Inventory inventory) { return inventoryRepository.save(inventory); }
