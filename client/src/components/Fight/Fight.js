@@ -12,6 +12,8 @@ class Fight extends Component {
       userData: this.props.userData,
       characterInfo: this.props.characterInfo,
 
+      enemyState: 'Enemy-idle',
+
       /* Player Stats */
       playerHealth: this.props.characterInfo.health
     }
@@ -21,13 +23,14 @@ class Fight extends Component {
     services.getEnemies()
       .then(results => {
         let enemyChosen = results.data[this.RNG(results.data.length)];
+        console.log(enemyChosen);
         this.setState({ enemyInfo: enemyChosen,
                         enemyName: enemyChosen.enemyName,
                         enemyHealth: enemyChosen.health,
                         enemyAttack: enemyChosen.attack,
                         enemyDefense: enemyChosen.defense,
                         enemyDataRecieved: true,
-                        enemyState: `${enemyChosen.enemyName}-idle` });
+                        enemyState: 'Enemy-idle' });
       })
       .catch(err => console.log("Failed at Get Enemies => ", err));
     switch(this.state.characterInfo.classID) {
@@ -67,10 +70,12 @@ class Fight extends Component {
 
         if(this.state.enemyHealth <= 0) {
           enemyHealthDisplay.style.width = "0%";
-          this.setState({ victory: true })
+          this.setState({ victory: true, enemyState: 'Enemy-die' })
           return;
         }else {
-          this.enemyAttack();
+          setTimeout(() => {
+            this.enemyAttack();
+          }, 1000)
         }
       });
     }
@@ -81,12 +86,18 @@ class Fight extends Component {
       let attack = this.state.enemyAttack;
       let dmg = this.RNG(attack);
 
+      this.setState({ enemyState: `Enemy-attack` }, () => {
+        setTimeout(() => {
+          this.setState({ enemyState: `Enemy-idle` })
+        }, 1000)
+      })
+
       this.setState({ playerHealth: this.state.playerHealth - dmg }, () => {
         let playerHealthDisplay = document.querySelector('.PlayerHealth-value');
         playerHealthDisplay.style.width = `${this.state.playerHealth}%`;
         if(this.state.playerHealth <= 0) {
           playerHealthDisplay.style.width = "0%";
-          this.setState({ defeat: true })
+          this.setState({ defeat: true, playerState: `${this.state.playerClass}-die` })
           return;
         }
       })
@@ -94,25 +105,26 @@ class Fight extends Component {
   }
 
   renderVictory() {
-    let data = {
-      health: this.state.playerHealth,
-      exp: this.enemyInfo.exp,
-      gold: 50
-    }
-    services.updateCharacter(data)
-      .then(results => {
-        services.getItems()
-          .then(results => {
-            let chosenItem = results.data[this.RNG(results.data.length)];
-            services.addToInventory(({itemId: chosenItem.itemId, userId: this.state.userData.userId}))
-              .then(results => {
-                //Adds Contents to Inventory
-              })
-              .catch(err => console.log("Failed at Add To Inventory => ", err));
-          })
-          .catch(err => console.log("Failed at Get Items => ", err));
-      })
-      .catch(err => console.log("Failed at Update Character => ", err));
+    // let data = {
+    //   health: this.state.playerHealth,
+    //   exp: this.enemyInfo.exp,
+    //   gold: 50
+    // }
+    // services.updateCharacter(data)
+    //   .then(results => {
+    //     services.getItems()
+    //       .then(results => {
+    //         let chosenItem = results.data[this.RNG(results.data.length)];
+    //         services.addToInventory(({itemId: chosenItem.itemId, userId: this.state.userData.userId}))
+    //           .then(results => {
+    //             //Adds Contents to Inventory
+    //           })
+    //           .catch(err => console.log("Failed at Add To Inventory => ", err));
+    //       })
+    //       .catch(err => console.log("Failed at Get Items => ", err));
+    //   })
+    //   .catch(err => console.log("Failed at Update Character => ", err));
+
     return(
       <div className="Victory">
       </div>
@@ -120,6 +132,7 @@ class Fight extends Component {
   }
 
   renderDefeat() {
+    console.log("Defeat");
     return(
       <div className="Defeat">
       </div>

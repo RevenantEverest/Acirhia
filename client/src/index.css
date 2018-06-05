@@ -8,3 +8,84 @@ html, body {
   overflow: hidden;
   font-family: "Raleway", sans-serif;
 }
+
+/* Animations */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0%,
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes backAndForthOne {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(120%);
+  }
+
+  75% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes backAndForthTwo {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-120%);
+  }
+
+  75% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes projectile {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  };
+
+}

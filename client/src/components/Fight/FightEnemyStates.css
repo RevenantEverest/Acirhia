@@ -1,0 +1,33 @@
+.Enemy-idle {
+  position: absolute;
+  top: 32%;
+  left: 60%;
+  height: 45vh;
+  width: 25%;
+  background-image: url(../../res/images/KnightTwoStates/Knight2Idle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Enemy-attack {
+  position: absolute;
+  top: 26%;
+  left: 60%;
+  height: 50vh;
+  width: 25%;
+  background-image: url(../../res/images/KnightTwoStates/Knight2Attack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 1s linear backAndForthTwo;
+}
+
+.Enemy-die {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  height: 45vh;
+  width: 30%;
+  background-image: url(../../res/images/KnightTwoStates/Knight2Die.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

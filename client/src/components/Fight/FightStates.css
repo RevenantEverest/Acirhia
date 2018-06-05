@@ -18,6 +18,18 @@
   background-image: url(../../res/images/KnightOneStates/KnightAttack.gif);
   background-repeat: no-repeat;
   background-size: 100%;
+  animation: 1s linear backAndForthOne;
+}
+
+.Knight-die {
+  position: absolute;
+  top: 28%;
+  left: 5%;
+  height: 50vh;
+  width: 33%;
+  background-image: url(../../res/images/KnightOneStates/KnightDie.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .Wizard-idle {
@@ -40,6 +52,18 @@
   background-image: url(../../res/images/WizardStates/WizardAttack.gif);
   background-repeat: no-repeat;
   background-size: 100%;
+  animation: 1s linear backAndForthOne;
+}
+
+.Wizard-die {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../res/images/WizardStates/WizardDie.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .Archer-idle {
@@ -60,6 +84,18 @@
   height: 55vh;
   width: 30%;
   background-image: url(../../res/images/ArcherStates/ArcherAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 1s linear backAndForthOne;
+}
+
+.Archer-die {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../res/images/ArcherStates/ArcherDies.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
