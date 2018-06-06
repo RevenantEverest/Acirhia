@@ -19,7 +19,7 @@ class HomePage extends Component {
         <div className="HomePage-NavBar">
           <Link to="/login">Login</Link>
         </div>
-        <button className="HomePage-Play" onClick={(e) => this.playGame()}>Play</button>
+        <button className="HomePage-Play" onClick={(e) => this.playGame()}>Start</button>
         {this.state.fireRedirect ? <Redirect to="/game" /> : ''}
       </div>
     );

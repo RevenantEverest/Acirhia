@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 package com.example.monolith.repositories;
 
 import com.example.monolith.models.Inventory;
