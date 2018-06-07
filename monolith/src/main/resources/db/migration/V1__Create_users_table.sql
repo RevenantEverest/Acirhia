@@ -1,5 +1,0 @@
-create table USERS (
-    USER_ID serial,
-    USER_NAME VARCHAR(255) NOT NULL,
-    PASSWORD VARCHAR(255) NOT NULL
-);

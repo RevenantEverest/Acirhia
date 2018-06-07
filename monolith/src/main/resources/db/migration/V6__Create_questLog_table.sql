@@ -1,4 +1,0 @@
-CREATE TABLE QUESTLOG (
-    ENTRY_ID serial,
-    QUEST_ID INT NOT NULL
-);
