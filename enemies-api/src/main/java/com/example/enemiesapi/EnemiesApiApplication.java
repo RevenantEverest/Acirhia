@@ -1,4 +1,4 @@
-package com.example.itemsapi;
+package com.example.enemiesapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class ItemsApiApplication {
+public class EnemiesApiApplication {
 
     @RequestMapping("/")
-    public String home() { return "Some Items"; }
+    public String home() { return "Some Enemies"; }
 
-    public static void main(String[] args) { SpringApplication.run(ItemsApiApplication.class, args); }
+    public static void main(String[] args) { SpringApplication.run(EnemiesApiApplication.class, args); }
 }
