@@ -1,4 +1,4 @@
-package com.example.charactersapi;
+package com.example.eurekaserver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

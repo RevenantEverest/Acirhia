@@ -26,16 +26,6 @@ public class UsersController {
         return HttpStatus.OK;
     }
 
-//    @PostMapping("/")
-//    public User createNewUser(@RequestBody User newUser) { return userRepository.save(newUser); }
-//
-//    @PatchMapping("/{userId}")
-//    public User updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
-//
-//        User userFromDb = userRepository.findById(userId).get();
-//
-//        userFromDb.setUserName(userRequest.getUserName());
-//
-//        return userRepository.save(userFromDb);
-//    }
+    @PostMapping("/")
+    public User createNewUser(@RequestBody User newUser) { return userRepository.save(newUser); }
 }

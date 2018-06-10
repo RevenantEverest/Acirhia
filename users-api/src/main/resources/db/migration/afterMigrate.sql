@@ -1,4 +1,4 @@
 INSERT INTO USERS (USERNAME, PASSWORD) VALUES (
-  'Stefischer',
-  '1234'
+    'Stefischer',
+    '1234'
 );

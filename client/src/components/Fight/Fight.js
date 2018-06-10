@@ -105,25 +105,6 @@ class Fight extends Component {
   }
 
   renderVictory() {
-    // let data = {
-    //   health: this.state.playerHealth,
-    //   exp: this.enemyInfo.exp,
-    //   gold: 50
-    // }
-    // services.updateCharacter(data)
-    //   .then(results => {
-    //     services.getItems()
-    //       .then(results => {
-    //         let chosenItem = results.data[this.RNG(results.data.length)];
-    //         services.addToInventory(({itemId: chosenItem.itemId, userId: this.state.userData.userId}))
-    //           .then(results => {
-    //             //Adds Contents to Inventory
-    //           })
-    //           .catch(err => console.log("Failed at Add To Inventory => ", err));
-    //       })
-    //       .catch(err => console.log("Failed at Get Items => ", err));
-    //   })
-    //   .catch(err => console.log("Failed at Update Character => ", err));
 
     return(
       <div className="Victory">
