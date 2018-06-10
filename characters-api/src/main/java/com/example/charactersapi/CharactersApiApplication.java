@@ -16,7 +16,5 @@ public class CharactersApiApplication {
 		return "Some Characters";
 	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(CharactersApiApplication.class, args);
-	}
+	public static void main(String[] args) { SpringApplication.run(CharactersApiApplication.class, args); }
 }

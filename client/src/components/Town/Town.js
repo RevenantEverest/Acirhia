@@ -15,7 +15,7 @@ class Town extends Component {
   componentDidMount() {
     console.log("Important Data Character => ", this.state.characterInfo);
     console.log("Important Data User => ", this.state.userData);
-    switch(this.state.characterInfo.classID) {
+    switch(this.state.characterInfo[0].classID) {
       case 1:
         this.setState({ renderAvatar: 'KnightAvatar' })
         break;

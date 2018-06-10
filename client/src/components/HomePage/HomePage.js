@@ -16,11 +16,14 @@ class HomePage extends Component {
   render() {
     return(
       <div className="HomePage">
-        <div className="HomePage-NavBar">
-          <Link to="/login">Login</Link>
+        <div className="HomePage-vignette">
+          <div className="HomePage-NavBar">
+            <Link to="/login">Login</Link>
+          </div>
+          <div className="HomePage-Logo" />
+          <button className="HomePage-Play" onClick={(e) => this.playGame()}>Start</button>
+          {this.state.fireRedirect ? <Redirect to="/game" /> : ''}
         </div>
-        <button className="HomePage-Play" onClick={(e) => this.playGame()}>Start</button>
-        {this.state.fireRedirect ? <Redirect to="/game" /> : ''}
       </div>
     );
   }

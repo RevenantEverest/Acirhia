@@ -21,7 +21,7 @@ public class CharactersController {
     public Iterable<Character> findAllByUserId(@PathVariable long userId) { return characterRepository.findByUserId(userId); }
 
     @GetMapping("/{characterId}")
-    public Optional<Character> findCharacterById(@PathVariable Long characterId) { return characterRepository.findById(characterId); }
+    public Iterable<Character> findCharacterById(@PathVariable Long characterId) { return characterRepository.findById(characterId); }
 
     @DeleteMapping("/{characterId}")
     public HttpStatus deleteCharacterById(@PathVariable Long characterId) {
