@@ -76,7 +76,7 @@ class ChooseCharacter extends Component {
           break;
       }
       return(
-        <div className="Character" key={idx} onClick={(e) => this.handleCharacterSelect(({id: el.characterId, classID: el.classID}))}>
+        <div className="Character" key={idx} onClick={(e) => this.handleCharacterSelect(({id: el.id, classID: el.classID}))}>
           <div className="Character-contents">
             <h1 className="CharacterName">{el.characterName}</h1>
             <h2 className="CharacterLevel">Level: {el.lvl}</h2>
