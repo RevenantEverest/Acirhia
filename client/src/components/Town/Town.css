@@ -45,6 +45,7 @@
   background-size: 100%;
   border-radius: 50%;
 }
+.Town-fight:hover { background-image: url(../../res/images/UI/swords_but_hover.png); }
 
 .Town-arena {
   position: absolute;
@@ -58,6 +59,7 @@
   background-size: 100%;
   border-radius: 50%;
 }
+.Town-arena:hover { background-image: url(../../res/images/UI/helmet_armour_but_hover.png); }
 
 .Town-inventory {
   position: absolute;
@@ -71,6 +73,7 @@
   background-size: 100%;
   border-radius: 50%;
 }
+.Town-inventory:hover { background-image: url(../../res/images/UI/items_but_hover.png); }
 
 .Town-stats {
   position: absolute;
@@ -84,6 +87,7 @@
   background-size: 100%;
   border-radius: 50%;
 }
+.Town-stats:hover { background-image: url(../../res/images/UI/armour_but_hover.png); }
 
 /* Player Vitals */
 .Town-basicStats-container {
@@ -96,10 +100,6 @@
   border-radius: 16px;
   border-style: solid;
   border-color: #dedede;
-}
-
-.Town-PlayerVitals {
-
 }
 
 .Town-PlayerName {

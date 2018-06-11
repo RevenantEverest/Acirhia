@@ -53,6 +53,8 @@ class ChooseCharacter extends Component {
   }
 
   play() {
+    if(this.state.selectedCharacter == null)
+      return;
     this.props.getCharacter(this.state.selectedCharacter);
     setTimeout(() => {
       this.props.renderTown();
