@@ -24,7 +24,7 @@
 .Enemy-die {
   position: absolute;
   top: 30%;
-  left: 5%;
+  left: 60%;
   height: 45vh;
   width: 30%;
   background-image: url(../../res/images/KnightTwoStates/Knight2Die.gif);

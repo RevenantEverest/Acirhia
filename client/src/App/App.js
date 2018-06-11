@@ -9,6 +9,8 @@ import Register from '../components/Register/Register';
 
 import Game from '../components/Game/Game';
 
+import TileBoard from '../components/TileBoard/TileBoard';
+
 class App extends Component {
 
   constructor() {
@@ -35,6 +37,8 @@ class App extends Component {
             <Route exact path="/game" component={
               () => (<Game userData={this.state.userData} />)
             } />
+
+            <Route exact path="/tile" component={TileBoard} />
           </div>
         </Router>
       </div>

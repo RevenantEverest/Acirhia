@@ -1,0 +1,29 @@
+.Inventory-contents-container {
+  height: 30vh;
+  overflow-y: scroll;
+  border-style: double;
+}
+
+.Inventory-contents {
+  margin: 0 4% 0 4%;
+}
+
+.Inventory-character-gold {
+  position: relative;
+  margin-top: 5%;
+  left: 20%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.Inventory-gold-icon {
+  position: relative;
+  height: 10vh;
+  width: 12%;
+  margin-bottom: -24%;
+  margin-left: -18%;
+  background-image: url(../../res/images/UI/coin_ic_1.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

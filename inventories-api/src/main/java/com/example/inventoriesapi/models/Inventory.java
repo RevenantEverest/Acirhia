@@ -11,8 +11,9 @@ import java.util.Set;
 @Entity @Table(name = "INVENTORY")
 public class Inventory {
 
-    public Inventory(Long userId, int itemId, String itemName, String itemType) {
+    public Inventory(Long userId, Long characterId, Long itemId, String itemName, String itemType) {
         this.userId = userId;
+        this.characterId = characterId;
         this.itemId = itemId;
         this.itemName = itemName;
         this.itemType = itemType;
@@ -25,8 +26,11 @@ public class Inventory {
     @Column(name = "USER_ID")
     private Long userId;
 
+    @Column(name = "CHARACTER_ID")
+    private Long characterId;
+
     @Column(name = "ITEM_ID")
-    private int itemId;
+    private Long itemId;
 
     @Column(name = "ITEM_NAME")
     private String itemName;

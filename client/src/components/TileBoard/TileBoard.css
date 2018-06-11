@@ -1,0 +1,8 @@
+canvas {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  border-radius: 32px;
+  border-color: #dedede;
+  border-style: double;
+}

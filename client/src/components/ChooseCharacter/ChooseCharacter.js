@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import services from '../../services/apiServices';
+import services from '../../services/userServices';
 import './ChooseCharacter.css';
 
 class ChooseCharacter extends Component {

@@ -23,10 +23,10 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let data = {
-        username: this.state.username,
-        password: this.state.password
-    }
+    // let data = {
+    //     username: this.state.username,
+    //     password: this.state.password
+    // }
 
     // services.login(data)
     //   .then(results => {

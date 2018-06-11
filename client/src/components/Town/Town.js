@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import './Town.css';
+import './TownModals.css';
+
+//Component Imports
+import TileBoard from '../TileBoard/TileBoard';
+import Inventory from '../Inventory/Inventory';
 
 class Town extends Component {
 
@@ -13,9 +18,7 @@ class Town extends Component {
   }
 
   componentDidMount() {
-    console.log("Important Data Character => ", this.state.characterInfo);
-    console.log("Important Data User => ", this.state.userData);
-    switch(this.state.characterInfo[0].classID) {
+    switch(this.state.characterInfo.classID) {
       case 1:
         this.setState({ renderAvatar: 'KnightAvatar' })
         break;
@@ -28,18 +31,69 @@ class Town extends Component {
       default:
         break;
     }
+
+    document.querySelector('.Town-PlayerHealth-value').style.width = `${this.state.characterInfo.health}%`;
+  }
+
+  openModalInventory() {
+    // let openSound = document.querySelector('.InventoryOpen');
+    // openSound.currentTime = 0;
+    // openSound.play();
+
+    let modal = document.querySelector('.simpleModal-inventory');
+    modal.style.display = "block";
+    this.setState({
+      modalOpen: true
+    })
+  }
+
+  closeModalInventory() {
+    // let openSound = document.querySelector('.InventoryClose');
+    // openSound.currentTime = 0;
+    // openSound.play();
+
+    this.componentDidMount();
+
+    let modal = document.querySelector('.simpleModal-inventory');
+    modal.style.display = "none";
+    this.setState({
+      modalOpen: false
+    })
   }
 
   render() {
     return(
       <div className="Town">
-        <button className="Town-chooseCharacter" onClick={(e) => this.props.renderChooseCharacter()}>Choose Character</button>
-        <button className="Town-characterStats" onClick={(e) => this.props.renderCharacterStats()}>Character Stats</button>
-        <button className="Town-shop" onClick={(e) => this.props.renderShop()}>Shop</button>
-        <button className="Town-fight" onClick={(e) => this.props.renderFight()}>Fight</button>
-        <button className="Town-arena" onClick={(e) => this.props.renderArena()}>Arena</button>
+        <div className="Town-leaderboards" />
+        <div className="Town-chooseCharacter" onClick={(e) => this.props.renderChooseCharacter()} />
+        <div className="Town-shop" onClick={(e) => this.props.renderShop()} />
+        <div className="Town-fight" onClick={(e) => this.props.renderFight()} />
+        <div className="Town-arena" onClick={(e) => this.props.renderArena()} />
+        <div className="Town-inventory" onClick={(e) => this.openModalInventory()} />
+
+        <div className="simpleModal-inventory">
+          <div className="modalContent-inventory">
+            <span className="closeButton" onClick={(e) => this.closeModalInventory()}>&times;</span>
+            <h1 className="modalHeading-inventory">Inventory</h1>
+            <div className="Game-Inventory-container">
+              <Inventory characterInfo={this.state.characterInfo} />
+            </div>
+          </div>
+        </div>
+
+        <div className="Town-stats" />
+        <TileBoard />
         <div className="Town-Avatar">
-          <div className={`${this.state.renderAvatar}`} />
+          <div className={`Town-${this.state.renderAvatar}`} />
+        </div>
+        <div className="Town-basicStats-container">
+          <div className="Town-PlayerVitals">
+            <h1 className="Town-PlayerName">{this.state.characterInfo.characterName}</h1>
+            <p className="Town-PlayerLevel">Level: {this.state.characterInfo.lvl}</p>
+            <div className="Town-PlayerHealth-container">
+              <div className="Town-PlayerHealth-value" />
+            </div>
+          </div>
         </div>
       </div>
     );

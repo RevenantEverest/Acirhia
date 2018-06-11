@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import services from '../../services/apiServices';
+import enemyServices from '../../services/enemyServices';
 import './Fight.css';
 import './FightStates.css';
 import './FightEnemyStates.css';
@@ -20,10 +20,9 @@ class Fight extends Component {
   }
 
   componentDidMount() {
-    services.getEnemies()
+    enemyServices.getEnemies()
       .then(results => {
         let enemyChosen = results.data[this.RNG(results.data.length)];
-        console.log(enemyChosen);
         this.setState({ enemyInfo: enemyChosen,
                         enemyName: enemyChosen.enemyName,
                         enemyHealth: enemyChosen.health,
@@ -154,7 +153,7 @@ class Fight extends Component {
         </div>
 
         {/* Attacks */}
-        <button className="AttackOne" onClick={(e) => this.attackOne()}>Attack One</button>
+        <div className="AttackOne" onClick={(e) => this.attackOne()} />
 
         {this.state.victory ? this.renderVictory() : ''}
         {this.state.defeat ? this.renderDefeat() : ''}

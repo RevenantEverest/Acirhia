@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import services from '../../services/apiServices';
+import services from '../../services/characterServices';
 import './CreateCharacter.css';
 
 class CreateCharacter extends Component {
@@ -9,7 +8,6 @@ class CreateCharacter extends Component {
     super(props);
     this.state = {
       userData: this.props.userData,
-      fireRedirect: false,
 
       attack: null,
       defense: null

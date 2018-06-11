@@ -74,5 +74,11 @@
 /* Attacks */
 .AttackOne {
   position: absolute;
-  top: 50%;
+  height: 12vh;
+  width: 5%;
+  top: 80%;
+  left: 40%;
+  background-image: url(../../res/images/UI/Buttons/sword_but_1.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }

@@ -23,10 +23,10 @@ class Register extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let data = {
-      username: this.state.username,
-      password: this.state.password
-    }
+    // let data = {
+    //   username: this.state.username,
+    //   password: this.state.password
+    // }
 
     //Some services call
       //Redirect home

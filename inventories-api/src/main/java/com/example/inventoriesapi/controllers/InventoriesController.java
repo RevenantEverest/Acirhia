@@ -17,7 +17,10 @@ public class InventoriesController {
     public Iterable<Inventory> findAllInventories() { return inventoryRepository.findAll(); }
 
     @GetMapping("/users/{userId}")
-    public Optional<Inventory> findByUserId(@PathVariable Long userId) { return inventoryRepository.findByUserId(userId); }
+    public Iterable<Inventory> findByUserId(@PathVariable Long userId) { return inventoryRepository.findByUserId(userId); }
+
+    @GetMapping("/characters/{characterId}")
+    public Iterable<Inventory> findByCharacterId(@PathVariable Long characterId) { return inventoryRepository.findByCharacterId(characterId); }
 
     @PostMapping("/")
     public Inventory addToInventory(@RequestBody Inventory inventory) { return inventoryRepository.save(inventory); }

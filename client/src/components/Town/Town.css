@@ -4,3 +4,163 @@
   background-image: url(../../res/images/Environment/FantasyTown.jpg);
   background-repeat: no-repeat;
 }
+
+.Town-leaderboards {
+  position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 2%;
+  left: 90%;
+  background-image: url(../../res/images/UI/Buttons/leaderboards_but.png);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+}
+
+.Town-chooseCharacter {
+  position: absolute;
+  height: 16.5vh;
+  width: 3%;
+  top: 2%;
+  left: 2%;
+  background-image: url(../../res/images/UI/back_arrow_left_ic.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Town-shop {
+  position: absolute;
+}
+
+.Town-fight {
+  position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 86%;
+  left: 68%;
+  background-image: url(../../res/images/UI/swords_but.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: 100%;
+  border-radius: 50%;
+}
+
+.Town-arena {
+  position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 86%;
+  left: 75%;
+  background-image: url(../../res/images/UI/helmet_armour_but.png);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+}
+
+.Town-inventory {
+  position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 86%;
+  left: 61%;
+  background-image: url(../../res/images/UI/items_but.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: 100%;
+  border-radius: 50%;
+}
+
+.Town-stats {
+  position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 86%;
+  left: 82%;
+  background-image: url(../../res/images/UI/armour_but.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: 100%;
+  border-radius: 50%;
+}
+
+/* Player Vitals */
+.Town-basicStats-container {
+  position: absolute;
+  height: 30vh;
+  width: 22%;
+  top: 52%;
+  left: 1%;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 16px;
+  border-style: solid;
+  border-color: #dedede;
+}
+
+.Town-PlayerVitals {
+
+}
+
+.Town-PlayerName {
+  color: #dedede;
+  margin-left: 5%;
+  margin-bottom: 0;
+}
+
+.Town-PlayerLevel {
+  position: relative;
+  top: -10%;
+  left: 5%;
+  color: #dedede;
+  font-size: 20px;
+  margin: 2% 0 4% 0;
+}
+
+.Town-PlayerHealth-container {
+  position: relative;
+  height: 1vh;
+  width: 60%;
+  left: 5%;
+  border-style: double;
+  border-color: #dedede;
+}
+
+.Town-PlayerHealth-value {
+  height: 1vh;
+  background-color: green;
+}
+
+/* Player Avatars */
+.Town-KnightAvatar {
+  position: relative;
+  height: 60vh;
+  width: 20%;
+  top: 210px;
+  left: 2%;
+  background-image: url(../../res/images/KnightOneStates/KnightIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Town-WizardAvatar {
+  position: relative;
+  height: 60vh;
+  width: 22%;
+  top: 130px;
+  left: 1%;
+  background-image: url(../../res/images/WizardStates/WizardIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Town-ArcherAvatar {
+  position: relative;
+  height: 60vh;
+  width: 22%;
+  top: 130px;
+  left: 1%;
+  background-image: url(../../res/images/ArcherStates/ArcherIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
