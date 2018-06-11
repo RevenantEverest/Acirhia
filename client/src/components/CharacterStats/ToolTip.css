@@ -1,3 +1,6 @@
+/* ==============================
+            Left Side
+   ============================== */
 .HeadSlot { position: relative; display: inline-block; }
 
 .HeadSlot .HeadSlot-tooltiptext {
@@ -115,3 +118,128 @@
 }
 
 .PantsSlot:hover .PantsSlot-tooltiptext { visibility: visible; }
+/* END */
+
+
+
+
+/* ==============================
+            Right Side
+   ============================== */
+.FeetSlot { position: relative; display: inline-block; }
+
+.FeetSlot .FeetSlot-tooltiptext {
+   visibility: hidden;
+   width: 120px;
+   background-color: black;
+   color: #fff;
+   text-align: center;
+   padding: 5px 5px 5px 5px;
+   border-radius: 6px;
+   margin-left: -235%;
+
+   position: absolute;
+   z-index: 1;
+}
+
+.FeetSlot:hover .FeetSlot-tooltiptext { visibility: visible; }
+
+
+
+.RingOneSlot { position: relative; display: inline-block; }
+
+.RingOneSlot .RingOneSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: -220%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.RingOneSlot:hover .RingOneSlot-tooltiptext { visibility: visible; }
+
+
+
+.RingTwoSlot { position: relative; display: inline-block; }
+
+.RingTwoSlot .RingTwoSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: -220%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.RingTwoSlot:hover .RingTwoSlot-tooltiptext { visibility: visible; }
+
+
+
+.TrinketOneSlot { position: relative; display: inline-block; }
+
+.TrinketOneSlot .TrinketOneSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: -220%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.TrinketOneSlot:hover .TrinketOneSlot-tooltiptext { visibility: visible; }
+
+
+
+.TrinketTwoSlot { position: relative; display: inline-block; }
+
+.TrinketTwoSlot .TrinketTwoSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: -220%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.TrinketTwoSlot:hover .TrinketTwoSlot-tooltiptext { visibility: visible; }
+
+
+
+.ArtifactSlot { position: relative; display: inline-block; }
+
+.ArtifactSlot .ArtifactSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: -220%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.ArtifactSlot:hover .ArtifactSlot-tooltiptext { visibility: visible; }

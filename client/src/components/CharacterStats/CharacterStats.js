@@ -10,7 +10,9 @@ class CharacterStats extends Component {
     this.state = {
       userData: this.props.userData,
       characterInfo: this.props.characterInfo,
-      characterClass: null
+      characterClass: null,
+
+      equiped: null
     }
   }
 
@@ -51,19 +53,17 @@ class CharacterStats extends Component {
           <div className={`${this.state.characterClass}-Silhouette`} />
 
           <div className="CharacterEquipment-right">
-            <div className="FeetSlot" />
-            <div className="RingOneSlot" />
-            <div className="RingTwoSlot" />
-            <div className="TrinketOneSlot" />
-            <div className="TrinketTwoSlot" />
-            <div className="ArtifactSlot" />
+            <div className="FeetSlot"><span className="FeetSlot-tooltiptext">Empty Feet Slot</span></div>
+            <div className="RingOneSlot"><span className="RingOneSlot-tooltiptext">Empty Ring One Slot</span></div>
+            <div className="RingTwoSlot"><span className="RingTwoSlot-tooltiptext">Empty Ring Two Slot</span></div>
+            <div className="TrinketOneSlot"><span className="TrinketOneSlot-tooltiptext">Empty Trinket One Slot</span></div>
+            <div className="TrinketTwoSlot"><span className="TrinketTwoSlot-tooltiptext">Empty Trinket Two Slot</span></div>
+            <div className="ArtifactSlot"><span className="ArtifactSlot-tooltiptext">Empty Artifact Slot</span></div>
           </div>
         </div>
 
         <div className="CharacterStats-container">
           <div className="CharacterStats-contents">
-            {/* <h2 className="PlayerName">Character Name: {this.state.characterInfo.characterName}</h2>
-            <h3 className="PlayerLevel">Level: {this.state.characterInfo.lvl}</h3> */}
             <div className="PlayerStats-container">
               <div className="PlayerAttack-container">
                 <h3 className="PlayerDefense">Attack: {this.state.characterInfo.attack}</h3>
