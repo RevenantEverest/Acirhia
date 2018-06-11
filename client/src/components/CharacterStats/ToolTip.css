@@ -1,0 +1,117 @@
+.HeadSlot { position: relative; display: inline-block; }
+
+.HeadSlot .HeadSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.HeadSlot:hover .HeadSlot-tooltiptext { visibility: visible; }
+
+
+
+.NeckSlot { position: relative; display: inline-block; }
+
+.NeckSlot .NeckSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.NeckSlot:hover .NeckSlot-tooltiptext { visibility: visible; }
+
+
+
+.BackSlot { position: relative; display: inline-block; }
+
+.BackSlot .BackSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.BackSlot:hover .BackSlot-tooltiptext { visibility: visible; }
+
+
+
+.HandSlot { position: relative; display: inline-block; }
+
+.HandSlot .HandSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.HandSlot:hover .HandSlot-tooltiptext { visibility: visible; }
+
+
+
+.WristSlot { position: relative; display: inline-block; }
+
+.WristSlot .WristSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.WristSlot:hover .WristSlot-tooltiptext { visibility: visible; }
+
+
+
+.PantsSlot { position: relative; display: inline-block; }
+
+.PantsSlot .PantsSlot-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.PantsSlot:hover .PantsSlot-tooltiptext { visibility: visible; }

@@ -3,106 +3,140 @@
   /* border-style: solid; */
 }
 
+.CharacterEquipment-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  float: right;
+  left: -5%;
+}
+
+.CharacterEquipment-left {
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+
 .HeadSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: left;
+  margin-bottom: 10px;
 }
 
 .NeckSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: left;
+  margin-bottom: 10px;
 }
 
 .BackSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: left;
+  margin-bottom: 10px;
 }
 
 .HandSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: left;
+  margin-bottom: 10px;
  }
 
 .WristSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: left;
+  margin-bottom: 10px;
 }
 
 .PantsSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: left;
 }
 
-.CharacterSilhouette {
+.Knight-Silhouette {
   position: absolute;
   height: 45vh;
   width: 18%;
-  left: 40%;
+  left: 41%;
   background-image: url(../../res/images/UI/knightSilhouette.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
+.Wizard-Silhouette {
+  position: absolute;
+  height: 45vh;
+  width: 16%;
+  left: 42%;
+  background-image: url(../../res/images/UI/wizardSilhouette.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Archer-Silhouette {
+  position: absolute;
+  height: 45vh;
+  width: 15.5%;
+  left: 42%;
+  background-image: url(../../res/images/UI/archerSilhouette.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 .FeetSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: right;
+  margin-bottom: 10px;
 }
 
 .RingOneSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: right;
+  margin-bottom: 10px;
 }
 
 .RingTwoSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: right;
+  margin-bottom: 10px;
 }
 
 .TrinketOneSlot {
-  height: 8vh;
-  width: 7%;
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: right;
-}
-.TrinketTwoSlot {
-  height: 8vh;
-  width: 7%;
-  border-style: solid;
-  border-width: thick;
-  float: right;
+  margin-bottom: 10px;
 }
 
-.ArtifactSlot { height: 8vh;
-  width: 7%;
+.TrinketTwoSlot {
+  height: 6vh;
+  width: 600%;
   border-style: solid;
   border-width: thick;
-  float: right;
+  margin-bottom: 10px;
+}
+
+.ArtifactSlot {
+  height: 6vh;
+  width: 600%;
+  border-style: solid;
+  border-width: thick;
 }

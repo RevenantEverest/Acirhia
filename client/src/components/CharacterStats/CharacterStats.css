@@ -12,3 +12,18 @@
 .CharacterStats-contents {
   margin: 0 2% 0 2%;
 }
+
+.CharacterStats-header {
+  text-align: center;
+}
+
+.CharacterStats-PlayerName {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 800;
+}
+
+.PlayerLevel {
+  margin-top: 0;
+  margin-bottom: 3%;
+}

@@ -117,7 +117,6 @@ class Town extends Component {
         <div className="simpleModal-characterStats">
           <div className="modalContent-characterStats">
             <span className="closeButton" onClick={(e) => this.closeModalCharacterStats()}>&times;</span>
-            <h1 className="modalHeading-characterStats">Character Stats</h1>
             <div className="Game-characterStats-container">
               <CharacterStats characterInfo={this.state.characterInfo} />
             </div>
