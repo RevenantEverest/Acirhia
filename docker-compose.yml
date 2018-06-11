@@ -38,19 +38,6 @@ services:
     environment:
       - GRADLE_USER_HOME=cache
       - SPRING_PROFILES_ACTIVE=dev
-  characters-api:
-    image: anapsix/alpine-java:8_jdk_unlimited
-    ports:
-      - '8082:8082'
-    working_dir: /app
-    volumes:
-      - ./characters-api:/app
-    depends_on:
-      - eureka
-    command: './gradlew bootRun'
-    environment:
-      - GRADLE_USER_HOME=cache
-      - SPRING_PROFILES_ACTIVE=dev
   items-api:
     image: anapsix/alpine-java:8_jdk_unlimited
     ports:
@@ -77,13 +64,13 @@ services:
     environment:
       - GRADLE_USER_HOME=cache
       - SPRING_PROFILES_ACTIVE=dev
-  inventories-api:
+  tasks-api:
     image: anapsix/alpine-java:8_jdk_unlimited
     ports:
-      - '8085:8085'
+      - '8082:8082'
     working_dir: /app
     volumes:
-      - ./inventories-api:/app
+      - ./tasks-api:/app
     depends_on:
       - eureka
     command: './gradlew bootRun'
