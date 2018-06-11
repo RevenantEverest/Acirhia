@@ -1,0 +1,108 @@
+.CharacterEquipment-container {
+  height: 48vh;
+  /* border-style: solid; */
+}
+
+.HeadSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: left;
+}
+
+.NeckSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: left;
+}
+
+.BackSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: left;
+}
+
+.HandSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: left;
+ }
+
+.WristSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: left;
+}
+
+.PantsSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: left;
+}
+
+.CharacterSilhouette {
+  position: absolute;
+  height: 45vh;
+  width: 18%;
+  left: 40%;
+  background-image: url(../../res/images/UI/knightSilhouette.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.FeetSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: right;
+}
+
+.RingOneSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: right;
+}
+
+.RingTwoSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: right;
+}
+
+.TrinketOneSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: right;
+}
+.TrinketTwoSlot {
+  height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: right;
+}
+
+.ArtifactSlot { height: 8vh;
+  width: 7%;
+  border-style: solid;
+  border-width: thick;
+  float: right;
+}

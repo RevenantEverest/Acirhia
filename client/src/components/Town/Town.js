@@ -5,6 +5,7 @@ import './TownModals.css';
 //Component Imports
 import TileBoard from '../TileBoard/TileBoard';
 import Inventory from '../Inventory/Inventory';
+import CharacterStats from '../CharacterStats/CharacterStats';
 
 class Town extends Component {
 
@@ -35,6 +36,8 @@ class Town extends Component {
     document.querySelector('.Town-PlayerHealth-value').style.width = `${this.state.characterInfo.health}%`;
   }
 
+
+  /* Inventory Modal */
   openModalInventory() {
     // let openSound = document.querySelector('.InventoryOpen');
     // openSound.currentTime = 0;
@@ -55,6 +58,34 @@ class Town extends Component {
     this.componentDidMount();
 
     let modal = document.querySelector('.simpleModal-inventory');
+    modal.style.display = "none";
+    this.setState({
+      modalOpen: false
+    })
+  }
+  /* END */
+
+  /* Character Stats Modal */
+  openModalCharacterStats() {
+    // let openSound = document.querySelector('.InventoryOpen');
+    // openSound.currentTime = 0;
+    // openSound.play();
+
+    let modal = document.querySelector('.simpleModal-characterStats');
+    modal.style.display = "block";
+    this.setState({
+      modalOpen: true
+    })
+  }
+
+  closeModalCharacterStats() {
+    // let openSound = document.querySelector('.InventoryClose');
+    // openSound.currentTime = 0;
+    // openSound.play();
+
+    this.componentDidMount();
+
+    let modal = document.querySelector('.simpleModal-characterStats');
     modal.style.display = "none";
     this.setState({
       modalOpen: false
@@ -81,7 +112,18 @@ class Town extends Component {
           </div>
         </div>
 
-        <div className="Town-stats" />
+        <div className="Town-stats" onClick={(e) => this.openModalCharacterStats()}/>
+
+        <div className="simpleModal-characterStats">
+          <div className="modalContent-characterStats">
+            <span className="closeButton" onClick={(e) => this.closeModalCharacterStats()}>&times;</span>
+            <h1 className="modalHeading-characterStats">Character Stats</h1>
+            <div className="Game-characterStats-container">
+              <CharacterStats characterInfo={this.state.characterInfo} />
+            </div>
+          </div>
+        </div>
+
         <TileBoard />
         <div className="Town-Avatar">
           <div className={`Town-${this.state.renderAvatar}`} />

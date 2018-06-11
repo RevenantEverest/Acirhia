@@ -1,0 +1,14 @@
+.CharacterStats {
+  height: 20vh;
+  width: 100%;
+}
+
+.CharacterStats-container {
+  height: 20vh;
+  margin: 2% auto;
+  border-style: double;
+}
+
+.CharacterStats-contents {
+  margin: 0 2% 0 2%;
+}
