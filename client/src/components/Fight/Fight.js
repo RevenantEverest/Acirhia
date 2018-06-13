@@ -7,6 +7,7 @@ import './FightEnemyStates.css';
 import enemyServices from '../../services/enemyServices';
 import itemServices from '../../services/itemServices';
 import inventoryServices from '../../services/inventoryServices';
+import characterServices from '../../services/characterServices';
 
 //Component Imports
 import ItemReward from '../../components/ItemReward/ItemReward';
@@ -28,19 +29,24 @@ class Fight extends Component {
   }
 
   componentDidMount() {
-    enemyServices.getEnemies()
+    characterServices.getCharacterInfo(this.state.characterInfo.id)
       .then(results => {
-        let enemyChosen = results.data[this.RNG(results.data.length)];
-        this.setState({ enemyInfo: enemyChosen,
-                        enemyName: enemyChosen.enemyName,
-                        enemyHealth: enemyChosen.health,
-                        enemyAttack: enemyChosen.attack,
-                        enemyDefense: enemyChosen.defense,
-                        enemyDataRecieved: true,
-                        enemyState: 'Enemy-idle' });
+        this.setState({ characterInfo: results.data[0] });
+        enemyServices.getEnemies()
+          .then(results => {
+            let enemyChosen = results.data[this.RNG(results.data.length)];
+            this.setState({ enemyInfo: enemyChosen,
+                            enemyName: enemyChosen.enemyName,
+                            enemyHealth: enemyChosen.health,
+                            enemyAttack: enemyChosen.attack,
+                            enemyDefense: enemyChosen.defense,
+                            enemyDataRecieved: true,
+                            enemyState: 'Enemy-idle' });
+          })
+          .catch(err => console.log("Failed at Get Enemies => ", err));
       })
-      .catch(err => console.log("Failed at Get Enemies => ", err));
-    switch(this.state.characterInfo.classID) {
+      .catch(err => console.log("Failed at Get Character Info => ", err))
+    switch(this.state.characterInfo.classId) {
       case 1:
         this.setState({ playerClass: 'Knight' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
         break;
@@ -64,7 +70,7 @@ class Fight extends Component {
     if(this.state.enemyHealth > 0 && this.state.canAttack) {
       this.setState({ canAttack: false });
 
-      let attack = this.state.characterInfo.attack;
+      let attack = this.state.characterInfo.attack * 4;
       let dmg = this.RNG(attack);
 
       this.setState({ playerState: `${this.state.playerClass}-attack` }, () => {
@@ -105,6 +111,23 @@ class Fight extends Component {
       this.setState({ playerHealth: this.state.playerHealth - dmg }, () => {
         let playerHealthDisplay = document.querySelector('.PlayerHealth-value');
         playerHealthDisplay.style.width = `${this.state.playerHealth}%`;
+        let data = {
+          characterId: this.state.characterInfo.id,
+          userId: this.state.userData.userId,
+          characterName: this.state.characterInfo.characterName,
+          classId: this.state.characterInfo.classId,
+          health: this.state.playerHealth - dmg,
+          attack: this.state.characterInfo.attack,
+          defense: this.state.characterInfo.defense,
+          exp: this.state.characterInfo.exp,
+          lvl: this.state.characterInfo.lvl,
+          gold: this.state.characterInfo.gold
+        }
+        characterServices.updateCharacter(data)
+          .then(results => {
+
+          })
+          .catch(err => console.log("Failed at Update Character => ", err));
         if(this.state.playerHealth <= 0) {
           playerHealthDisplay.style.width = "0%";
           this.setState({ defeat: true, playerState: `${this.state.playerClass}-die` })
@@ -115,6 +138,7 @@ class Fight extends Component {
   }
 
   itemReward() {
+    //Get Items
     itemServices.getItems()
       .then(results => {
         let chosenItem = results.data[this.RNG(results.data.length)];
@@ -126,24 +150,112 @@ class Fight extends Component {
             itemName: this.state.itemReward.itemName,
             itemType: this.state.itemReward.itemType,
             worth: this.state.itemReward.worth
-          }
+          };
+          //Add item to inventory
           inventoryServices.addToInventory(data)
             .then(results => {
-              setTimeout(() => {
-                this.setState({
-                  rewards: {
-                    item: this.state.itemReward,
-                    exp: 100,
-                    gold: 50
-                  },
-                  renderRewards: true
-                });
-              }, 2000)
+              this.setState({
+                rewards: {
+                  item: this.state.itemReward,
+                  exp: 100,
+                  gold: 50
+                }
+              }, () => {
+                //Call Back for after Gold Reward State is set
+                let characterUpdate = {
+                  characterId: this.state.characterInfo.id,
+                  userId: this.state.userData.userId,
+                  characterName: this.state.characterInfo.characterName,
+                  classId: this.state.characterInfo.classId,
+                  health: this.state.playerHealth,
+                  attack: this.state.characterInfo.attack,
+                  defense: this.state.characterInfo.defense,
+                  exp: this.state.characterInfo.exp + this.state.rewards.exp,
+                  lvl: this.state.characterInfo.lvl,
+                  gold: this.state.characterInfo.gold + this.state.rewards.gold
+                };
+                //Add gold and exp to player
+                characterServices.updateCharacter(characterUpdate)
+                  .then(results => {
+                    this.setState({ characterInfo: results.data }, () => this.checkForLevelUp());
+                  })
+                  .catch(err => console.log("Failed at Update Character => ", err));
+              });
             })
             .catch(err => console.log('Failed at Add to Inventory => ', err));
         });
       })
       .catch(err => console.log('Failed at Get Items => ', err));
+  }
+
+  checkForLevelUp() {
+    switch(this.state.characterInfo.exp) {
+      case 300:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 600:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 900:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 1200:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 1500:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 1800:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 2100:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 2400:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 2700:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      case 3000:
+        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
+        break;
+      default:
+        this.setState({ levelUp: false, renderRewards: true });
+        break;
+    }0
+  }
+
+  updateLevel() {
+    let data = {
+      characterId: this.state.characterInfo.id,
+      userId: this.state.userData.userId,
+      characterName: this.state.characterInfo.characterName,
+      classId: this.state.characterInfo.classId,
+      health: this.state.characterInfo.health,
+      attack: this.state.characterInfo.attack,
+      defense: this.state.characterInfo.defense,
+      exp: this.state.characterInfo.exp,
+      lvl: this.state.characterInfo.lvl + 1,
+      gold: this.state.characterInfo.gold
+    }
+    characterServices.updateCharacter(data)
+      .then(results => {
+        setTimeout(() => {
+          this.setState({
+            levelUp: false,
+            victory: true,
+            renderRewards: true
+          })
+        }, 3000)
+      })
+      .catch(err => console.log("Failed at Update Character => ", err));
+  }
+
+  renderLevelUp() {
+    return(
+      <div className="LevelUp" />
+    );
   }
 
   renderVictory() {
@@ -176,7 +288,7 @@ class Fight extends Component {
     return(
       <div className="simpleModal-itemReward">
         <div className="modalContent-itemReward">
-          <h1 className="modalHeading-itemReward">Inventory</h1>
+          <h1 className="modalHeading-itemReward">Rewards</h1>
           <div className="Game-itemReward-container">
             <ItemReward rewards={this.state.rewards} />
             <button className="Item-Reward-continue" onClick={(e) => this.props.renderTown()}>Continue</button>
@@ -211,6 +323,7 @@ class Fight extends Component {
         {/* Attacks */}
         <div className="AttackOne" onClick={(e) => this.attackOne()} />
 
+        {this.state.levelUp ? this.renderLevelUp() : ''}
         {this.state.victory ? this.renderVictory() : ''}
         {this.state.defeat ? this.renderDefeat() : ''}
         {this.state.renderRewards ? this.renderRewards() : ''}

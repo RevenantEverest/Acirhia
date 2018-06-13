@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import services from '../../services/inventoryServices';
 import './Inventory.css';
+
+//Services Imports
+import services from '../../services/inventoryServices';
+import characterServices from '../../services/characterServices';
+import itemServices from '../../services/itemServices';
 
 class Inventory extends Component {
 
@@ -25,9 +29,16 @@ class Inventory extends Component {
 
   renderInventory() {
     let Inventory = this.state.inventoryData.map((el, idx) => {
+      let button;
+      if(el.itemType == "Weapon" || el.itemType == "Armor") {
+        button = <button className="EquipItem" onClick={(e) => this.equipItem(el.itemId)}>Equip Item</button>
+      }else if(el.itemType == "Consumeable"){
+        button = <button className="UseItem" onClick={(e) => this.useItem({id: el.itemId, itemName: el.itemName})}>Use Item</button>
+      }
       return(
-        <div className="Inventory-object">
+        <div className="Inventory-object" key={idx}>
           <h3 className="Inventory">{el.itemName}</h3>
+          {button}
         </div>
       );
     });
@@ -37,6 +48,37 @@ class Inventory extends Component {
         {Inventory}
       </div>
     );
+  }
+
+  equipItem(id) {
+    console.log("Equipping Item ", id);
+  }
+
+  useItem(data) {
+    itemServices.getItemById(data.id)
+      .then(results => {
+        if(results.data[0].itemName === "Health Potion") {
+          console.log("Inventory Character Info => ",this.state.characterInfo);
+          let updateCharacter = {
+            characterId: this.state.characterInfo.id,
+            userId: this.state.userData.userId,
+            characterName: this.state.characterInfo.characterName,
+            classId: this.state.characterInfo.classId,
+            health: 100,
+            attack: this.state.characterInfo.attack,
+            defense: this.state.characterInfo.defense,
+            exp: this.state.characterInfo.exp,
+            lvl: this.state.characterInfo.lvl,
+            gold: this.state.characterInfo.gold
+          }
+          characterServices.updateCharacter(updateCharacter)
+            .then(results => {
+              this.props.reRenderTown();
+            })
+            .catch(err => console.log("Failed at Update Character => ", err));
+        }
+      })
+      .catch(err => console.log("Failed at Get Item By Id => ", err));
   }
 
   render() {

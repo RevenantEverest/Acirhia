@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import services from '../../services/userServices';
+import characterServices from '../../services/characterServices';
 import './ChooseCharacter.css';
 
 class ChooseCharacter extends Component {
@@ -26,7 +27,7 @@ class ChooseCharacter extends Component {
   handleCharacterSelect(data) {
     console.log(data);
     this.setState({ selectedCharacter: data.id })
-    switch(data.classID) {
+    switch(data.classId) {
       case 1:
         this.setState({ renderAvatar: 'KnightAvatar' })
         break;
@@ -44,7 +45,7 @@ class ChooseCharacter extends Component {
   deleteCharacter() {
     if(this.state.selectedCharacter == null)
       return;
-    services.deleteCharacter(this.state.selectedCharacter)
+    characterServices.deleteCharacter(this.state.selectedCharacter)
       .then(results => {
         console.log('Character Deleted => ', results);
         this.componentDidMount();
@@ -64,7 +65,7 @@ class ChooseCharacter extends Component {
   renderCharacters() {
     let Characters = this.state.characterData.map((el, idx) => {
       let characterClass;
-      switch(el.classID) {
+      switch(el.classId) {
         case 1:
           characterClass = 'Knight'
           break;
@@ -78,7 +79,7 @@ class ChooseCharacter extends Component {
           break;
       }
       return(
-        <div className="Character" key={idx} onClick={(e) => this.handleCharacterSelect(({id: el.id, classID: el.classID}))}>
+        <div className="Character" key={idx} onClick={(e) => this.handleCharacterSelect(({id: el.id, classId: el.classId}))}>
           <div className="Character-contents">
             <h1 className="CharacterName">{el.characterName}</h1>
             <h2 className="CharacterLevel">Level: {el.lvl}</h2>

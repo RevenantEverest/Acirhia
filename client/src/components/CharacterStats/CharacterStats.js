@@ -17,7 +17,7 @@ class CharacterStats extends Component {
   }
 
   componentDidMount() {
-    switch(this.state.characterInfo.classID) {
+    switch(this.state.characterInfo.classId) {
       case 1:
         this.setState({ characterClass: 'Knight' });
         break;
@@ -70,6 +70,9 @@ class CharacterStats extends Component {
               </div>
               <div className="PlayerDefense-container">
                 <h3 className="PlayerDefense">Defense: {this.state.characterInfo.defense}</h3>
+              </div>
+              <div className="PlayerExp-container">
+                <h3 className="PlayerExp">Exp: {this.state.characterInfo.exp}</h3>
               </div>
             </div>
           </div>

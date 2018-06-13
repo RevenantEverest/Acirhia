@@ -8,5 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.*;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
-    Optional<Item> findById(Long itemId);
+    @Query(value = "SELECT * FROM items WHERE id = :itemId", nativeQuery = true)
+    Iterable<Item> findById(@Param ("itemId") Long itemId);
 }

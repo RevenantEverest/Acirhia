@@ -66,24 +66,27 @@ class CreateCharacter extends Component {
   render() {
     return(
       <div className="CreateCharacter">
-        <form className="CreateCharacter-form" onSubmit={this.handleSubmit}>
-          <input type="text" name="characterName" placeholder="name" onChange={this.handleChange} />
-          <label>
-            <input type="radio" name="classId" value="1" onChange={this.handleChange} />
-            Knight
-          </label>
+        <div className="CreateCharacter-form-container">
+          <h1 className="CreateCharacter-header">Create Character</h1>
+          <form className="CreateCharacter-form" onSubmit={this.handleSubmit}>
+            <input className="CreateCharacter-characterName" type="text" name="characterName" placeholder="name" onChange={this.handleChange} />
+            <label className="CreateCharacter-knight-label">
+              <input className="CreateCharacter-knight" type="radio" name="classId" value="1" onChange={this.handleChange} />
+              Knight
+            </label>
 
-          <label>
-            <input type="radio" name="classId" value="2" onChange={this.handleChange} />
-            Wizard
-          </label>
+            <label className="CreateCharacter-wizard-label">
+              <input className="CreateCharacter-wizard" type="radio" name="classId" value="2" onChange={this.handleChange} />
+              Wizard
+            </label>
 
-          <label>
-            <input type="radio" name="classId" value="3" onChange={this.handleChange} />
-            Archer
-          </label>
-          <input type="submit" value="Create" />
-        </form>
+            <label className="CreateCharacter-archer-label">
+              <input className="CreateCharacter-archer" type="radio" name="classId" value="3" onChange={this.handleChange} />
+              Archer
+            </label>
+            <input className="CreateCharacter-submit" type="submit" value="Create" />
+          </form>
+        </div>
       </div>
     );
   }

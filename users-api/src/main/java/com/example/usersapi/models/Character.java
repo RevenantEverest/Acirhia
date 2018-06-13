@@ -8,10 +8,10 @@ import javax.persistence.*;
 @Entity @Table(name = "CHARACTERS")
 public class Character {
 
-    public Character(Long userId, String characterName, int classID, int health, int attack, int defense, int exp, int lvl, int gold) {
+    public Character(Long userId, String characterName, int classId, int health, int attack, int defense, int exp, int lvl, int gold) {
         this.userId = userId;
         this.characterName = characterName;
-        this.classID = classID;
+        this.classId = classId;
         this.health = health;
         this.attack = attack;
         this.defense = defense;
@@ -31,7 +31,7 @@ public class Character {
     private String characterName;
 
     @Column(name = "CLASS_ID")
-    private int classID;
+    private int classId;
 
     @Column(name = "HEALTH")
     private int health;

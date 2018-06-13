@@ -111,3 +111,42 @@
 .modalHeading-itemReward {
   color: black;
 }
+
+.Victory {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  height: 60vh;
+  width: 40%;
+  background-image: url(../../res/images/UI/Victory.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 2s linear infinite blink;
+}
+
+.Defeat-image {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  height: 60vh;
+  width: 40%;
+  background-image: url(../../res/images/UI/Defeat.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 2s linear infinite blink;
+}
+
+.Defeat-continue {
+
+}
+
+.LevelUp {
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  height: 60vh;
+  width: 40%;
+  background-image: url(../../res/images/UI/levelUp.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

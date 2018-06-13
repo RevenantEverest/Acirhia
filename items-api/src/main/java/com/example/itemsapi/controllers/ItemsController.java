@@ -18,5 +18,5 @@ public class ItemsController {
     public Iterable<Item> findAllItems() { return itemRepository.findAll(); }
 
     @GetMapping("/{itemId}")
-    public Optional<Item> findItemById(@PathVariable Long itemId) { return itemRepository.findById(itemId); }
+    public Iterable<Item> findItemById(@PathVariable Long itemId) { return itemRepository.findById(itemId); }
 }

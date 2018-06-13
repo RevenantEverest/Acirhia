@@ -1,0 +1,50 @@
+.CreateCharacter {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../../res/images/Environment/ChooseClassCastle.gif);
+  background-repeat: no-repeat;
+  background-size: 110%;
+  overflow: hidden;
+}
+
+.CreateCharacter-form-container {
+  height: 30vh;
+  width: 30%;
+  background-color: #dedede;
+  border-radius: 16px;
+  margin: 20% auto;
+}
+
+.CreateCharacter-header {
+  margin-left: 29%;
+  margin-bottom: 0;
+  padding-top: 4%;
+}
+
+.CreateCharacter-form {
+  padding: 5%;
+  text-align: center;
+}
+
+.CreateCharacter-characterName {
+  display: block;
+  padding: 1%;
+  border-radius: 12px;
+  border-style: solid;
+  margin-bottom: 5%;
+  margin-left: 26%;
+  font-size: 20px;
+}
+
+.CreateCharacter-knight-label, .CreateCharacter-wizard-label, .CreateCharacter-archer-label {
+  display: inline-block;
+  margin-left: 2%;
+  margin-bottom: 5%;
+  font-size: 20px;
+}
+
+.CreateCharacter-submit {
+  display: block;
+  font-size: 20px;
+  margin-left: 65%;
+}

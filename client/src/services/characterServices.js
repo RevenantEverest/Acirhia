@@ -8,7 +8,7 @@ services.createCharacter = (data) => {
     data: {
       userId: data.userId,
       characterName: data.characterName,
-      classID: data.classId,
+      classId: data.classId,
       health: data.health,
       attack: data.attack,
       defense: data.defense,
@@ -21,6 +21,24 @@ services.createCharacter = (data) => {
 
 services.getCharacterInfo = (data) => {
   return axios.get(`/users/characters/${data}`);
+};
+
+services.updateCharacter = (data) => {
+  return axios({
+    method: 'PUT',
+    url: `/users/characters/${data.characterId}`,
+    data: {
+      userId: data.userId,
+      characterName: data.characterName,
+      classId: data.classId,
+      health: data.health,
+      attack: data.attack,
+      defense: data.defense,
+      exp: data.exp,
+      lvl: data.lvl,
+      gold: data.gold
+    }
+  });
 };
 
 services.deleteCharacter = (data) => {
