@@ -21,7 +21,7 @@ INSERT INTO ENEMIES (ENEMY_NAME, HEALTH, ATTACK, DEFENSE, EXP, LVL) VALUES (
     1
 ), (
     'Fire Elemental',
-    120,
+    100,
     12,
     6,
     100,

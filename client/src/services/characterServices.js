@@ -4,7 +4,7 @@ const services = {};
 services.createCharacter = (data) => {
   return axios({
     method: 'POST',
-    url: '/characters',
+    url: '/users/characters',
     data: {
       userId: data.userId,
       characterName: data.characterName,
@@ -20,13 +20,13 @@ services.createCharacter = (data) => {
 };
 
 services.getCharacterInfo = (data) => {
-  return axios.get(`/characters/${data}`);
+  return axios.get(`/users/characters/${data}`);
 };
 
 services.deleteCharacter = (data) => {
   return axios({
     method: 'DELETE',
-    url: `/characters/${data}`,
+    url: `/users/characters/${data}`,
     data: {
       characterId: data
     }

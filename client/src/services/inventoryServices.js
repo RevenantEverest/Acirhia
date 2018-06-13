@@ -2,20 +2,24 @@ import axios from 'axios';
 const services = {};
 
 services.getAllUserInventory = (data) => {
-  return axios.get(`/inventory/users/${data}`);
+  return axios.get(`/tasks/inventory/users/${data}`);
 };
 
 services.getCharacterInventory = (data) => {
-  return axios.get(`/inventory/characters/${data}`);
+  return axios.get(`/tasks/inventory/characters/${data}`);
 };
 
 services.addToInventory = (data) => {
   return axios({
     method: 'POST',
-    url: '/inventory',
+    url: '/tasks/inventory',
     data: {
       userId: data.userId,
-      itemId: data.itemId
+      characterId: data.characterId,
+      itemId: data.itemId,
+      itemName: data.itemName,
+      itemType: data.itemType,
+      worth: data.worth
     }
   })
 };
