@@ -6,4 +6,4 @@ CREATE TABLE ENEMIES (
         DEFENSE INT NOT NULL,
         EXP INT NOT NULL,
         LVL INT NOT NULL
-    );
+);

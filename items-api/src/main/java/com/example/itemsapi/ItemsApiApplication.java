@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ItemsApiApplication {
 
-    @RequestMapping("/")
-    public String home() { return "Some Items"; }
+	@RequestMapping("/")
+	public String home() { return "Some Items"; }
 
-    public static void main(String[] args) { SpringApplication.run(ItemsApiApplication.class, args); }
+	public static void main(String[] args) { SpringApplication.run(ItemsApiApplication.class, args); }
 }

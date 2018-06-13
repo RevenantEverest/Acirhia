@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EnemiesApiApplication {
 
-    @RequestMapping("/")
-    public String home() { return "Some Enemies"; }
+	@RequestMapping("/")
+	public String home() { return "Some Enemies"; }
 
-    public static void main(String[] args) { SpringApplication.run(EnemiesApiApplication.class, args); }
+	public static void main(String[] args) { SpringApplication.run(EnemiesApiApplication.class, args); }
 }
