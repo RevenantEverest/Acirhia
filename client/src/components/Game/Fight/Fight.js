@@ -18,50 +18,52 @@ class Fight extends Component {
     super(props);
     this.state = {
       userData: this.props.userData,
-      characterInfo: this.props.characterInfo,
+      characterId: this.props.characterId,
 
       enemyState: 'Enemy-idle',
       canAttack: true,
 
       /* Player Stats */
-      playerHealth: this.props.characterInfo.health
+      playerHealth: null
     }
   }
 
   componentDidMount() {
-    characterServices.getCharacterInfo(this.state.characterInfo.id)
+    characterServices.getCharacterInfo(this.props.characterId)
       .then(results => {
-        this.setState({ characterInfo: results.data[0] });
+        this.setState({ characterInfo: results.data[0], playerHealth: results.data[0].health, characterInfoRecieved: true }, () => {
+          let playerHealth = document.querySelector('.PlayerHealth-value');
+          playerHealth.style.width = `${this.state.characterInfo.health}%`;
+        });
+        switch(this.state.characterInfo.classId) {
+          case 1:
+            this.setState({ playerClass: 'Knight' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
+            break;
+          case 2:
+            this.setState({ playerClass: 'Wizard' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
+            break;
+          case 3:
+            this.setState({ playerClass: 'Archer' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
+            break;
+          default:
+            break;
+        }
         enemyServices.getEnemies()
           .then(results => {
             let enemyChosen = results.data[this.RNG(results.data.length)];
-            this.setState({ enemyInfo: enemyChosen,
-                            enemyName: enemyChosen.enemyName,
-                            enemyHealth: enemyChosen.health,
-                            enemyAttack: enemyChosen.attack,
-                            enemyDefense: enemyChosen.defense,
-                            enemyDataRecieved: true,
-                            enemyState: 'Enemy-idle' });
+            this.setState({
+              enemyInfo: enemyChosen,
+              enemyName: enemyChosen.enemyName,
+              enemyHealth: enemyChosen.health,
+              enemyAttack: enemyChosen.attack,
+              enemyDefense: enemyChosen.defense,
+              enemyDataRecieved: true,
+              enemyState: 'Enemy-idle'
+            });
           })
           .catch(err => console.log("Failed at Get Enemies => ", err));
       })
       .catch(err => console.log("Failed at Get Character Info => ", err))
-    switch(this.state.characterInfo.classId) {
-      case 1:
-        this.setState({ playerClass: 'Knight' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
-        break;
-      case 2:
-        this.setState({ playerClass: 'Wizard' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
-        break;
-      case 3:
-        this.setState({ playerClass: 'Archer' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
-        break;
-      default:
-        break;
-    }
-
-    let playerHealth = document.querySelector('.PlayerHealth-value');
-    playerHealth.style.width = `${this.state.characterInfo.health}%`;
   }
 
   RNG(int) { let num = Math.floor(Math.random() * int); return num; }
@@ -260,6 +262,17 @@ class Fight extends Component {
     );
   }
 
+  renderVitals() {
+    return(
+      <div className="PlayerVitals">
+        <h1 className="PlayerName">{this.state.characterInfo.characterName}</h1>
+        <div className="PlayerHealth-container">
+          <div className="PlayerHealth-value" />
+        </div>
+      </div>
+    );
+  }
+
   renderRewards() {
     return(
       <div className="simpleModal-itemReward">
@@ -279,12 +292,8 @@ class Fight extends Component {
       <div className="Fight">
 
         <div className="VitalsContainer">
-          <div className="PlayerVitals">
-            <h1 className="PlayerName">{this.state.characterInfo.characterName}</h1>
-            <div className="PlayerHealth-container">
-              <div className="PlayerHealth-value" />
-            </div>
-          </div>
+          {this.state.characterInfoRecieved ? this.renderVitals() : ''}
+
 
           {this.state.enemyDataRecieved ? this.renderEnemy() : ''}
         </div>

@@ -31,6 +31,15 @@
 
 .Town-shop {
   position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 86%;
+  left: 54%;
+  background-image: url(../../../res/images/UI/potions_but.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: 100%;
+  border-radius: 50%;
 }
 
 .Town-fight {

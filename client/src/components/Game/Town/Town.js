@@ -16,33 +16,33 @@ class Town extends Component {
     super(props);
     this.state = {
       userData: this.props.userData,
-      characterInfo: this.props.characterInfo,
+      characterId: this.props.characterId,
       renderAvatar: null
     }
     this.reRenderTown = this.reRenderTown.bind(this);
   }
 
   componentDidMount() {
-    characterServices.getCharacterInfo(this.state.characterInfo.id)
+    characterServices.getCharacterInfo(this.state.characterId)
       .then(results => {
         this.setState({ characterInfo: results.data[0], characterInfoRecieved: true }, () => {
           document.querySelector('.Town-PlayerHealth-value').style.width = `${this.state.characterInfo.health}%`;
+          switch(this.state.characterInfo.classId) {
+            case 1:
+              this.setState({ renderAvatar: 'KnightAvatar' });
+              break;
+            case 2:
+              this.setState({ renderAvatar: 'WizardAvatar' });
+              break;
+            case 3:
+              this.setState({ renderAvatar: 'ArcherAvatar' });
+              break;
+            default:
+              break;
+          }
         });
       })
       .catch(err => console.log("Failed at Get Character Info => ", err));
-    switch(this.state.characterInfo.classId) {
-      case 1:
-        this.setState({ renderAvatar: 'KnightAvatar' });
-        break;
-      case 2:
-        this.setState({ renderAvatar: 'WizardAvatar' });
-        break;
-      case 3:
-        this.setState({ renderAvatar: 'ArcherAvatar' });
-        break;
-      default:
-        break;
-    }
   }
 
 

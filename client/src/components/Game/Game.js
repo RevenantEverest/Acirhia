@@ -43,11 +43,7 @@ class Game extends Component {
   renderShop() { this.setState({ chooseCharacter: false, createCharacter: false, fight: false, arena: false, town: false, shop: true }); }
 
   getCharacter(id) {
-    services.getCharacterInfo(id)
-      .then(results => {
-        this.setState({ characterInfo: results.data[0] })
-      })
-      .catch(err => console.log("Failed at Get Character Info => ", err))
+    this.setState({ characterId: id });
   }
 
   render() {
@@ -57,11 +53,11 @@ class Game extends Component {
                                                        getCharacter={this.getCharacter} renderTown={this.renderTown} /> : ''}
         {this.state.createCharacter ? <CreateCharacter userData={this.state.userData} renderChooseCharacter={this.renderChooseCharacter} /> : ''}
 
-        {this.state.town ? <Town userData={this.state.userData} characterInfo={this.state.characterInfo} renderChooseCharacter={this.renderChooseCharacter}
+        {this.state.town ? <Town userData={this.state.userData} characterId={this.state.characterId} renderChooseCharacter={this.renderChooseCharacter}
                                   renderCharacterStats={this.renderCharacterStats} renderShop={this.renderShop} renderFight={this.renderFight} renderArena={this.renderArena} /> : ''}
-        {this.state.shop ? <Shop userData={this.state.userData} characterInfo={this.state.characterInfo} renderTown={this.renderTown} /> : ''}
-        {this.state.fight ? <Fight userData={this.state.userData} characterInfo={this.state.characterInfo} renderTown={this.renderTown} /> : ''}
-        {this.state.arena ? <Arena userData={this.state.userData} characterInfo={this.state.characterInfo} renderTown={this.renderTown} /> : ''}
+        {this.state.shop ? <Shop userData={this.state.userData} characterId={this.state.characterId} renderTown={this.renderTown} /> : ''}
+        {this.state.fight ? <Fight userData={this.state.userData} characterId={this.state.characterId} renderTown={this.renderTown} /> : ''}
+        {this.state.arena ? <Arena userData={this.state.userData} characterId={this.state.characterId} renderTown={this.renderTown} /> : ''}
       </div>
     );
   }
