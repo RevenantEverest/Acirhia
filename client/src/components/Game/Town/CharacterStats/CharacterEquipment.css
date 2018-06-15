@@ -69,7 +69,7 @@
   height: 45vh;
   width: 18%;
   left: 41%;
-  background-image: url(../../res/images/UI/knightSilhouette.png);
+  background-image: url(../../../../res/images/UI/knightSilhouette.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -79,7 +79,7 @@
   height: 45vh;
   width: 16%;
   left: 42%;
-  background-image: url(../../res/images/UI/wizardSilhouette.png);
+  background-image: url(../../../../res/images/UI/wizardSilhouette.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -89,7 +89,7 @@
   height: 45vh;
   width: 15.5%;
   left: 42%;
-  background-image: url(../../res/images/UI/archerSilhouette.png);
+  background-image: url(../../../../res/images/UI/archerSilhouette.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }

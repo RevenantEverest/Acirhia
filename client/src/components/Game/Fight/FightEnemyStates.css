@@ -4,7 +4,7 @@
   left: 60%;
   height: 45vh;
   width: 25%;
-  background-image: url(../../res/images/KnightTwoStates/Knight2Idle.gif);
+  background-image: url(../../../res/images/KnightTwoStates/Knight2Idle.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -15,7 +15,7 @@
   left: 60%;
   height: 50vh;
   width: 25%;
-  background-image: url(../../res/images/KnightTwoStates/Knight2Attack.gif);
+  background-image: url(../../../res/images/KnightTwoStates/Knight2Attack.gif);
   background-repeat: no-repeat;
   background-size: 100%;
   animation: 1s linear backAndForthTwo;
@@ -27,7 +27,7 @@
   left: 60%;
   height: 45vh;
   width: 30%;
-  background-image: url(../../res/images/KnightTwoStates/Knight2Die.gif);
+  background-image: url(../../../res/images/KnightTwoStates/Knight2Die.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }

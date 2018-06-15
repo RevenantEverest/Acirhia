@@ -3,12 +3,12 @@ import './Town.css';
 import './TownModals.css';
 
 //Services Imports
-import characterServices from '../../services/characterServices';
+import characterServices from '../../../services/characterServices';
 
 //Component Imports
-import TileBoard from '../TileBoard/TileBoard';
-import Inventory from '../Inventory/Inventory';
-import CharacterStats from '../CharacterStats/CharacterStats';
+import TileBoard from './TileBoard/TileBoard';
+import Inventory from './Inventory/Inventory';
+import CharacterStats from './CharacterStats/CharacterStats';
 
 class Town extends Component {
 

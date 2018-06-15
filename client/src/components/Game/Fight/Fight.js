@@ -4,13 +4,13 @@ import './FightStates.css';
 import './FightEnemyStates.css';
 
 //Service Imports
-import enemyServices from '../../services/enemyServices';
-import itemServices from '../../services/itemServices';
-import inventoryServices from '../../services/inventoryServices';
-import characterServices from '../../services/characterServices';
+import enemyServices from '../../../services/enemyServices';
+import itemServices from '../../../services/itemServices';
+import inventoryServices from '../../../services/inventoryServices';
+import characterServices from '../../../services/characterServices';
 
 //Component Imports
-import ItemReward from '../../components/ItemReward/ItemReward';
+import ItemReward from './ItemReward/ItemReward';
 
 class Fight extends Component {
 

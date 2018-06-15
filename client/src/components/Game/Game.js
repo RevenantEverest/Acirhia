@@ -5,10 +5,10 @@ import './Game.css';
 //Component Imports
 import CreateCharacter from '../CreateCharacter/CreateCharacter';
 import ChooseCharacter from '../ChooseCharacter/ChooseCharacter';
-import Town from '../Town/Town';
-import Fight from '../Fight/Fight';
-import Arena from '../Arena/Arena';
-import Shop from '../Shop/Shop';
+import Town from './Town/Town';
+import Fight from './Fight/Fight';
+import Arena from './Arena/Arena';
+import Shop from './Shop/Shop';
 
 class Game extends Component {
 

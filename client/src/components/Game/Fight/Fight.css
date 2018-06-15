@@ -1,7 +1,7 @@
 .Fight {
   height: 100vh;
   width: 100%;
-  background-image: url(../../res/images/Environment/ForestPixelBG.jpg);
+  background-image: url(../../../res/images/Environment/ForestPixelBG.jpg);
   background-repeat: no-repeat;
 }
 
@@ -78,7 +78,7 @@
   width: 5%;
   top: 80%;
   left: 40%;
-  background-image: url(../../res/images/UI/Buttons/sword_but_1.png);
+  background-image: url(../../../res/images/UI/Buttons/sword_but_1.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -118,7 +118,7 @@
   left: 30%;
   height: 60vh;
   width: 40%;
-  background-image: url(../../res/images/UI/Victory.png);
+  background-image: url(../../../res/images/UI/Victory.png);
   background-repeat: no-repeat;
   background-size: 100%;
   animation: 2s linear infinite blink;
@@ -130,7 +130,7 @@
   left: 30%;
   height: 60vh;
   width: 40%;
-  background-image: url(../../res/images/UI/Defeat.png);
+  background-image: url(../../../res/images/UI/Defeat.png);
   background-repeat: no-repeat;
   background-size: 100%;
   animation: 2s linear infinite blink;
@@ -146,7 +146,7 @@
   left: 30%;
   height: 60vh;
   width: 40%;
-  background-image: url(../../res/images/UI/levelUp.gif);
+  background-image: url(../../../res/images/UI/levelUp.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }

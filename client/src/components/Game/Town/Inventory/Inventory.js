@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Inventory.css';
 
 //Services Imports
-import services from '../../services/inventoryServices';
-import characterServices from '../../services/characterServices';
-import itemServices from '../../services/itemServices';
+import services from '../../../../services/inventoryServices';
+import characterServices from '../../../../services/characterServices';
+import itemServices from '../../../../services/itemServices';
 
 class Inventory extends Component {
 

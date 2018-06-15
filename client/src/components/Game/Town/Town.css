@@ -1,7 +1,7 @@
 .Town {
   height: 100vh;
   width: 100%;
-  background-image: url(../../res/images/Environment/FantasyTown.jpg);
+  background-image: url(../../../res/images/Environment/FantasyTown.jpg);
   background-repeat: no-repeat;
 }
 
@@ -11,7 +11,7 @@
   width: 5%;
   top: 2%;
   left: 90%;
-  background-image: url(../../res/images/UI/Buttons/leaderboards_but.png);
+  background-image: url(../../../res/images/UI/Buttons/leaderboards_but.png);
   background-color: black;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -24,7 +24,7 @@
   width: 3%;
   top: 2%;
   left: 2%;
-  background-image: url(../../res/images/UI/back_arrow_left_ic.png);
+  background-image: url(../../../res/images/UI/back_arrow_left_ic.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -39,13 +39,13 @@
   width: 5%;
   top: 86%;
   left: 68%;
-  background-image: url(../../res/images/UI/swords_but.png);
+  background-image: url(../../../res/images/UI/swords_but.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-fight:hover { background-image: url(../../res/images/UI/swords_but_hover.png); }
+.Town-fight:hover { background-image: url(../../../res/images/UI/swords_but_hover.png); }
 
 .Town-arena {
   position: absolute;
@@ -53,13 +53,13 @@
   width: 5%;
   top: 86%;
   left: 75%;
-  background-image: url(../../res/images/UI/helmet_armour_but.png);
+  background-image: url(../../../res/images/UI/helmet_armour_but.png);
   background-color: black;
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-arena:hover { background-image: url(../../res/images/UI/helmet_armour_but_hover.png); }
+.Town-arena:hover { background-image: url(../../../res/images/UI/helmet_armour_but_hover.png); }
 
 .Town-inventory {
   position: absolute;
@@ -67,13 +67,13 @@
   width: 5%;
   top: 86%;
   left: 61%;
-  background-image: url(../../res/images/UI/items_but.png);
+  background-image: url(../../../res/images/UI/items_but.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-inventory:hover { background-image: url(../../res/images/UI/items_but_hover.png); }
+.Town-inventory:hover { background-image: url(../../../res/images/UI/items_but_hover.png); }
 
 .Town-stats {
   position: absolute;
@@ -81,13 +81,13 @@
   width: 5%;
   top: 86%;
   left: 82%;
-  background-image: url(../../res/images/UI/armour_but.png);
+  background-image: url(../../../res/images/UI/armour_but.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-stats:hover { background-image: url(../../res/images/UI/armour_but_hover.png); }
+.Town-stats:hover { background-image: url(../../../res/images/UI/armour_but_hover.png); }
 
 /* Player Vitals */
 .Town-basicStats-container {
@@ -138,7 +138,7 @@
   width: 20%;
   top: 210px;
   left: 2%;
-  background-image: url(../../res/images/KnightOneStates/KnightIdle.gif);
+  background-image: url(../../../res/images/KnightOneStates/KnightIdle.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -149,7 +149,7 @@
   width: 22%;
   top: 130px;
   left: 1%;
-  background-image: url(../../res/images/WizardStates/WizardIdle.gif);
+  background-image: url(../../../res/images/WizardStates/WizardIdle.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -160,7 +160,7 @@
   width: 22%;
   top: 130px;
   left: 1%;
-  background-image: url(../../res/images/ArcherStates/ArcherIdle.gif);
+  background-image: url(../../../res/images/ArcherStates/ArcherIdle.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }

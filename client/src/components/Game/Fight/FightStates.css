@@ -4,7 +4,7 @@
   left: 5%;
   height: 45vh;
   width: 30%;
-  background-image: url(../../res/images/KnightOneStates/KnightIdle.gif);
+  background-image: url(../../../res/images/KnightOneStates/KnightIdle.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -15,7 +15,7 @@
   left: 5%;
   height: 50vh;
   width: 33%;
-  background-image: url(../../res/images/KnightOneStates/KnightAttack.gif);
+  background-image: url(../../../res/images/KnightOneStates/KnightAttack.gif);
   background-repeat: no-repeat;
   background-size: 100%;
   animation: 1s linear backAndForthOne;
@@ -27,7 +27,7 @@
   left: 5%;
   height: 50vh;
   width: 33%;
-  background-image: url(../../res/images/KnightOneStates/KnightDie.gif);
+  background-image: url(../../../res/images/KnightOneStates/KnightDie.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -38,7 +38,7 @@
   left: 5%;
   height: 55vh;
   width: 30%;
-  background-image: url(../../res/images/WizardStates/WizardIdle.gif);
+  background-image: url(../../../res/images/WizardStates/WizardIdle.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -49,7 +49,7 @@
   left: 5%;
   height: 55vh;
   width: 30%;
-  background-image: url(../../res/images/WizardStates/WizardAttack.gif);
+  background-image: url(../../../res/images/WizardStates/WizardAttack.gif);
   background-repeat: no-repeat;
   background-size: 100%;
   animation: 1s linear backAndForthOne;
@@ -61,7 +61,7 @@
   left: 5%;
   height: 55vh;
   width: 30%;
-  background-image: url(../../res/images/WizardStates/WizardDie.gif);
+  background-image: url(../../../res/images/WizardStates/WizardDie.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -72,7 +72,7 @@
   left: 5%;
   height: 55vh;
   width: 30%;
-  background-image: url(../../res/images/ArcherStates/ArcherIdle.gif);
+  background-image: url(../../../res/images/ArcherStates/ArcherIdle.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -83,7 +83,7 @@
   left: 5%;
   height: 55vh;
   width: 30%;
-  background-image: url(../../res/images/ArcherStates/ArcherAttack.gif);
+  background-image: url(../../../res/images/ArcherStates/ArcherAttack.gif);
   background-repeat: no-repeat;
   background-size: 100%;
   animation: 1s linear backAndForthOne;
@@ -95,7 +95,7 @@
   left: 5%;
   height: 55vh;
   width: 30%;
-  background-image: url(../../res/images/ArcherStates/ArcherDies.gif);
+  background-image: url(../../../res/images/ArcherStates/ArcherDies.gif);
   background-repeat: no-repeat;
   background-size: 100%;
 }
