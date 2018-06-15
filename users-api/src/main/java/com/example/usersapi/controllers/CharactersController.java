@@ -6,8 +6,9 @@ import com.example.usersapi.repositories.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
-
 import java.util.*;
+
+
 @RestController
 public class CharactersController {
 
@@ -45,6 +46,40 @@ public class CharactersController {
         characterFromDb.setExp(characterRequest.getExp());
         characterFromDb.setLvl(characterRequest.getLvl());
         characterFromDb.setGold(characterRequest.getGold());
+
+        return characterRepository.save(characterFromDb);
+    }
+
+
+    //Update Character Health
+    @PatchMapping("/characters/{characterId}/health")
+    public Character updateCharacterHealth(@PathVariable Long characterId, @RequestBody Character characterRequest) {
+
+        Character characterFromDb = characterRepository.findOne(characterId);
+
+        characterFromDb.setHealth(characterRequest.getHealth());
+
+        return characterRepository.save(characterFromDb);
+    }
+
+    //Update Character Exp
+    @PatchMapping("/characters/{characterId}/exp")
+    public Character updateCharacterExp(@PathVariable Long characterId, @RequestBody Character characterRequest) {
+
+        Character characterFromDb = characterRepository.findOne(characterId);
+
+        characterFromDb.setExp(characterRequest.getExp());
+
+        return characterRepository.save(characterFromDb);
+    }
+
+    //Update Character Level
+    @PatchMapping("/characters/{characterId}/level")
+    public Character updateCharacterLevel(@PathVariable Long characterId, @RequestBody Character characterRequest) {
+
+        Character characterFromDb = characterRepository.findOne(characterId);
+
+        characterFromDb.setLvl(characterRequest.getLvl());
 
         return characterRepository.save(characterFromDb);
     }

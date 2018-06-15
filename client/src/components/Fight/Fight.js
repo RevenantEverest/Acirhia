@@ -111,19 +111,7 @@ class Fight extends Component {
       this.setState({ playerHealth: this.state.playerHealth - dmg }, () => {
         let playerHealthDisplay = document.querySelector('.PlayerHealth-value');
         playerHealthDisplay.style.width = `${this.state.playerHealth}%`;
-        let data = {
-          characterId: this.state.characterInfo.id,
-          userId: this.state.userData.userId,
-          characterName: this.state.characterInfo.characterName,
-          classId: this.state.characterInfo.classId,
-          health: this.state.playerHealth - dmg,
-          attack: this.state.characterInfo.attack,
-          defense: this.state.characterInfo.defense,
-          exp: this.state.characterInfo.exp,
-          lvl: this.state.characterInfo.lvl,
-          gold: this.state.characterInfo.gold
-        }
-        characterServices.updateCharacter(data)
+        characterServices.updateCharacterHealth({ characterId: this.state.characterInfo.id, health: this.state.playerHealth - dmg })
           .then(results => {
 
           })
@@ -223,23 +211,11 @@ class Fight extends Component {
       default:
         this.setState({ levelUp: false, renderRewards: true });
         break;
-    }0
+    }
   }
 
   updateLevel() {
-    let data = {
-      characterId: this.state.characterInfo.id,
-      userId: this.state.userData.userId,
-      characterName: this.state.characterInfo.characterName,
-      classId: this.state.characterInfo.classId,
-      health: this.state.characterInfo.health,
-      attack: this.state.characterInfo.attack,
-      defense: this.state.characterInfo.defense,
-      exp: this.state.characterInfo.exp,
-      lvl: this.state.characterInfo.lvl + 1,
-      gold: this.state.characterInfo.gold
-    }
-    characterServices.updateCharacter(data)
+    characterServices.updateCharacterLevel({ characterId: this.state.characterInfo.id, lvl: this.state.characterInfo.lvl + 1 })
       .then(results => {
         setTimeout(() => {
           this.setState({

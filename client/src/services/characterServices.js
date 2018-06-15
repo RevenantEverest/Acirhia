@@ -1,6 +1,7 @@
 import axios from 'axios';
 const services = {};
 
+//Create Character
 services.createCharacter = (data) => {
   return axios({
     method: 'POST',
@@ -19,10 +20,12 @@ services.createCharacter = (data) => {
   })
 };
 
+//Get Character Info
 services.getCharacterInfo = (data) => {
   return axios.get(`/users/characters/${data}`);
 };
 
+//Update Character FULL
 services.updateCharacter = (data) => {
   return axios({
     method: 'PUT',
@@ -41,6 +44,43 @@ services.updateCharacter = (data) => {
   });
 };
 
+//Update Character Health
+services.updateCharacterHealth = (data) => {
+  return axios({
+    method: 'PATCH',
+    url: `/users/characters/${data.characterId}/health`,
+    data: {
+      characterId: data.characterId,
+      health: data.health
+    }
+  });
+};
+
+//Update Character Exp
+services.updateCharacterExp = (data) => {
+  return axios({
+    method: 'PATCH',
+    url: `/users/characters/${data.characterId}/exp`,
+    data: {
+      characterId: data.characterId,
+      exp: data.exp
+    }
+  });
+};
+
+//Update Character Level
+services.updateCharacterLevel = (data) => {
+  return axios({
+    method: 'PATCH',
+    url: `/users/characters/${data.characterId}/level`,
+    data: {
+      characterId: data.characterId,
+      lvl: data.lvl
+    }
+  });
+};
+
+//Delete Character
 services.deleteCharacter = (data) => {
   return axios({
     method: 'DELETE',

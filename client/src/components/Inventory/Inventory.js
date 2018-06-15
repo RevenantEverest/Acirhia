@@ -30,9 +30,9 @@ class Inventory extends Component {
   renderInventory() {
     let Inventory = this.state.inventoryData.map((el, idx) => {
       let button;
-      if(el.itemType == "Weapon" || el.itemType == "Armor") {
+      if(el.itemType === "Weapon" || el.itemType === "Armor") {
         button = <button className="EquipItem" onClick={(e) => this.equipItem(el.itemId)}>Equip Item</button>
-      }else if(el.itemType == "Consumeable"){
+      }else if(el.itemType === "Consumeable"){
         button = <button className="UseItem" onClick={(e) => this.useItem({id: el.itemId, itemName: el.itemName})}>Use Item</button>
       }
       return(
