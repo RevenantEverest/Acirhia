@@ -9,7 +9,7 @@ import Register from '../components/Register/Register';
 
 import Game from '../components/Game/Game';
 
-import TileBoard from '../components/TileBoard/TileBoard';
+import TileBoard from '../components/Game/Town/TileBoard/TileBoard';
 
 class App extends Component {
 

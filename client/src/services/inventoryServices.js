@@ -24,4 +24,14 @@ services.addToInventory = (data) => {
   })
 };
 
+services.removeFromInventory = (data) => {
+  return axios({
+    method: 'DELETE',
+    url: `/tasks/inventory/${data}`,
+    data: {
+      id: data
+    }
+  });
+};
+
 export default services;

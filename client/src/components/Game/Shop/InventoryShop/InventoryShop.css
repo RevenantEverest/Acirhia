@@ -1,0 +1,38 @@
+.InventoryShop {
+  color: #dedede;
+}
+
+.InventoryShop-contents-container {
+  height: 45vh;
+  width: 85%;
+  margin-top: 11%;
+  margin-left: 7%;
+  border-style: solid;
+  border-color: #dedede;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.InventoryShop-item {
+  width: 110%;
+  margin-left: -5%;
+  padding: 2% 0 8% 0;
+  border-width: medium;
+  border-style: solid;
+  border-color: #dedede;
+}
+
+.InventoryShop-gold-icon {
+  height: 5vh;
+  width: 15%;
+  margin-top: 6%;
+  margin-left: 10%;
+  background-image: url(../../../../res/images/UI/coins_ic.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.InventoryShop-gold {
+  margin-top: -12%;
+  margin-left: -30%;
+}

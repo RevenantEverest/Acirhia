@@ -80,6 +80,18 @@ services.updateCharacterLevel = (data) => {
   });
 };
 
+//Update Character Gold
+services.updateCharacterGold = (data) => {
+  return axios({
+    method: 'PATCH',
+    url: `/users/characters/${data.characterId}/gold`,
+    data: {
+      characterId: data.characterId,
+      gold: data.gold
+    }
+  });
+};
+
 //Delete Character
 services.deleteCharacter = (data) => {
   return axios({
