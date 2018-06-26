@@ -150,6 +150,7 @@ class Town extends Component {
         <div className="Town-fight" onClick={(e) => this.props.renderFight()} />
         <div className="Town-arena" onClick={(e) => this.props.renderArena()} />
         <div className="Town-inventory" onClick={(e) => this.openModalInventory()} />
+        <div className="Town-quests" onClick={(e) => this.props.renderQuests()} />
 
         <TileBoard />
         <div className="Town-Avatar">

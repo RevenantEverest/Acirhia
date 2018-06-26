@@ -83,4 +83,14 @@ public class CharactersController {
 
         return characterRepository.save(characterFromDb);
     }
+
+    @PatchMapping("/characters/{characterId}/gold")
+    public Character updateCharacterGold(@PathVariable Long characterId, @RequestBody Character characterRequest) {
+
+        Character characterFromDb = characterRepository.findOne(characterId);
+
+        characterFromDb.setGold(characterRequest.getGold());
+
+        return characterRepository.save(characterFromDb);
+    }
 }

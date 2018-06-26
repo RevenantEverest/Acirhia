@@ -24,4 +24,10 @@ public class InventoriesController {
 
     @PostMapping("/inventory")
     public Inventory addToInventory(@RequestBody Inventory inventory) { return inventoryRepository.save(inventory); }
+
+    @DeleteMapping("/inventory/{inventoryId}")
+    public HttpStatus deleteInventoryById(@PathVariable Long inventoryId) {
+        inventoryRepository.delete(inventoryId);
+        return HttpStatus.OK;
+    }
 }

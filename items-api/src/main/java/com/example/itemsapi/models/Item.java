@@ -2,6 +2,8 @@ package com.example.itemsapi.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.springframework.web.bind.annotation.PatchMapping;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -12,9 +14,12 @@ import java.util.Set;
 @Entity @Table(name = "ITEMS")
 public class Item {
 
-    public Item(String itemName, String itemType, int worth) {
+    public Item(String itemName, String itemType,String itemRarity, int attack, int defense, int worth) {
         this.itemName = itemName;
         this.itemType = itemType;
+        this.itemRarity = itemRarity;
+        this.attack = attack;
+        this.defense = defense;
         this.worth = worth;
     }
 
@@ -27,6 +32,15 @@ public class Item {
 
     @Column(name = "ITEM_TYPE")
     private String itemType;
+
+    @Column(name = "ITEM_RARITY")
+    private String itemRarity;
+
+    @Column(name = "ATTACK")
+    private int attack;
+
+    @Column(name = "DEFENSE")
+    private int defense;
 
     @Column(name = "WORTH")
     private int worth;

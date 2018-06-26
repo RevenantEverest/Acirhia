@@ -41,6 +41,7 @@
   background-size: 100%;
   border-radius: 50%;
 }
+.Town-shop:hover { background-image: url(../../../res/images/UI/potions_but_hover.png); }
 
 .Town-fight {
   position: absolute;
@@ -97,6 +98,19 @@
   border-radius: 50%;
 }
 .Town-stats:hover { background-image: url(../../../res/images/UI/armour_but_hover.png); }
+
+.Town-quests {
+  position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 86%;
+  left: 47%;
+  background-image: url(../../../res/images/UI/coin_ic_1.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: 100%;
+  border-radius: 50%;
+}
 
 /* Player Vitals */
 .Town-basicStats-container {

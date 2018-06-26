@@ -11,12 +11,13 @@ import java.util.Set;
 @Entity @Table(name = "INVENTORY")
 public class Inventory {
 
-    public Inventory(Long userId, Long characterId, Long itemId, String itemName, String itemType) {
+    public Inventory(Long userId, Long characterId, Long itemId, String itemName, String itemType, int worth) {
         this.userId = userId;
         this.characterId = characterId;
         this.itemId = itemId;
         this.itemName = itemName;
         this.itemType = itemType;
+        this.worth = worth;
     }
 
     @Id
@@ -37,4 +38,7 @@ public class Inventory {
 
     @Column(name = "ITEM_TYPE")
     private String itemType;
+
+    @Column(name = "WORTH")
+    private int worth;
 }

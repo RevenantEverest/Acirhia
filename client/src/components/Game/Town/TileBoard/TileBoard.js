@@ -8,8 +8,8 @@ class TileBoard extends Component {
   }
 
   updateCanvas() {
-    const ctx = this.refs.canvas.getContext('2d');
-    ctx.fillRect(0,0, 1200, 700);
+    let ctx = this.refs.canvas.getContext('2d');
+    ctx.fillRect(0,0,1200,700);
   }
 
   render() {
