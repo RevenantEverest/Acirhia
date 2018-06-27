@@ -28,7 +28,7 @@ public class QuestLog {
     @Column(name = "USER_ID")
     private Long userId;
 
-    @Column(name = "CHARCTER_ID")
+    @Column(name = "CHARACTER_ID")
     private Long characterId;
 
     @Column(name = "QUEST_NAME")

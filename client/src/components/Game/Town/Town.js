@@ -7,8 +7,9 @@ import characterServices from '../../../services/characterServices';
 
 //Component Imports
 import TileBoard from './TileBoard/TileBoard';
-import Inventory from './Inventory/Inventory';
+import Inventory from '../Inventory/Inventory';
 import CharacterStats from './CharacterStats/CharacterStats';
+import QuestLog from '../QuestLog/QuestLog';
 
 class Town extends Component {
 
@@ -46,12 +47,8 @@ class Town extends Component {
   }
 
 
-  /* Inventory Modal */
+  //Inventory Modal
   openModalInventory() {
-    // let openSound = document.querySelector('.InventoryOpen');
-    // openSound.currentTime = 0;
-    // openSound.play();
-
     let modal = document.querySelector('.simpleModal-inventory');
     modal.style.display = "block";
     this.setState({
@@ -60,10 +57,6 @@ class Town extends Component {
   }
 
   closeModalInventory() {
-    // let openSound = document.querySelector('.InventoryClose');
-    // openSound.currentTime = 0;
-    // openSound.play();
-
     this.componentDidMount();
 
     let modal = document.querySelector('.simpleModal-inventory');
@@ -72,14 +65,9 @@ class Town extends Component {
       modalOpen: false
     })
   }
-  /* END */
 
-  /* Character Stats Modal */
+  // Character Stats Modal
   openModalCharacterStats() {
-    // let openSound = document.querySelector('.InventoryOpen');
-    // openSound.currentTime = 0;
-    // openSound.play();
-
     let modal = document.querySelector('.simpleModal-characterStats');
     modal.style.display = "block";
     this.setState({
@@ -88,13 +76,28 @@ class Town extends Component {
   }
 
   closeModalCharacterStats() {
-    // let openSound = document.querySelector('.InventoryClose');
-    // openSound.currentTime = 0;
-    // openSound.play();
-
     this.componentDidMount();
 
     let modal = document.querySelector('.simpleModal-characterStats');
+    modal.style.display = "none";
+    this.setState({
+      modalOpen: false
+    })
+  }
+
+  //Quest Log Modal
+  openModalQuestLog() {
+    let modal = document.querySelector('.simpleModal-questLog');
+    modal.style.display = "block";
+    this.setState({
+      modalOpen: true
+    })
+  }
+
+  closeModalQuestLog() {
+    this.componentDidMount();
+
+    let modal = document.querySelector('.simpleModal-questLog');
     modal.style.display = "none";
     this.setState({
       modalOpen: false
@@ -113,7 +116,7 @@ class Town extends Component {
             <span className="closeButton" onClick={(e) => this.closeModalInventory()}>&times;</span>
             <h1 className="modalHeading-inventory">Inventory</h1>
             <div className="Game-Inventory-container">
-              <Inventory userData={this.state.userData} characterInfo={this.state.characterInfo} reRenderTown={this.reRenderTown} />
+              <Inventory userData={this.state.userData} characterId={this.state.characterId} reRenderTown={this.reRenderTown} />
             </div>
           </div>
         </div>
@@ -128,6 +131,17 @@ class Town extends Component {
             </div>
           </div>
         </div>
+
+        <div className="simpleModal-questLog">
+          <div className="modalContent-questLog">
+            <span className="closeButton" onClick={(e) => this.closeModalQuestLog()}>&times;</span>
+            <h1 className="modalHeading-inventory">Quest Log</h1>
+            <div className="Game-QuestLog-container">
+              <QuestLog userData={this.state.userData} characterId={this.state.characterId} />
+            </div>
+          </div>
+        </div>
+
         <div className="Town-basicStats-container">
           <div className="Town-PlayerVitals">
             <h1 className="Town-PlayerName">{this.state.characterInfo.characterName}</h1>
@@ -151,6 +165,7 @@ class Town extends Component {
         <div className="Town-arena" onClick={(e) => this.props.renderArena()} />
         <div className="Town-inventory" onClick={(e) => this.openModalInventory()} />
         <div className="Town-quests" onClick={(e) => this.props.renderQuests()} />
+        <div className="Town-questLog" onClick={(e) => this.openModalQuestLog()} />
 
         <TileBoard />
         <div className="Town-Avatar">

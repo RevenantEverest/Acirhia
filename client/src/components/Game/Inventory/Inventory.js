@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Inventory.css';
 
 //Services Imports
-import services from '../../../../services/inventoryServices';
-import characterServices from '../../../../services/characterServices';
-import itemServices from '../../../../services/itemServices';
+import inventoryServices from '../../../services/inventoryServices';
+import characterServices from '../../../services/characterServices';
+import itemServices from '../../../services/itemServices';
 
 class Inventory extends Component {
 
@@ -12,19 +12,25 @@ class Inventory extends Component {
     super(props);
     this.state = {
       userData: this.props.userData,
-      characterInfo: this.props.characterInfo,
+      characterId: this.props.characterId,
       inventoryData: null,
       inventoryDataRecieved: false
     }
   }
 
   componentDidMount() {
-    services.getCharacterInventory(this.state.characterInfo.id)
-      .then(results => {
-        console.log('Character Inventory => ', results.data);
-        this.setState({ inventoryData: results.data, inventoryDataRecieved: true });
+    characterServices.getCharacterInfo(this.props.characterId)
+      .then(character => {
+        this.setState({ characterInfo: character.data[0] }, () => {
+          inventoryServices.getCharacterInventory(this.state.characterInfo.id)
+            .then(results => {
+              console.log('Character Inventory => ', results.data);
+              this.setState({ inventoryData: results.data, inventoryDataRecieved: true });
+            })
+            .catch(err => console.log('Failed at Get Character Inventory => ', err));
+        })
       })
-      .catch(err => console.log('Failed at Get Character Inventory => ', err));
+      .catch(err => console.log("Failed at Get Character Info => , err"));
   }
 
   renderInventory() {
@@ -44,8 +50,15 @@ class Inventory extends Component {
     });
 
     return(
-      <div className="Inventory-contents">
-        {Inventory}
+
+      <div className="Inventory-contents-container">
+        <div className="Inventory-contents">
+          {Inventory}
+        </div>
+        <div className="Inventory-character-gold">
+          <div className="Inventory-gold-icon" />
+          {this.state.characterInfo.gold}
+        </div>
       </div>
     );
   }
@@ -61,17 +74,9 @@ class Inventory extends Component {
           console.log("Inventory Character Info => ",this.state.characterInfo);
           let updateCharacter = {
             characterId: this.state.characterInfo.id,
-            userId: this.state.userData.userId,
-            characterName: this.state.characterInfo.characterName,
-            classId: this.state.characterInfo.classId,
-            health: 100,
-            attack: this.state.characterInfo.attack,
-            defense: this.state.characterInfo.defense,
-            exp: this.state.characterInfo.exp,
-            lvl: this.state.characterInfo.lvl,
-            gold: this.state.characterInfo.gold
+            health: this.state.characterInfo.health + 50
           }
-          characterServices.updateCharacter(updateCharacter)
+          characterServices.updateCharacterHealth(updateCharacter)
             .then(results => {
               this.props.reRenderTown();
             })
@@ -84,13 +89,7 @@ class Inventory extends Component {
   render() {
     return(
       <div className="Inventory">
-        <div className="Inventory-contents-container">
-          {this.state.inventoryDataRecieved ? this.renderInventory() : <div className="loading" />}
-        </div>
-        <div className="Inventory-character-gold">
-          <div className="Inventory-gold-icon" />
-          {this.state.characterInfo.gold}
-        </div>
+        {this.state.inventoryDataRecieved ? this.renderInventory() : <div className="loading" />}
       </div>
     );
   }
