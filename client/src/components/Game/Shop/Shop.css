@@ -57,7 +57,7 @@
   height: 10vh;
   width: 80%;
   margin: 10% auto;
-  background-image: url(../../../res/images/UI/Shop/swords_ic_2.png);
+  background-image: url(../../../res/images/UI/Shop/axeDouble2.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -66,7 +66,7 @@
   height: 10vh;
   width: 80%;
   margin: 15% auto;
-  background-image: url(../../../res/images/UI/Shop/armour_ic_1.png);
+  background-image: url(../../../res/images/UI/Shop/armor.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -75,7 +75,7 @@
   height: 10vh;
   width: 75%;
   margin: 5% auto;
-  background-image: url(../../../res/images/UI/Shop/potions_ic.png);
+  background-image: url(../../../res/images/UI/Shop/potionRed.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -84,17 +84,27 @@
   height: 10vh;
   width: 80%;
   margin: 10% auto;
-  background-image: url(../../../res/images/UI/Shop/items_ic_2.png);
+  background-image: url(../../../res/images/UI/Shop/tools.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
 .Artifact-icon {
-
+  height: 10vh;
+  width: 80%;
+  margin: 10% auto;
+  background-image: url(../../../res/images/UI/Shop/upg_armor.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .Misc-icon {
-
+  height: 10vh;
+  width: 80%;
+  margin: 10% auto;
+  background-image: url(../../../res/images/UI/Shop/backpack.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 /* Tool Tips */

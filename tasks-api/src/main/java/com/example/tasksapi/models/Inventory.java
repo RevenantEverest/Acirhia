@@ -1,22 +1,25 @@
 package com.example.tasksapi.models;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.*;
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
 @Entity @Table(name = "INVENTORY")
 public class Inventory {
 
-    public Inventory(Long userId, Long characterId, Long itemId, String itemName, String itemType, int worth) {
+    public Inventory(Long userId, Long characterId, Long itemId, String itemName, String itemDescription, String itemType, String itemRarity,
+                     int attack, int defense, int levelRequirement, int worth) {
         this.userId = userId;
         this.characterId = characterId;
         this.itemId = itemId;
         this.itemName = itemName;
+        this.itemDescription = itemDescription;
         this.itemType = itemType;
+        this.itemRarity = itemRarity;
+        this.attack = attack;
+        this.defense = defense;
+        this.levelRequirement = levelRequirement;
         this.worth = worth;
     }
 
@@ -36,8 +39,23 @@ public class Inventory {
     @Column(name = "ITEM_NAME")
     private String itemName;
 
+    @Column(name = "ITEM_DESCRIPTION")
+    private String itemDescription;
+
     @Column(name = "ITEM_TYPE")
     private String itemType;
+
+    @Column(name = "ITEM_RARITY")
+    private String itemRarity;
+
+    @Column(name = "ATTACK")
+    private int attack;
+
+    @Column(name = "DEFENSE")
+    private int defense;
+
+    @Column(name = "LEVEL_REQUIREMENT")
+    private int levelRequirement;
 
     @Column(name = "WORTH")
     private int worth;

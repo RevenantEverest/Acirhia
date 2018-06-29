@@ -14,12 +14,14 @@ import java.util.Set;
 @Entity @Table(name = "ITEMS")
 public class Item {
 
-    public Item(String itemName, String itemType,String itemRarity, int attack, int defense, int worth) {
+    public Item(String itemName, String itemDescription, String itemType,String itemRarity, int attack, int defense, int levelRequirement, int worth) {
         this.itemName = itemName;
+        this.itemDescription = itemDescription;
         this.itemType = itemType;
         this.itemRarity = itemRarity;
         this.attack = attack;
         this.defense = defense;
+        this.levelRequirement = levelRequirement;
         this.worth = worth;
     }
 
@@ -29,6 +31,9 @@ public class Item {
 
     @Column(name = "ITEM_NAME")
     private String itemName;
+
+    @Column(name = "ITEM_DESCRIPTION")
+    private String itemDescription;
 
     @Column(name = "ITEM_TYPE")
     private String itemType;
@@ -41,6 +46,9 @@ public class Item {
 
     @Column(name = "DEFENSE")
     private int defense;
+
+    @Column(name = "LEVEL_REQUIREMENT")
+    private int levelRequirement;
 
     @Column(name = "WORTH")
     private int worth;

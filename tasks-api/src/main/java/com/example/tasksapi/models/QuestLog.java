@@ -1,24 +1,21 @@
 package com.example.tasksapi.models;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.*;
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
 @Entity @Table(name = "QUESTLOG")
 public class QuestLog {
 
-    public QuestLog(Long userId, Long characterId, String questName, String questDescription, String questType, int requirement, int aquired) {
+    public QuestLog(Long userId, Long characterId, String questName, String questDescription, String questType, int requirement, int acquired) {
         this.userId = userId;
         this.characterId = characterId;
         this.questName = questName;
         this.questDescription = questDescription;
         this.questType = questType;
         this.requirement = requirement;
-        this.aquired = aquired;
+        this.acquired = acquired;
     }
 
     @Id
@@ -43,6 +40,6 @@ public class QuestLog {
     @Column(name = "REQUIREMENT")
     private int requirement;
 
-    @Column(name = "AQUIRED")
-    private int aquired;
+    @Column(name = "ACQUIRED")
+    private int acquired;
 }

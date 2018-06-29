@@ -63,7 +63,12 @@ class Shop extends Component {
                   characterId: this.state.characterId,
                   itemId: data.id,
                   itemName: data.itemName,
+                  itemDescription: data.itemDescription,
                   itemType: data.itemType,
+                  itemRarity: data.itemRarity,
+                  attack: data.attack,
+                  defense: data.defense,
+                  levelRequirement: data.levelRequirement,
                   worth: data.worth
                 }
                 inventoryServices.addToInventory(inventory)

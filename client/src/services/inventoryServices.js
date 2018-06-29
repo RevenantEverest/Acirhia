@@ -18,7 +18,12 @@ services.addToInventory = (data) => {
       characterId: data.characterId,
       itemId: data.itemId,
       itemName: data.itemName,
+      itemDescription: data.itemDescription,
       itemType: data.itemType,
+      itemRarity: data.itemRarity,
+      attack: data.attack,
+      defense: data.defense,
+      levelRequirement: data.levelRequirement,
       worth: data.worth
     }
   })

@@ -37,13 +37,13 @@ class Inventory extends Component {
     let Inventory = this.state.inventoryData.map((el, idx) => {
       let button;
       if(el.itemType === "Weapon" || el.itemType === "Armor") {
-        button = <button className="EquipItem" onClick={(e) => this.equipItem(el.itemId)}>Equip Item</button>
-      }else if(el.itemType === "Consumeable"){
+        button = <button className="EquipItem" onClick={(e) => this.equipItem(el)}>Equip Item</button>
+      }else if(el.itemType === "Consumable"){
         button = <button className="UseItem" onClick={(e) => this.useItem({id: el.itemId, itemName: el.itemName})}>Use Item</button>
       }
       return(
         <div className="Inventory-object" key={idx}>
-          <h3 className="Inventory">{el.itemName}</h3>
+          <h3 className={`Inventory-itemName ${el.itemRarity}`}>{el.itemName}</h3>
           {button}
         </div>
       );
@@ -63,8 +63,12 @@ class Inventory extends Component {
     );
   }
 
-  equipItem(id) {
-    console.log("Equipping Item ", id);
+  equipItem(el) {
+    if(this.state.characterInfo.lvl >= el.levelRequirement) {
+      //Equip Item
+    }else {
+      this.setState({ cannotEquip: true });
+    }
   }
 
   useItem(data) {
@@ -86,10 +90,20 @@ class Inventory extends Component {
       .catch(err => console.log("Failed at Get Item By Id => ", err));
   }
 
+  renderCannotEquip() {
+    setTimeout(() => {
+      this.setState({ cannotEquip: false });
+    }, 1000);
+    return(
+      <div className="CannotEquip" />
+    );
+  }
+
   render() {
     return(
       <div className="Inventory">
         {this.state.inventoryDataRecieved ? this.renderInventory() : <div className="loading" />}
+        {this.state.cannotEquip ? this.renderCannotEquip() : ''}
       </div>
     );
   }

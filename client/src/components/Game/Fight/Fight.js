@@ -139,7 +139,12 @@ class Fight extends Component {
             characterId: this.state.characterInfo.id,
             itemId: this.state.itemReward.id,
             itemName: this.state.itemReward.itemName,
+            itemDescription: this.state.itemReward.itemDescription,
             itemType: this.state.itemReward.itemType,
+            itemRarity: this.state.itemReward.itemRarity,
+            attack: this.state.itemReward.attack,
+            defense: this.state.itemReward.defense,
+            levelRequirement: this.state.itemReward.levelRequirement,
             worth: this.state.itemReward.worth
           };
           //Add item to inventory
