@@ -11,6 +11,7 @@ import characterServices from '../../../services/characterServices';
 
 //Component Imports
 import ItemReward from './ItemReward/ItemReward';
+import Attacks from './Attacks/Attacks';
 
 class Fight extends Component {
 

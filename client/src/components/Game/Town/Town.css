@@ -35,13 +35,13 @@
   width: 5%;
   top: 86%;
   left: 54%;
-  background-image: url(../../../res/images/UI/potions_but.png);
+  background-image: url(../../../res/images/UI/Icons/potions_but.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-shop:hover { background-image: url(../../../res/images/UI/potions_but_hover.png); }
+.Town-shop:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/potions_but_hover.png); }
 
 .Town-fight {
   position: absolute;
@@ -49,13 +49,13 @@
   width: 5%;
   top: 86%;
   left: 68%;
-  background-image: url(../../../res/images/UI/swords_but.png);
+  background-image: url(../../../res/images/UI/Icons/swords_but.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-fight:hover { background-image: url(../../../res/images/UI/swords_but_hover.png); }
+.Town-fight:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/swords_but_hover.png); }
 
 .Town-arena {
   position: absolute;
@@ -63,13 +63,13 @@
   width: 5%;
   top: 86%;
   left: 75%;
-  background-image: url(../../../res/images/UI/helmet_armour_but.png);
+  background-image: url(../../../res/images/UI/Icons/helmet_armour_but.png);
   background-color: black;
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-arena:hover { background-image: url(../../../res/images/UI/helmet_armour_but_hover.png); }
+.Town-arena:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/helmet_armour_but_hover.png); }
 
 .Town-inventory {
   position: absolute;
@@ -77,13 +77,13 @@
   width: 5%;
   top: 86%;
   left: 61%;
-  background-image: url(../../../res/images/UI/items_but.png);
+  background-image: url(../../../res/images/UI/Icons/items_but.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-inventory:hover { background-image: url(../../../res/images/UI/items_but_hover.png); }
+.Town-inventory:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/items_but_hover.png); }
 
 .Town-stats {
   position: absolute;
@@ -91,13 +91,13 @@
   width: 5%;
   top: 86%;
   left: 82%;
-  background-image: url(../../../res/images/UI/armour_but.png);
+  background-image: url(../../../res/images/UI/Icons/armour_but.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-stats:hover { background-image: url(../../../res/images/UI/armour_but_hover.png); }
+.Town-stats:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/armour_but_hover.png); }
 
 .Town-quests {
   position: absolute;
@@ -105,7 +105,7 @@
   width: 5%;
   top: 86%;
   left: 47%;
-  background-image: url(../../../res/images/UI/coin_ic_1.png);
+  background-image: url(../../../res/images/UI/Icons/coin_ic_1.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
@@ -119,7 +119,7 @@
   width: 5%;
   top: 86%;
   left: 40%;
-  background-image: url(../../../res/images/UI/lightning_energy_ic.png);
+  background-image: url(../../../res/images/UI/Icons/lightning_energy_ic.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
