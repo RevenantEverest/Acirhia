@@ -33,7 +33,9 @@ class Attacks extends Component {
       return(
         <div className="Attacks-attack">
           <div className={`Attacks-${el.attackName}`}>
-            <span className="Attacks-${el.attackName-text}">{el.attackName}</span>
+            <span className="Attacks-tooltiptext-container">
+              <h3 className="Attacks-tooltiptext">{el.attackName}</h3>
+            </span>
           </div>
         </div>
       );

@@ -50,16 +50,19 @@ class Quests extends Component {
     let characterQuests = this.state.characterQuests;
     let Quests = this.state.questData.map((el, idx) => {
       if(characterQuests.length >= 1) {
+        let canAccept = <button className="Quest-AcceptQuest" onClick={(e) => this.acceptQuest(el)}>AcceptQuest</button>
         for(let i = 0; i < characterQuests.length; i++) {
-          return(
-            <div className="Quests-singleQuest" key={idx}>
-              <h1 className="Quest-questName">{el.questName}</h1>
-              <h3 className="Quest-questDescription">{el.questDescription}</h3>
-              <h3 className="Quest-questRequirements">{el.requirements}</h3>
-              {/* {characterQuests[i].questName === el.questName ? <button className="Quests-acceptQuest" disabled>You Already Have This Quest</button> : <button className="Quests-acceptQuest" onClick={(e) => this.acceptQuest(el)}>Accept Quest</button>} */}
-            </div>
-          );
+          if(characterQuests[i].questName === el.questName)
+            canAccept = <button className="Quest-CannotAcceptQuest" disabled>You Already Have This Quest</button>
         }
+        return(
+          <div className="Quests-singleQuest" key={idx}>
+            <h1 className="Quest-questName">{el.questName}</h1>
+            <h3 className="Quest-questDescription">{el.questDescription}</h3>
+            <h3 className="Quest-questRequirements">{el.requirements}</h3>
+            {canAccept}
+          </div>
+        );
       }else {
         return(
           <div className="Quests-singleQuest" key={idx}>

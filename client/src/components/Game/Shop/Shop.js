@@ -81,24 +81,14 @@ class Shop extends Component {
 
   renderStock() {
     let Stock = this.state.stock.map((el, idx) => {
-      switch(el.itemRarity) {
-        case "Common":
-          break;
-        case "Uncommon":
-          break;
-        case "Rare":
-          break;
-        case "Legendary":
-          break;
-        case "Epic":
-          break;
-        default:
-          break;
-      }
       return(
         <div className="Stock-item" key={idx}>
           <div className="Stock-item-icon-container ItemIcon" onClick={(e) => this.buyItem(el)}>
-            <span className="Stock-item-tooltiptext">{el.itemName} <br></br> {el.itemType} <br></br>Cost: {el.worth}</span>
+            <span className="Stock-item-tooltiptext-container">
+              <h3 className={`Stock-item-tooltiptext ${el.itemRarity}`}>{el.itemName}</h3>
+              <h4 className="Stock-item-tooltiptext">{el.itemType}</h4>
+              <h4 className="Stock-item-tooltiptext">Gold: {el.worth}</h4>
+            </span>
             <div className={`${el.itemType}-icon `} />
           </div>
         </div>

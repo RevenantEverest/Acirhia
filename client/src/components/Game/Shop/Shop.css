@@ -100,7 +100,7 @@
 /* Tool Tips */
 .ItemIcon { position: relative; display: inline-block; }
 
-.ItemIcon .Stock-item-tooltiptext {
+.ItemIcon .Stock-item-tooltiptext-container {
     visibility: hidden;
     width: 200px;
     background-color: black;
@@ -116,7 +116,12 @@
     z-index: 1;
 }
 
-.ItemIcon:hover .Stock-item-tooltiptext { visibility: visible; }
+.Stock-item-tooltiptext {
+  position: relative;
+  margin: 0;
+}
+
+.ItemIcon:hover .Stock-item-tooltiptext-container { visibility: visible; }
 
 .Shop-inventory-container {
   position: absolute;
@@ -143,3 +148,11 @@
   border-style: double;
   border-color: #dedede;
 }
+
+/* Rarity */
+
+.Common { color: #dedede; }
+.Uncommon { color: green; }
+.Rare { color: cyan; }
+.Legendary { color: purple; }
+.Epic { color: orange; }

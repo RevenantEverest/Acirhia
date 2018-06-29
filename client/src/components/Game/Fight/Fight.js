@@ -307,7 +307,7 @@ class Fight extends Component {
         </div>
 
         {/* Attacks */}
-        <div className="AttackOne" onClick={(e) => this.attackOne()} />
+        <Attacks userData={this.state.userData} characterId={this.state.characterId} />
 
         {this.state.levelUp ? this.renderLevelUp() : ''}
         {this.state.victory ? this.renderVictory() : ''}

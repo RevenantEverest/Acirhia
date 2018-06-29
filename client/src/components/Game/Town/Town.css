@@ -105,13 +105,13 @@
   width: 5%;
   top: 86%;
   left: 47%;
-  background-image: url(../../../res/images/UI/Icons/coin_ic_1.png);
+  background-image: url(../../../res/images/UI/Icons/town_ic.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-quests:hover {  }
+.Town-quests:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/town_ic_hover.png); }
 
 .Town-questLog {
   position: absolute;
@@ -119,13 +119,13 @@
   width: 5%;
   top: 86%;
   left: 40%;
-  background-image: url(../../../res/images/UI/Icons/lightning_energy_ic.png);
+  background-image: url(../../../res/images/UI/Icons/questLog_ic.png);
   background-repeat: no-repeat;
   background-color: black;
   background-size: 100%;
   border-radius: 50%;
 }
-.Town-questLog:hover {  }
+.Town-questLog:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/questLog_ic_hover.png); }
 
 /* Player Vitals */
 .Town-basicStats-container {
