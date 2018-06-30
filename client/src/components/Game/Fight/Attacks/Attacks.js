@@ -29,15 +29,17 @@ class Attacks extends Component {
       .catch(err => console.log("Failed at Get Character Info => ", err));
   }
 
+  calculateDamage(el) {
+    let dmg = el.baseDamage + (this.state.characterInfo.attack * 2);
+    this.props.playerAttack(dmg);
+  }
+
   renderSkills() {
     let Skills = this.state.characterSkills.map((el, idx) => {
       return(
-        <div className="Attacks-skill">
-          <div className={`${(el.skillName).split(" ")}-icon`}>
-            <span className="Attacks-skill-tooltiptext-container">
-              <h4 className="Attacks-skill-tooltiptext">{el.skillName}</h4>
-            </span>
-          </div>
+        <div className="Attacks-skill" key={idx}>
+          <div className={`${(el.skillName).split(" ").join(",").replace(",", "")}-icon skill-icon`} onClick={(e) => this.calculateDamage(el)} />
+          <h4 className="Attacks-skill-tooltiptext">{el.skillName}</h4>
         </div>
       );
     });

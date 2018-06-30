@@ -35,6 +35,34 @@ class SkillBook extends Component {
       .catch(err => console.log("Failed at Get Character Info => ", err));
   }
 
+  equipSkill(el) {
+    console.log("Sup boi");
+    if(this.state.characterSkills.length <= 4) {
+      let data = {
+        userId: this.state.userData.userId,
+        characterId: this.state.characterId,
+        skillName: el.skillName,
+        skillDescription: el.skillDescription,
+        skillType: el.skillType,
+        levelRequirement: el.levelRequirement,
+        classRequirement: el.classRequirement,
+        baseDamage: el.baseDamage,
+        buff: el.buff
+      }
+      skillServices.equipSkill(data)
+        .then(results => {
+          this.componentDidMount();
+        })
+        .catch(err => console.log("Failed at Equip Skill => ", err));
+    }else {
+      this.setState({ skillLimitReached: true });
+    }
+  }
+
+  unEquipSkill(el) {
+
+  }
+
   renderSkills() {
     let charS = this.state.characterSkills;
     let charIn = this.state.characterInfo;
@@ -45,7 +73,6 @@ class SkillBook extends Component {
       for(let i = 0; i < charS.length; i++) {
         if(charS.skillName === el.skillName)
           EquipButton = <button className="AlreadyEquiped-Skill" onClick={(e) => this.unEquipSkill(el)}>Unequip Skill</button>;
-        console.log("Is lvl req met? => ", charIn.lvl >= el.levelRequirement);
       }
       if(charIn.lvl < el.levelRequirement) {
         ClassIcon = `${(el.skillName).split(" ").join(",").replace(",", "")}-icon-UA`;
@@ -78,10 +105,22 @@ class SkillBook extends Component {
     );
   }
 
+  renderSkillLimitReached() {
+    setTimeout(() => {
+      this.setState({ skillLimitReached: false });
+    }, 1000)
+    return(
+      <div className="Skills-skillLimitReached">
+        <h1 className="Skills-skillLimitReached-text">Skill Limit Reached</h1>
+      </div>
+    );
+  }
+
   render() {
     return(
       <div className="Skills">
         {this.state.dataRecieved ? this.renderSkills() : ''}
+        {this.state.skillLimitReached ? this.renderSkillLimitReached() : ''}
       </div>
     );
   }

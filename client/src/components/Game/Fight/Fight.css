@@ -28,6 +28,17 @@
   text-align: left;
 }
 
+.EnemyVitals-heart-icon {
+  position: absolute;
+  top: 50%;
+  left: -4%;
+  height: 6vh;
+  width: 4%;
+  background-image: url(../../../res/images/UI/Icons/Ravenmore/heart.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 .EnemyHealth-container {
   position: relative;
   height: 2vh;
@@ -137,7 +148,7 @@
 }
 
 .Defeat-continue {
-
+  
 }
 
 .LevelUp {

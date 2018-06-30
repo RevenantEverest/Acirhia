@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+//CSS Imports
 import './Fight.css';
 import './FightStates.css';
 import './FightEnemyStates.css';
@@ -8,6 +10,7 @@ import enemyServices from '../../../services/enemyServices';
 import itemServices from '../../../services/itemServices';
 import inventoryServices from '../../../services/inventoryServices';
 import characterServices from '../../../services/characterServices';
+import levelUpServices from '../../../services/levelUpServices';
 
 //Component Imports
 import ItemReward from './ItemReward/ItemReward';
@@ -27,6 +30,7 @@ class Fight extends Component {
       /* Player Stats */
       playerHealth: null
     }
+    this.playerAttack = this.playerAttack.bind(this);
   }
 
   componentDidMount() {
@@ -69,12 +73,9 @@ class Fight extends Component {
 
   RNG(int) { let num = Math.floor(Math.random() * int); return num; }
 
-  attackOne() {
+  playerAttack(dmg) {
     if(this.state.enemyHealth > 0 && this.state.canAttack) {
       this.setState({ canAttack: false });
-
-      let attack = this.state.characterInfo.attack * 4;
-      let dmg = this.RNG(attack);
 
       this.setState({ playerState: `${this.state.playerClass}-attack` }, () => {
         setTimeout(() => {
@@ -134,21 +135,16 @@ class Fight extends Component {
       .then(results => {
         let chosenItem = results.data[this.RNG(results.data.length)];
         this.setState({ itemReward: chosenItem }, () => {
-          let data = {
-            userId: this.state.userData.userId,
-            characterId: this.state.characterInfo.id,
-            itemId: this.state.itemReward.id,
-            itemName: this.state.itemReward.itemName,
+          let inventoryData = {
+            userId: this.state.userData.userId, characterId: this.state.characterInfo.id,
+            itemId: this.state.itemReward.id, itemName: this.state.itemReward.itemName,
             itemDescription: this.state.itemReward.itemDescription,
-            itemType: this.state.itemReward.itemType,
-            itemRarity: this.state.itemReward.itemRarity,
-            attack: this.state.itemReward.attack,
-            defense: this.state.itemReward.defense,
-            levelRequirement: this.state.itemReward.levelRequirement,
-            worth: this.state.itemReward.worth
+            itemType: this.state.itemReward.itemType, itemRarity: this.state.itemReward.itemRarity,
+            attack: this.state.itemReward.attack, defense: this.state.itemReward.defense,
+            levelRequirement: this.state.itemReward.levelRequirement, worth: this.state.itemReward.worth
           };
           //Add item to inventory
-          inventoryServices.addToInventory(data)
+          inventoryServices.addToInventory(inventoryData)
             .then(results => {
               this.setState({
                 rewards: {
@@ -157,69 +153,30 @@ class Fight extends Component {
                   gold: 50
                 }
               }, () => {
-                //Call Back for after Gold Reward State is set
-                let characterUpdate = {
-                  characterId: this.state.characterInfo.id,
-                  userId: this.state.userData.userId,
-                  characterName: this.state.characterInfo.characterName,
-                  classId: this.state.characterInfo.classId,
-                  health: this.state.playerHealth,
-                  attack: this.state.characterInfo.attack,
-                  defense: this.state.characterInfo.defense,
-                  exp: this.state.characterInfo.exp + this.state.rewards.exp,
-                  lvl: this.state.characterInfo.lvl,
-                  gold: this.state.characterInfo.gold + this.state.rewards.gold
-                };
-                //Add gold and exp to player
-                characterServices.updateCharacter(characterUpdate)
-                  .then(results => {
-                    this.setState({ characterInfo: results.data }, () => this.checkForLevelUp());
+                characterServices.updateCharacterGold({ characterId: this.state.characterId, gold: this.state.rewards.gold })
+                  .then(characterGold => {
+                    characterServices.updateCharacterExp({ characterId: this.state.characterId, exp: this.state.characterInfo.exp + this.state.rewards.exp })
+                      .then(characterExp => {
+                        if(levelUpServices.checkForLevelUp({ exp: this.state.characterInfo.exp + this.state.rewards.exp, level: this.state.characterInfo.lvl })) {
+                          this.setState({ levelUp: true, victory: false }, () => this.updateLevel())
+                        }else {
+                          this.setState({ levelUp: false, renderRewards: true });
+                        }
+                      })
+                      .catch(err => console.log("Failed at Update Character Exp => ", err));
                   })
-                  .catch(err => console.log("Failed at Update Character => ", err));
+                  .catch(err => console.log("Failed at Update Character Gold => ", err));
               });
             })
             .catch(err => console.log('Failed at Add to Inventory => ', err));
         });
       })
       .catch(err => console.log('Failed at Get Items => ', err));
-  }
 
-  checkForLevelUp() {
-    switch(this.state.characterInfo.exp) {
-      case 300:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 600:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 900:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 1200:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 1500:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 1800:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 2100:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 2400:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 2700:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      case 3000:
-        this.setState({ levelUp: true, victory: false }, () => this.updateLevel());
-        break;
-      default:
-        this.setState({ levelUp: false, renderRewards: true });
-        break;
-    }
+      // this.setState({ characterInfo: results.data }, () => {
+      //   levelUpServices.checkForLevelUp(this.state.characterInfo) ? this.setState({ levelUp: true, victory: false }, () => this.updateLevel()) : this.setState({ levelUp: false, renderRewards: true });
+      //   console.log(levelUpServices.checkForLevelUp(this.state.characterInfo));
+      // });
   }
 
   updateLevel() {
@@ -257,10 +214,11 @@ class Fight extends Component {
     );
   }
 
-  renderEnemy() {
+  renderEnemyVitals() {
     return(
       <div className="EnemyVitals">
         <h1 className="EnemyName">{this.state.enemyInfo.enemyName}</h1>
+        <div className="EnemyVitals-heart-icon" />
         <div className="EnemyHealth-container">
           <div className="EnemyHealth-value" />
         </div>
@@ -272,6 +230,7 @@ class Fight extends Component {
     return(
       <div className="PlayerVitals">
         <h1 className="PlayerName">{this.state.characterInfo.characterName}</h1>
+        <div className="PlayerVitals-heart-icon" />
         <div className="PlayerHealth-container">
           <div className="PlayerHealth-value" />
         </div>
@@ -301,7 +260,7 @@ class Fight extends Component {
           {this.state.characterInfoRecieved ? this.renderVitals() : ''}
 
 
-          {this.state.enemyDataRecieved ? this.renderEnemy() : ''}
+          {this.state.enemyDataRecieved ? this.renderEnemyVitals() : ''}
         </div>
         <div className="PlayerAvatar">
           <div className={`${this.state.playerState}`} />
@@ -312,7 +271,8 @@ class Fight extends Component {
         </div>
 
         {/* Attacks */}
-        <Attacks userData={this.state.userData} characterId={this.state.characterId} />
+        {this.state.enemyDataRecieved ? <Attacks userData={this.state.userData} characterId={this.state.characterId}
+                                          enemyData={this.state.enemyInfo} playerAttack={this.playerAttack} /> : <div className="loading" />}
 
         {this.state.levelUp ? this.renderLevelUp() : ''}
         {this.state.victory ? this.renderVictory() : ''}

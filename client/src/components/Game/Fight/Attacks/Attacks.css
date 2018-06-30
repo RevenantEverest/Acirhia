@@ -1,0 +1,25 @@
+.Attacks-skills-container {
+  position: absolute;
+  height: 12vh;
+  width: 58%;
+  top: 80%;
+  left: 30%;
+}
+
+/* ===========================================
+/* Knight Skills                            ==
+/* ======================================== */
+.KnightDefault-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/KnightDefault_hover.png); }
+.Berserk-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/Berserk_hover.png); }
+
+/* ===========================================
+/* Wizard Skills                            ==
+/* ======================================== */
+.WizardDefault-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/WizardDefault_hover.png); }
+.Fireball-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/Fireball_hover.png); }
+
+/* ===========================================
+/* Archer Skills                            ==
+/* ======================================== */
+.ArcherDefault-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/ArcherDefault_hover.png); }
+.ScatterShot-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/ScatterShot_hover.png); }
