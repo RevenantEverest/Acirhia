@@ -127,6 +127,20 @@
 }
 .Town-questLog:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/questLog_ic_hover.png); }
 
+.Town-skillBook {
+  position: absolute;
+  height: 10vh;
+  width: 5%;
+  top: 86%;
+  left: 32.5%;
+  background-image: url(../../../res/images/UI/Icons/spellBook_ic.png);
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: 100%;
+  border-radius: 50%;
+}
+.Town-skillBook:hover { background-image: url(../../../res/images/UI/Icons/Hover_Icons/spellBook_ic_hover.png); }
+
 /* Player Vitals */
 .Town-basicStats-container {
   position: absolute;

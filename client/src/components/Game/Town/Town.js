@@ -10,6 +10,7 @@ import TileBoard from './TileBoard/TileBoard';
 import Inventory from '../Inventory/Inventory';
 import CharacterStats from './CharacterStats/CharacterStats';
 import QuestLog from '../QuestLog/QuestLog';
+import SkillBook from './SkillBook/SkillBook';
 
 class Town extends Component {
 
@@ -104,11 +105,30 @@ class Town extends Component {
     })
   }
 
+  //Skill Book Modal
+  openModalSkillBook() {
+    let modal = document.querySelector('.simpleModal-skillBook');
+    modal.style.display = "block";
+    this.setState({
+      modalOpen: true
+    })
+  }
+
+  closeModalSkillBook() {
+    this.componentDidMount();
+
+    let modal = document.querySelector('.simpleModal-skillBook');
+    modal.style.display = "none";
+    this.setState({
+      modalOpen: false
+    })
+  }
+
   reRenderTown() {
     this.componentDidMount();
   }
 
-  renderBasicStats() {
+  renderModals() {
     return(
       <div>
         <div className="simpleModal-inventory">
@@ -135,9 +155,19 @@ class Town extends Component {
         <div className="simpleModal-questLog">
           <div className="modalContent-questLog">
             <span className="closeButton" onClick={(e) => this.closeModalQuestLog()}>&times;</span>
-            <h1 className="modalHeading-inventory">Quest Log</h1>
+            <h1 className="modalHeading-questLog">Quest Log</h1>
             <div className="Game-QuestLog-container">
               <QuestLog userData={this.state.userData} characterId={this.state.characterId} />
+            </div>
+          </div>
+        </div>
+
+        <div className="simpleModal-skillBook">
+          <div className="modalContent-skillBook">
+            <span className="closeButton" onClick={(e) => this.closeModalSkillBook()}>&times;</span>
+            <h1 className="modalHeading-skillBook">Skills</h1>
+            <div className="Game-skillBook-container">
+              <SkillBook userData={this.state.userData} characterId={this.state.characterId} />
             </div>
           </div>
         </div>
@@ -166,12 +196,13 @@ class Town extends Component {
         <div className="Town-inventory" onClick={(e) => this.openModalInventory()} />
         <div className="Town-quests" onClick={(e) => this.props.renderQuests()} />
         <div className="Town-questLog" onClick={(e) => this.openModalQuestLog()} />
+        <div className="Town-skillBook" onClick={(e) =>  this.openModalSkillBook()} />
 
         <TileBoard />
         <div className="Town-Avatar">
           <div className={`Town-${this.state.renderAvatar}`} />
         </div>
-        {this.state.characterInfoRecieved ? this.renderBasicStats() : ''}
+        {this.state.characterInfoRecieved ? this.renderModals() : ''}
       </div>
     );
   }

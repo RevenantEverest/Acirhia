@@ -5,17 +5,32 @@
 .Inventory-contents {
   height: 30vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   border-style: double;
+  background-color: #1a1a1a;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-column-gap: 0;
+  grid-row-gap: 1px;
+}
+
+.Inventory-object-container {
+  margin: 20%;
+  height: 10vh;
+  width: 50%;
+  /* display: inline-grid; */
+  border-style: solid;
+  border-color: #dedede;
 }
 
 .Inventory-object {
-  margin: 0 4% 0 4%;
+
 }
 
 .Inventory-character-gold {
   position: relative;
-  margin-top: 5%;
-  left: 20%;
+  margin-top: 6%;
+  left: 90%;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 25px;
@@ -24,10 +39,36 @@
 .Inventory-gold-icon {
   position: relative;
   height: 10vh;
-  width: 12%;
-  margin-bottom: -24%;
-  margin-left: -18%;
+  width: 6%;
+  margin-bottom: -7%;
+  margin-left: -8%;
+  margin-top: -3%;
   background-image: url(../../../res/images/UI/Icons/coin_ic_1.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
+.Inventory-object-container { position: relative; display: inline-block; }
+
+.Inventory-object-container .Inventory-tooltiptext-container {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border-style: double;
+    border-color: orange;
+    margin: 70% 0 0 0;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.Inventory-tooltiptext {
+  position: relative;
+  margin: 0;
+}
+
+.Inventory-object-container:hover .Inventory-tooltiptext-container { visibility: visible; }

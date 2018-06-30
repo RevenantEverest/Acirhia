@@ -1,0 +1,70 @@
+.Skills-classSkills-container {
+  height: 70vh;
+  border-color: black;
+  border-width: thick;
+  border-style: double;
+}
+
+.Skills-classSkills-contents {
+  margin: 2%;
+}
+
+.skill-icon {
+  height: 12vh;
+  width: 10%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Equip-Skill {
+  margin: 105% 0 0 15%;
+}
+
+.reqLevel { color: red; }
+
+/* ===========================================
+/* Knight Skills                            ==
+/* ======================================== */
+.KnightDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/KnightDefault.png); }
+.Berserk-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Berserk.png); }
+.Berserk-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Berserk_UA.png); }
+
+/* ===========================================
+/* Wizard Skills                            ==
+/* ======================================== */
+.WizardDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/WizardDefault.png); }
+.Fireball-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Fireball.png); }
+.Fireball-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Fireball_UA.png); }
+
+/* ===========================================
+/* Archer Skills                            ==
+/* ======================================== */
+.ArcherDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/ArcherDefault.png); }
+.ScatterShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/ScatterShot.png); }
+.ScatterShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/ScatterShot_UA.png); }
+
+/* Tool Tip */
+.skill-icon { position: relative; display: inline-block; }
+
+.skill-icon .Skills-classSkill-tooltiptext-container {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border-style: double;
+    border-color: orange;
+    margin-left: 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.Skills-classSkill-tooltiptext {
+  position: relative;
+  margin: 0;
+}
+
+.skill-icon:hover .Skills-classSkill-tooltiptext-container { visibility: visible; }

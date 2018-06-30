@@ -17,8 +17,8 @@ public class CharacterSkillsController {
     @GetMapping("/characters")
     Iterable<CharacterSkill> findAllCharacterSkills() { return characterSkillRepository.findAll(); }
 
-//    @GetMapping("/characters/{characterId}")
-//    Iterable<CharacterSkill> findSkillsByCharacterId(@PathVariable Long characterId) { return characterSkillRepository.findByCharacterId(characterId); }
+    @GetMapping("/characters/{characterId}")
+    Iterable<CharacterSkill> findSkillsByCharacterId(@PathVariable Long characterId) { return characterSkillRepository.findByCharacterId(characterId); }
 
     @PostMapping("/characters")
     public CharacterSkill addCharacterSkill(@RequestBody CharacterSkill characterSkill) { return characterSkillRepository.save(characterSkill); }

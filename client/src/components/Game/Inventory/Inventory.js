@@ -42,9 +42,15 @@ class Inventory extends Component {
         button = <button className="UseItem" onClick={(e) => this.useItem({id: el.itemId, itemName: el.itemName})}>Use Item</button>
       }
       return(
-        <div className="Inventory-object" key={idx}>
-          <h3 className={`Inventory-itemName ${el.itemRarity}`}>{el.itemName}</h3>
-          {button}
+        <div className="Inventory-object-container" key={idx}>
+          <div className="Inventory-object">
+            <div className={`Inventory-${el.itemType}-icon`}>
+              <span className="Inventory-tooltiptext-container">
+                <h4 className={`Inventory-tooltiptext ${el.itemRarity}`}>{el.itemName}</h4>
+              </span>
+            </div>
+          </div>
+          {/* {button} */}
         </div>
       );
     });

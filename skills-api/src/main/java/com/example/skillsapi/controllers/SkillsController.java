@@ -18,14 +18,14 @@ public class SkillsController {
     Iterable<Skill> findAllSkills() { return skillRepository.findAll(); }
 
     //Find Skills by Class Requirement
-    @GetMapping("/{classId}")
+    @GetMapping("/class/{classId}")
     Iterable<Skill> findByClassId(@PathVariable int classId) { return skillRepository.findByClassId(classId); }
 
     //Find Skills by Level Requirement
-    @GetMapping("/{level}")
+    @GetMapping("/level/{level}")
     Iterable<Skill> findByLevel(@PathVariable int level) {  return skillRepository.findByLevel(level); }
 
     //Find Skills By Type
-    @GetMapping("/{skillType}")
+    @GetMapping("/skillType/{skillType}")
     Iterable<Skill> findByType(@PathVariable String skillType) { return skillRepository.findByType(skillType); }
 }

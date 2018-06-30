@@ -9,6 +9,7 @@
   overflow: auto;
   background-color: rgba(0,0,0,0.5);
   animation: .5s linear fadeIn;
+  overflow-x: hidden;
 }
 
 .modalContent-inventory {
@@ -16,8 +17,8 @@
   background-color: #f4f4f4;
   margin: 10% auto;
   padding: 20px;
-  height: 46%;
-  width: 20%;
+  height: 50%;
+  width: 60%;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
 }
 
@@ -92,5 +93,34 @@
 }
 
 .modalHeading-questLog {
+  color: black;
+}
+
+/* Skill Book Modal */
+.simpleModal-skillBook {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  animation: .5s linear fadeIn;
+  overflow: hidden;
+}
+
+.modalContent-skillBook {
+  border-radius: 12px;
+  background-color: #f4f4f4;
+  margin: 4% auto;
+  padding: 20px;
+  height: 80%;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.modalHeading-skillBook {
   color: black;
 }

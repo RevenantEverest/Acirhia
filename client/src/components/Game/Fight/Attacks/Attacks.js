@@ -3,7 +3,7 @@ import './Attacks.css';
 
 //Services Imports
 import characterServices from '../../../../services/characterServices';
-import attackServices from '../../../../services/attackServices';
+import skillServices from '../../../../services/skillServices';
 
 class Attacks extends Component {
 
@@ -18,23 +18,24 @@ class Attacks extends Component {
   componentDidMount() {
     characterServices.getCharacterInfo(this.props.characterId)
       .then(character => {
-        this.setState({ characterInfo: character.data[0] });
-        attackServices.getCharacterAttacks(this.props.characterId)
-          .then(attacks => {
-            this.setState({ attacks: attacks.data, dataRecieved: true });
-          })
-          .catch(err => console.log("Failed at Get Character Attacks => ", err));
+        this.setState({ characterInfo: character.data[0] }, () => {
+          skillServices.getCharacterSkills(this.props.characterId)
+            .then(skills => {
+              this.setState({ characterSkills: skills.data, dataRecieved: true });
+            })
+            .catch(err => console.log("Failed at Get Character Skills => ", err));
+        });
       })
       .catch(err => console.log("Failed at Get Character Info => ", err));
   }
 
-  renderAttacks() {
-    let Attacks = this.state.attacks.map((el, idx) => {
+  renderSkills() {
+    let Skills = this.state.characterSkills.map((el, idx) => {
       return(
-        <div className="Attacks-attack">
-          <div className={`Attacks-${el.attackName}`}>
-            <span className="Attacks-tooltiptext-container">
-              <h3 className="Attacks-tooltiptext">{el.attackName}</h3>
+        <div className="Attacks-skill">
+          <div className={`${(el.skillName).split(" ")}-icon`}>
+            <span className="Attacks-skill-tooltiptext-container">
+              <h4 className="Attacks-skill-tooltiptext">{el.skillName}</h4>
             </span>
           </div>
         </div>
@@ -42,9 +43,9 @@ class Attacks extends Component {
     });
 
     return(
-      <div className="Attacks-container">
-        <div className="Attacks-contents">
-          {Attacks}
+      <div className="Attacks-skills-container">
+        <div className="Attacks-skills-contents">
+          {Skills}
         </div>
       </div>
     );
@@ -53,7 +54,7 @@ class Attacks extends Component {
   render() {
     return(
       <div className="Attacks">
-        {this.state.dataRecieved ? this.renderAttacks() : <div className="loading" />}
+        {this.state.dataRecieved ? this.renderSkills() : <div className="loading" />}
       </div>
     );
   }
