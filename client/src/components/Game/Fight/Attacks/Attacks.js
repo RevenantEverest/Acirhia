@@ -38,8 +38,8 @@ class Attacks extends Component {
     let Skills = this.state.characterSkills.map((el, idx) => {
       return(
         <div className="Attacks-skill" key={idx}>
-          <div className={`${(el.skillName).split(" ").join(",").replace(",", "")}-icon skill-icon`} onClick={(e) => this.calculateDamage(el)} />
-          <h4 className="Attacks-skill-tooltiptext">{el.skillName}</h4>
+          <div className={`${(el.skillName).split(" ").join(",").replace(",", "")}-icon Attacks-skill-icon`} onClick={(e) => this.calculateDamage(el)} />
+          <h4 className="Attacks-skill-text">{el.skillName}</h4>
         </div>
       );
     });

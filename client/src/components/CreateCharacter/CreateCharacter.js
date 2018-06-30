@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import services from '../../services/characterServices';
 import './CreateCharacter.css';
+
+//Services Imports
+import skillServices from '../../services/skillServices';
+import services from '../../services/characterServices';
 
 class CreateCharacter extends Component {
 
@@ -28,13 +31,37 @@ class CreateCharacter extends Component {
     e.preventDefault();
     switch(this.state.classId) {
       case '1':
-        this.setState({ attack: 10, defense: 12 }, () => this.createCharacter());
+        this.setState({ attack: 10, defense: 12, skillData: {
+          skillName: "Knight Default",
+          skillDescription: "",
+          skillType: "Melee",
+          levelRequirement: 1,
+          classRequirement: 1,
+          baseDamage: 50,
+          buff: 0
+        }}, () => this.createCharacter());
         break;
       case '2':
-        this.setState({ attack: 12, defense: 8 }, () => this.createCharacter());
+        this.setState({ attack: 12, defense: 8, skillData: {
+          skillName: "Wizard Default",
+          skillDescription: "",
+          skillType: "Melee",
+          levelRequirement: 1,
+          classRequirement: 2,
+          baseDamage: 50,
+          buff: 0
+        }}, () => this.createCharacter());
         break;
       case '3':
-        this.setState({ attack: 11, defense: 10 }, () => this.createCharacter());
+        this.setState({ attack: 11, defense: 10, skillData: {
+          skillName: "Archer Default",
+          skillDescription: "",
+          skillType: "Melee",
+          levelRequirement: 1,
+          classRequirement: 3,
+          baseDamage: 50,
+          buff: 0
+        }}, () => this.createCharacter());
         break;
       default:
         this.setState({ attack: 10, defense: 10 }, () => this.createCharacter());
@@ -51,12 +78,15 @@ class CreateCharacter extends Component {
       attack: this.state.attack,
       defense: this.state.defense
     }
-    console.log("This is my data => ", data);
-    console.log("This is my classId => ", this.state.classId);
     services.createCharacter(data)
-      .then(results => {
-        console.log("Character Created => ", results);
-        this.props.renderChooseCharacter();
+      .then(character => {
+        this.setState({ characterInfo: character.data }, () => {
+          skillServices.defaultSkill({userId: this.state.userData.userId, characterId: this.state.characterInfo.id, skillData:this.state.skillData})
+            .then(skill => {
+              this.props.renderChooseCharacter();
+            })
+            .catch(err => console.log("Failed at Equip Skill => ", err));
+        });
       })
       .catch(err => {
         console.log("Failed at Create Character => ", err);

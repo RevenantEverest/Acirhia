@@ -153,7 +153,7 @@ class Fight extends Component {
                   gold: 50
                 }
               }, () => {
-                characterServices.updateCharacterGold({ characterId: this.state.characterId, gold: this.state.rewards.gold })
+                characterServices.updateCharacterGold({ characterId: this.state.characterId, gold: this.state.characterInfo.gold + this.state.rewards.gold })
                   .then(characterGold => {
                     characterServices.updateCharacterExp({ characterId: this.state.characterId, exp: this.state.characterInfo.exp + this.state.rewards.exp })
                       .then(characterExp => {
@@ -172,11 +172,6 @@ class Fight extends Component {
         });
       })
       .catch(err => console.log('Failed at Get Items => ', err));
-
-      // this.setState({ characterInfo: results.data }, () => {
-      //   levelUpServices.checkForLevelUp(this.state.characterInfo) ? this.setState({ levelUp: true, victory: false }, () => this.updateLevel()) : this.setState({ levelUp: false, renderRewards: true });
-      //   console.log(levelUpServices.checkForLevelUp(this.state.characterInfo));
-      // });
   }
 
   updateLevel() {

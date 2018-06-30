@@ -17,6 +17,25 @@ services.getSkillsByLevel = (data) => {
   return axios.get(`/skills/level/${data}`);
 };
 
+//Called When Creating Character
+services.defaultSkill = (data) => {
+  return axios({
+    method: 'POST',
+    url: '/skills/characters',
+    data: {
+      userId: data.userId,
+      characterId: data.characterId,
+      skillName: data.skillData.skillName,
+      skillDescription: data.skillData.skillDescription,
+      skillType: data.skillData.skillType,
+      levelRequirement: data.skillData.levelRequirement,
+      classRequirement: data.skillData.classRequirement,
+      baseDamage: data.skillData.baseDamage,
+      buff: data.skillData.buff
+    }
+  });
+};
+
 services.equipSkill = (data) => {
   return axios({
     method: 'POST',

@@ -6,6 +6,32 @@
   left: 30%;
 }
 
+.Attacks-skills-contents {
+  display: flex;
+}
+
+.Attacks-skill {
+  height: 20vh;
+  width: 10%;
+  flex-direction: row;
+  margin-left: 5%;
+  color: #dedede;
+  text-align: center;
+}
+
+.Attacks-skill-icon {
+  height: 15vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Attacks-skill-text {
+  margin-top: -10%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+}
+
 /* ===========================================
 /* Knight Skills                            ==
 /* ======================================== */
@@ -23,3 +49,4 @@
 /* ======================================== */
 .ArcherDefault-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/ArcherDefault_hover.png); }
 .ScatterShot-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/ScatterShot_hover.png); }
+.PiercingShot-icon:hover { background-image: url(../../../../res/images/UI/Icons/Skills/Hover/PiercingShot_hover.png); }

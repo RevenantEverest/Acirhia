@@ -43,6 +43,9 @@
 .ScatterShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/ScatterShot.png); }
 .ScatterShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/ScatterShot_UA.png); }
 
+.PiercingShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/PiercingShot.png); }
+.PiercingShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/PiercingShot_UA.png); }
+
 /* Tool Tip */
 .skill-icon { position: relative; display: inline-block; }
 

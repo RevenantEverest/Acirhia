@@ -71,12 +71,13 @@ class SkillBook extends Component {
       let ClassIcon = `${(el.skillName).split(" ").join(",").replace(",", "")}-icon`;
       let levelReq;
       for(let i = 0; i < charS.length; i++) {
-        if(charS.skillName === el.skillName)
+        if(charS[i].skillName === el.skillName)
           EquipButton = <button className="AlreadyEquiped-Skill" onClick={(e) => this.unEquipSkill(el)}>Unequip Skill</button>;
+        console.log(charS[i].skillName);
       }
       if(charIn.lvl < el.levelRequirement) {
         ClassIcon = `${(el.skillName).split(" ").join(",").replace(",", "")}-icon-UA`;
-        EquipButton = <button className="Equip-Skill" disabled>Equip Skill</button>
+        EquipButton = '';
         levelReq = <h4 className="Skills-classSkill-tooltiptext reqLevel">Requires Level {el.levelRequirement}</h4>;
       }
       return(
