@@ -16,17 +16,29 @@
 .HomePage-Logo  {
   position: absolute;
   height: 100vh;
-  width: 60%;
-  left: 16%;
+  width: 50%;
+  top: 10%;
+  left: 22%;
   background-image: url(../../res/images/Logos/LogoShadow.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
-.HomePage-Play {
+.HomePage-header-container {
   position: absolute;
-  top: 80%;
-  left: 46.5%;
+  height: 20vh;
+  width: 20%;
+  top: 60%;
+  left: 38%;
+  background-image: url(../../res/images/Effects/button.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.HomePage-Play {
+  position: relative;
+  top: 16.5%;
+  left: 30%;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
   font-size: 20px;
@@ -38,3 +50,37 @@
   color: #dedede;
   background-color: black;
 }
+
+.HomePage-NavBar {
+  height: 8vh;
+  width: 100%;
+  position: absolute;
+  background-color: black;
+  border-bottom: solid rgba(255, 255, 255, 0.6) thin;
+  box-shadow: 0 10px 12px 0 rgba(178,99,20,0.5), 0 7px 20px 0 rgba(255,255,255,0.2)
+}
+
+.RE-Logo {
+  height: 6vh;
+  width: 2.5%;
+  margin: .5% 0 0 20%;
+  background-image: url(../../res/images/Logos/HowlWhite.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.RE-Text {
+  margin: -3.2% 0 0 5%;
+  font-family: "Aisha Script", sans-serif;
+  color: #dedede;
+}
+
+.HomePage-Account-container {
+  float: right;
+  margin: -4% 5% 0 0;
+  color: #dedede;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+.HomePage-Account-container:hover { cursor: pointer; }

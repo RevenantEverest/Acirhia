@@ -18,10 +18,19 @@ class HomePage extends Component {
       <div className="HomePage">
         <div className="HomePage-vignette">
           <div className="HomePage-NavBar">
-            <Link to="/login"></Link>
+            <div className="RE-Logo" />
+            <h1 className="RE-Text">RevenantEverest</h1>
+            <div className="HomePage-Account-container">
+              <h1 className="HomePage-Account-header">Account</h1>
+              <div className="HomePage-Account-dropdown">
+                <Link />
+              </div>
+            </div>
           </div>
           <div className="HomePage-Logo" />
-          <button className="HomePage-Play" onClick={(e) => this.playGame()}>Start</button>
+          <div className="HomePage-header-container">
+            <button className="HomePage-Play" onClick={(e) => this.playGame()}>Start</button>
+          </div>
           {this.state.fireRedirect ? <Redirect to="/game" /> : ''}
         </div>
       </div>

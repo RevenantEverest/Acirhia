@@ -1,0 +1,79 @@
+/* ================================
+/* Left Side                    ==
+/* ============================= */
+
+.slot-container-left { position: relative; display: inline-block; }
+
+.slot-container-left .slot-tooltiptext-container-left {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    /* text-align: center; */
+    padding: 5px 0;
+    border-radius: 6px;
+    border-style: double;
+    border-color: orange;
+    margin: -106% 0 0 120%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.slot-tooltiptext-left {
+  position: relative;
+  margin: 0 0 0 5%;
+}
+
+.slot-container-left:hover .slot-tooltiptext-container-left { visibility: visible; }
+
+/* ================================
+/* Right Side                    ==
+/* ============================= */
+
+.slot-container-right { position: relative; display: inline-block; }
+
+.slot-container-right .slot-tooltiptext-container-right {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    /* text-align: center; */
+    padding: 5px 0;
+    border-radius: 6px;
+    border-style: double;
+    border-color: orange;
+    margin: -108% 0 0 -365%;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.slot-tooltiptext-right {
+  position: relative;
+  margin: 0 0 0 5%;
+}
+
+.slot-container-right:hover .slot-tooltiptext-container-right { visibility: visible; }
+
+/* ================================
+/* Slot Icons                    ==
+/* ============================= */
+
+.slot-icon {
+  position: relative;
+  height: 6vh;
+}
+
+.Head-slot-icon { background-color: black; }
+.Neck-slot-icon { background-color: black; }
+.Back-slot-icon { background-color: black; }
+.Hand-slot-icon { background-color: black; }
+.Wrist-slot-icon { background-color: black; }
+.Legs-slot-icon { background-color: black; }
+.Feet-slot-icon { background-color: black; }
+.RingOne-slot-icon { background-color: black; }
+.RingTwo-slot-icon { background-color: black; }
+.TrinketOne-slot-icon { background-color: black; }
+.TrinketTwo-slot-icon { background-color: black; }
+.Artifact-slot-icon { background-color: black; }

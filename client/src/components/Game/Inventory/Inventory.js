@@ -5,6 +5,7 @@ import './Inventory.css';
 import inventoryServices from '../../../services/inventoryServices';
 import characterServices from '../../../services/characterServices';
 import itemServices from '../../../services/itemServices';
+import equipmentServices from '../../../services/equipmentServices';
 
 class Inventory extends Component {
 
@@ -22,12 +23,18 @@ class Inventory extends Component {
     characterServices.getCharacterInfo(this.props.characterId)
       .then(character => {
         this.setState({ characterInfo: character.data[0] }, () => {
-          inventoryServices.getCharacterInventory(this.state.characterInfo.id)
-            .then(results => {
-              console.log('Character Inventory => ', results.data);
-              this.setState({ inventoryData: results.data, inventoryDataRecieved: true });
+          equipmentServices.getCharacterEquipment(this.props.characterId)
+            .then(equipment => {
+              this.setState({ equipment: equipment.data }, () => {
+                inventoryServices.getCharacterInventory(this.state.characterInfo.id)
+                  .then(results => {
+                    console.log('Character Inventory => ', results.data);
+                    this.setState({ inventoryData: results.data, inventoryDataRecieved: true });
+                  })
+                  .catch(err => console.log('Failed at Get Character Inventory => ', err));
+              });
             })
-            .catch(err => console.log('Failed at Get Character Inventory => ', err));
+            .catch(err => console.log("Failed at Get Character Equipment => ", err));
         })
       })
       .catch(err => console.log("Failed at Get Character Info => , err"));
@@ -39,7 +46,11 @@ class Inventory extends Component {
       if(el.itemType === "Weapon" || el.itemType === "Armor") {
         button = <button className="EquipItem" onClick={(e) => this.equipItem(el)}>Equip Item</button>
       }else if(el.itemType === "Consumable"){
-        button = <button className="UseItem" onClick={(e) => this.useItem({id: el.itemId, itemName: el.itemName})}>Use Item</button>
+        button = <button className="UseItem" onClick={(e) => this.useItem(el)}>Use Item</button>
+      }
+      for(let i = 0; i < this.state.equipment.length; i++) {
+        if(this.state.equipment[i].itemName === el.itemName)
+          button = <button className="UnEquipItem" onClick={(e) => this.unEquip({id: this.state.equipment[i].id, el: el})}>Unequip</button>;
       }
       return(
         <div className="Inventory-object-container" key={idx}>
@@ -47,6 +58,7 @@ class Inventory extends Component {
             <div className={`Inventory-${el.itemType}-icon`}>
               <span className="Inventory-tooltiptext-container">
                 <h4 className={`Inventory-tooltiptext ${el.itemRarity}`}>{el.itemName}</h4>
+                {this.state.characterInfo.lvl < el.levelRequirement ? <h4 className="Inventory-tooltiptext reqLevel">Requires Level: {el.levelRequirement}</h4> : ''}
               </span>
             </div>
           </div>
@@ -71,41 +83,88 @@ class Inventory extends Component {
 
   equipItem(el) {
     if(this.state.characterInfo.lvl >= el.levelRequirement) {
-      equipmentServices.getCharacterEquipment(this.state.characterId)
-        .then(equipment => {
-          for(let i = 0; equipment.data.length; i++) {
-            if(equipment.data[i].slot === el.slot) {
-              this.setState({ cannotEquip: true });
-              return;
-            }else {
-              equipmentServices.addEquipment({
-                userId: this.state.userData.userId,
+      if(this.state.equipment.length > 0) {
+        for(let i = 0; i < this.state.equipment.length; i++) {
+          if(this.state.equipment[i].slot === el.slot) {
+            this.setState({ cannotEquip: true });
+            return;
+          }else {
+            equipmentServices.addEquipment({
+              userId: this.state.userData.userId,
+              characterId: this.state.characterId,
+              itemId: el.itemId,
+              itemName: el.itemName,
+              itemDescription: el.itemDescription,
+              itemType: el.itemType,
+              itemRarity: el.itemRarity,
+              attack: el.attack,
+              defense: el.defense,
+              levelRequirement: el.levelRequirement,
+              slot: el.slot,
+              worth: el.worth
+            }).then(results => {
+              characterServices.updateCharacterStats({
                 characterId: this.state.characterId,
-                itemId: el.itemId,
-                itemName: el.itemName,
-                itemDescription: el.itemDescription,
-                itemType: el.itemType,
-                itemRarity: el.itemRarity,
-                attack: el.attack,
-                defense: el.defense,
-                levelRequirement: el.levelRequirement,
-                slot: el.slot,
-                worth: el.worth
-              }).then(results => {
-                characterServices.updateCharacterStats({})
-                  .then(character => {
-
-                  })
-                  .catch(err => console.log("Failed at Update Character Stats => ", err));
+                attack: this.state.characterInfo.attack + el.attack,
+                defense: this.state.characterInfo.defense + el.defense
               })
-              .catch(er => console.log("Failed at Add Equipment => ", err));
-            }
+                .then(character => {
+                  this.componentDidMount();
+                  this.props.reRenderStats();
+                })
+                .catch(err => console.log("Failed at Update Character Stats => ", err));
+            })
+            .catch(err => console.log("Failed at Add Equipment => ", err));
           }
+        }
+      }else  {
+        equipmentServices.addEquipment({
+          userId: this.state.userData.userId,
+          characterId: this.state.characterId,
+          itemId: el.itemId,
+          itemName: el.itemName,
+          itemDescription: el.itemDescription,
+          itemType: el.itemType,
+          itemRarity: el.itemRarity,
+          attack: el.attack,
+          defense: el.defense,
+          levelRequirement: el.levelRequirement,
+          slot: el.slot,
+          worth: el.worth
+        }).then(results => {
+          characterServices.updateCharacterStats({
+            characterId: this.state.characterId,
+            attack: this.state.characterInfo.attack + el.attack,
+            defense: this.state.characterInfo.defense + el.defense
+          })
+            .then(character => {
+              this.componentDidMount();
+              this.props.reRenderStats(false);
+            })
+            .catch(err => console.log("Failed at Update Character Stats => ", err));
         })
-        .catch(err => console.log("Failed at Get Character Equipment => ", err));
+        .catch(err => console.log("Failed at Add Equipment => ", err));
+      }
     }else {
       this.setState({ cannotEquip: true });
     }
+  }
+
+  unEquip(data) {
+    equipmentServices.removeEquipment(data.id)
+      .then(equipment => {
+        characterServices.updateCharacterStats({
+          characterId: this.state.characterId,
+          attack: this.state.characterInfo.attack - data.el.defense,
+          defense: this.state.characterInfo.defense - data.el.defense,
+        })
+        .then(character => {
+          this.componentDidMount();
+          this.props.reRenderStats(false);
+        })
+        .catch(err => console.log("Failed at Update Character Stats => ", err));
+      })
+      .catch(err => console.log("Failed at Remove Equipment => ", err));
   }
 
   useItem(data) {
@@ -119,7 +178,7 @@ class Inventory extends Component {
           }
           characterServices.updateCharacterHealth(updateCharacter)
             .then(results => {
-              this.props.reRenderTown();
+              this.props.reRenderStats(false);
             })
             .catch(err => console.log("Failed at Update Character => ", err));
         }

@@ -9,6 +9,7 @@
   flex-direction: column;
   float: right;
   left: -5%;
+  top: -13%;
 }
 
 .CharacterEquipment-left {
@@ -57,7 +58,7 @@
   margin-bottom: 10px;
 }
 
-.PantsSlot {
+.LegSlot {
   height: 6vh;
   width: 600%;
   border-style: solid;

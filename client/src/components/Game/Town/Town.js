@@ -19,9 +19,11 @@ class Town extends Component {
     this.state = {
       userData: this.props.userData,
       characterId: this.props.characterId,
-      renderAvatar: null
+      renderAvatar: null,
+      renderStats: true
     }
     this.reRenderTown = this.reRenderTown.bind(this);
+    this.reRenderStats = this.reRenderStats.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +47,7 @@ class Town extends Component {
         });
       })
       .catch(err => console.log("Failed at Get Character Info => ", err));
+      this.setState({ renderStats: true });
   }
 
 
@@ -124,9 +127,8 @@ class Town extends Component {
     })
   }
 
-  reRenderTown() {
-    this.componentDidMount();
-  }
+  reRenderTown() { this.componentDidMount(); }
+  reRenderStats() { this.setState({ renderStats: false }, () => this.componentDidMount()); }
 
   renderModals() {
     return(
@@ -136,7 +138,7 @@ class Town extends Component {
             <span className="closeButton" onClick={(e) => this.closeModalInventory()}>&times;</span>
             <h1 className="modalHeading-inventory">Inventory</h1>
             <div className="Game-Inventory-container">
-              <Inventory userData={this.state.userData} characterId={this.state.characterId} reRenderTown={this.reRenderTown} />
+              <Inventory userData={this.state.userData} characterId={this.state.characterId} reRenderStats={this.reRenderStats} />
             </div>
           </div>
         </div>
@@ -147,7 +149,7 @@ class Town extends Component {
           <div className="modalContent-characterStats">
             <span className="closeButton" onClick={(e) => this.closeModalCharacterStats()}>&times;</span>
             <div className="Game-characterStats-container">
-              <CharacterStats characterInfo={this.state.characterInfo} />
+              {this.state.renderStats ? <CharacterStats characterId={this.state.characterId} reRenderStats={this.reRenderStats} /> : console.log("IT WAS FALSE")}
             </div>
           </div>
         </div>

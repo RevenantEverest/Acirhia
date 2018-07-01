@@ -101,9 +101,9 @@
 
 
 
-.PantsSlot { position: relative; display: inline-block; }
+.LegSlot { position: relative; display: inline-block; }
 
-.PantsSlot .PantsSlot-tooltiptext {
+.LegSlot .LegSlot-tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -117,7 +117,7 @@
     z-index: 1;
 }
 
-.PantsSlot:hover .PantsSlot-tooltiptext { visibility: visible; }
+.LegSlot:hover .LegSlot-tooltiptext { visibility: visible; }
 /* END */
 
 

@@ -4,10 +4,10 @@ import './ChooseCharacter.css';
 //Services Imports
 import services from '../../services/userServices';
 import characterServices from '../../services/characterServices';
-import skillServices from '../../services/skillServices';
-import equipmentServices from '../../services/equipmentServices';
-import inventoryServices from '../../services/inventoryServices';
-import questLogServices from '../../services/questLogServices';
+// import skillServices from '../../services/skillServices';
+// import equipmentServices from '../../services/equipmentServices';
+// import inventoryServices from '../../services/inventoryServices';
+// import questLogServices from '../../services/questLogServices';
 
 class ChooseCharacter extends Component {
 

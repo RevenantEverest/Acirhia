@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway'); /* Raleway Font Import */
 @import url('https://fonts.googleapis.com/css?family=Roboto'); /* Roboto Font Import */
+@font-face {
+  font-family: 'Aisha Script';
+  src: url(./res/fonts/AishaScript.ttf);
+}
 
 html, body {
   height: 100vh;

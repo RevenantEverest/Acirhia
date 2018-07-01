@@ -3,13 +3,19 @@ import './CharacterStats.css';
 import './CharacterEquipment.css';
 import './ToolTip.css'
 
+//Services Imports
+import characterServices from '../../../../services/characterServices';
+
+//Component Imports
+import Equipment from './Equipment/Equipment';
+
 class CharacterStats extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       userData: this.props.userData,
-      characterInfo: this.props.characterInfo,
+      characterId: this.props.characterId,
       characterClass: null,
 
       equiped: null
@@ -17,50 +23,22 @@ class CharacterStats extends Component {
   }
 
   componentDidMount() {
-    switch(this.state.characterInfo.classId) {
-      case 1:
-        this.setState({ characterClass: 'Knight' });
-        break;
-      case 2:
-        this.setState({ characterClass: 'Wizard' });
-        break;
-      case 3:
-        this.setState({ characterClass: 'Archer' });
-        break;
-      default:
-        break;
-    }
+    characterServices.getCharacterInfo(this.props.characterId)
+      .then(character => {
+        this.setState({ characterInfo: character.data[0], dataRecieved: true });
+      })
+      .catch(err => console.log("Failed at Get Character Info => ", err));
   }
 
-  render() {
+  renderCharacterStats() {
     return(
-      <div className="CharacterStats">
+      <div>
         <div className="CharacterStats-header">
           <h1 className="CharacterStats-PlayerName">{this.state.characterInfo.characterName}</h1>
           <h3 className="PlayerLevel">Level: {this.state.characterInfo.lvl} {this.state.characterClass}</h3>
         </div>
-        <div className="CharacterEquipment-container">
-          <div className="CharacterEquipment-left">
-            <div className="HeadSlot"><span className="HeadSlot-tooltiptext">Empty Head Slot</span></div>
-            <div className="NeckSlot"><span className="NeckSlot-tooltiptext">Empty Neck Slot</span></div>
-            <div className="BackSlot"><span className="BackSlot-tooltiptext">Empty Back Slot</span></div>
-            <div className="HandSlot"><span className="HandSlot-tooltiptext">Empty Hand Slot</span></div>
-            <div className="WristSlot"><span className="WristSlot-tooltiptext">Empty Wrist Slot</span></div>
-            <div className="PantsSlot"><span className="PantsSlot-tooltiptext">Empty Pants Slot</span></div>
-          </div>
 
-
-          <div className={`${this.state.characterClass}-Silhouette`} />
-
-          <div className="CharacterEquipment-right">
-            <div className="FeetSlot"><span className="FeetSlot-tooltiptext">Empty Feet Slot</span></div>
-            <div className="RingOneSlot"><span className="RingOneSlot-tooltiptext">Empty Ring One Slot</span></div>
-            <div className="RingTwoSlot"><span className="RingTwoSlot-tooltiptext">Empty Ring Two Slot</span></div>
-            <div className="TrinketOneSlot"><span className="TrinketOneSlot-tooltiptext">Empty Trinket One Slot</span></div>
-            <div className="TrinketTwoSlot"><span className="TrinketTwoSlot-tooltiptext">Empty Trinket Two Slot</span></div>
-            <div className="ArtifactSlot"><span className="ArtifactSlot-tooltiptext">Empty Artifact Slot</span></div>
-          </div>
-        </div>
+        <Equipment userData={this.state.userData} characterId={this.state.characterId} />
 
         <div className="CharacterStats-container">
           <div className="CharacterStats-contents">
@@ -77,6 +55,14 @@ class CharacterStats extends Component {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  render() {
+    return(
+      <div className="CharacterStats">
+        {this.state.dataRecieved ? this.renderCharacterStats() : ''}
       </div>
     );
   }
