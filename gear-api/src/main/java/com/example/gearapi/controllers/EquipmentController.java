@@ -29,4 +29,10 @@ public class EquipmentController {
         equipmentRepository.delete(equipmentId);
         return HttpStatus.OK;
     }
+
+    @DeleteMapping("/equipment/{characterId}/character")
+    public HttpStatus DeleteByCharacterId(@PathVariable Long characterId) {
+        equipmentRepository.deleteByCharacterId(characterId);
+        return HttpStatus.OK;
+    }
 }

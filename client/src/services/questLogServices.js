@@ -28,4 +28,11 @@ services.removeQuest = (data) => {
   });
 };
 
+services.removeQuestLog = (data) => {
+  return axios({
+    method: 'DELETE',
+    url: `/tasks/questLog/character/${data}`
+  });
+};
+
 export default services;

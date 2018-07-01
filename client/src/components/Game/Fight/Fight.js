@@ -117,12 +117,18 @@ class Fight extends Component {
         let chosenItem = results.data[this.RNG(results.data.length)];
         this.setState({ itemReward: chosenItem }, () => {
           let inventoryData = {
-            userId: this.state.userData.userId, characterId: this.state.characterInfo.id,
-            itemId: this.state.itemReward.id, itemName: this.state.itemReward.itemName,
+            userId: this.state.userData.userId,
+            characterId: this.state.characterInfo.id,
+            itemId: this.state.itemReward.id,
+            itemName: this.state.itemReward.itemName,
             itemDescription: this.state.itemReward.itemDescription,
-            itemType: this.state.itemReward.itemType, itemRarity: this.state.itemReward.itemRarity,
-            attack: this.state.itemReward.attack, defense: this.state.itemReward.defense,
-            levelRequirement: this.state.itemReward.levelRequirement, worth: this.state.itemReward.worth
+            itemType: this.state.itemReward.itemType,
+            itemRarity: this.state.itemReward.itemRarity,
+            attack: this.state.itemReward.attack,
+            defense: this.state.itemReward.defense,
+            levelRequirement: this.state.itemReward.levelRequirement,
+            slot: this.state.itemReward.slot,
+            worth: this.state.itemReward.worth
           };
           //Add item to inventory
           inventoryServices.addToInventory(inventoryData)

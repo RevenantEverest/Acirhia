@@ -84,12 +84,25 @@ public class CharactersController {
         return characterRepository.save(characterFromDb);
     }
 
+    //Update Character Gold
     @PatchMapping("/characters/{characterId}/gold")
     public Character updateCharacterGold(@PathVariable Long characterId, @RequestBody Character characterRequest) {
 
         Character characterFromDb = characterRepository.findOne(characterId);
 
         characterFromDb.setGold(characterRequest.getGold());
+
+        return characterRepository.save(characterFromDb);
+    }
+
+    //Update Character Stats
+    @PatchMapping("/characters/{characterId}/stats")
+    public Character updateCharacterStats(@PathVariable Long characterId, @RequestBody Character characterRequest) {
+
+        Character characterFromDb = characterRepository.findOne(characterId);
+
+        characterFromDb.setAttack(characterRequest.getAttack());
+        characterFromDb.setDefense(characterRequest.getDefense());
 
         return characterRepository.save(characterFromDb);
     }

@@ -13,7 +13,9 @@ class CreateCharacter extends Component {
       userData: this.props.userData,
 
       attack: null,
-      defense: null
+      defense: null,
+
+      canSubmit: true
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,6 +31,10 @@ class CreateCharacter extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
+    if(!this.state.canSubmit)
+      return;
+
     switch(this.state.classId) {
       case '1':
         this.setState({ attack: 10, defense: 12, skillData: {
@@ -39,7 +45,9 @@ class CreateCharacter extends Component {
           classRequirement: 1,
           baseDamage: 50,
           buff: 0
-        }}, () => this.createCharacter());
+          },
+          canSubmit: false
+        }, () => this.createCharacter());
         break;
       case '2':
         this.setState({ attack: 12, defense: 8, skillData: {
@@ -50,7 +58,9 @@ class CreateCharacter extends Component {
           classRequirement: 2,
           baseDamage: 50,
           buff: 0
-        }}, () => this.createCharacter());
+          },
+          canSubmit: false
+        }, () => this.createCharacter());
         break;
       case '3':
         this.setState({ attack: 11, defense: 10, skillData: {
@@ -61,7 +71,9 @@ class CreateCharacter extends Component {
           classRequirement: 3,
           baseDamage: 50,
           buff: 0
-        }}, () => this.createCharacter());
+          },
+          canSubmit: false
+        }, () => this.createCharacter());
         break;
       default:
         this.setState({ attack: 10, defense: 10 }, () => this.createCharacter());

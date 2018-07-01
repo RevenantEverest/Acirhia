@@ -59,7 +59,12 @@ class SkillBook extends Component {
   }
 
   unEquipSkill(el) {
-
+    for(let i = 0; i < this.state.characterSkills.length; i++) {
+      if(this.state.characterSkills[i].skillName === el.skillName) {
+        skillServices.removeSkill(this.state.characterSkills[i].id)
+          .then(skill => { this.componentDidMount() }).catch(err => console.log("Failed at Remove Skill => ", err));
+      }
+    }
   }
 
   renderSkills() {

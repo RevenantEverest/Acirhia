@@ -14,4 +14,7 @@ public interface QuestLogRepository extends CrudRepository<QuestLog, Long> {
 
     @Query(value = "SELECT * FROM questLog WHERE character_id = :characterId", nativeQuery = true)
     Iterable<QuestLog> findByCharacterId(@Param ("characterId") Long characterId);
+
+    @Query(value = "DELET FROM questLog WHERE character_id = :characterId", nativeQuery = true)
+    void deleteByCharacterId(@Param ("characterId") Long characterId);
 }

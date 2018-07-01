@@ -14,12 +14,24 @@ public class CharacterSkillsController {
     @Autowired
     private CharacterSkillRepository characterSkillRepository;
 
-    @GetMapping("/characters")
+    @GetMapping("/characterSkills")
     Iterable<CharacterSkill> findAllCharacterSkills() { return characterSkillRepository.findAll(); }
 
-    @GetMapping("/characters/{characterId}")
+    @GetMapping("/characterSkills/{characterId}")
     Iterable<CharacterSkill> findSkillsByCharacterId(@PathVariable Long characterId) { return characterSkillRepository.findByCharacterId(characterId); }
 
-    @PostMapping("/characters")
+    @PostMapping("/characterSkills")
     public CharacterSkill addCharacterSkill(@RequestBody CharacterSkill characterSkill) { return characterSkillRepository.save(characterSkill); }
+
+    @DeleteMapping("/characterSkills/{skillId}")
+    public HttpStatus deleteCharacterSkill(@PathVariable Long skillId) {
+        characterSkillRepository.delete(skillId);
+        return HttpStatus.OK;
+    }
+
+    @DeleteMapping("/characterSkills/character/{characterId}")
+    public HttpStatus deleteByCharacterId(@PathVariable Long characterId) {
+        characterSkillRepository.deleteByCharacterId(characterId);
+        return HttpStatus.OK;
+    }
 }

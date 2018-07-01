@@ -92,6 +92,19 @@ services.updateCharacterGold = (data) => {
   });
 };
 
+//Update Character Stats
+services.updateCharacterStats = (data) => {
+  return axios({
+    method: 'PATCH',
+    url: `/users/characters/${data.characterId}/stats`,
+    data: {
+      characterId: data.characterId,
+      attack: data.attack,
+      defense: data.defense
+    }
+  });
+};
+
 //Delete Character
 services.deleteCharacter = (data) => {
   return axios({

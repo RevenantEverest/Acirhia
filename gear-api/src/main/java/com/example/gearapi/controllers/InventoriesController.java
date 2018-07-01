@@ -30,4 +30,10 @@ public class InventoriesController {
         inventoryRepository.delete(inventoryId);
         return HttpStatus.OK;
     }
+
+    @DeleteMapping("/inventory/character/{characterId}")
+    public HttpStatus deleteInventoryByCharacterId(@PathVariable Long characterId) {
+        inventoryRepository.deleteByCharacterId(characterId);
+        return HttpStatus.OK;
+    }
 }

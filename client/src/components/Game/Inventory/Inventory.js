@@ -50,7 +50,7 @@ class Inventory extends Component {
               </span>
             </div>
           </div>
-          {/* {button} */}
+          {button}
         </div>
       );
     });
@@ -71,7 +71,38 @@ class Inventory extends Component {
 
   equipItem(el) {
     if(this.state.characterInfo.lvl >= el.levelRequirement) {
-      //Equip Item
+      equipmentServices.getCharacterEquipment(this.state.characterId)
+        .then(equipment => {
+          for(let i = 0; equipment.data.length; i++) {
+            if(equipment.data[i].slot === el.slot) {
+              this.setState({ cannotEquip: true });
+              return;
+            }else {
+              equipmentServices.addEquipment({
+                userId: this.state.userData.userId,
+                characterId: this.state.characterId,
+                itemId: el.itemId,
+                itemName: el.itemName,
+                itemDescription: el.itemDescription,
+                itemType: el.itemType,
+                itemRarity: el.itemRarity,
+                attack: el.attack,
+                defense: el.defense,
+                levelRequirement: el.levelRequirement,
+                slot: el.slot,
+                worth: el.worth
+              }).then(results => {
+                characterServices.updateCharacterStats({})
+                  .then(character => {
+
+                  })
+                  .catch(err => console.log("Failed at Update Character Stats => ", err));
+              })
+              .catch(er => console.log("Failed at Add Equipment => ", err));
+            }
+          }
+        })
+        .catch(err => console.log("Failed at Get Character Equipment => ", err));
     }else {
       this.setState({ cannotEquip: true });
     }

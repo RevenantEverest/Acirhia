@@ -6,7 +6,7 @@ services.getSkills = (data) => {
 };
 
 services.getCharacterSkills = (data) => {
-  return axios.get(`/skills/characters/${data}`);
+  return axios.get(`/skills/characterSkills/${data}`);
 };
 
 services.getClassSkills = (data) => {
@@ -21,7 +21,7 @@ services.getSkillsByLevel = (data) => {
 services.defaultSkill = (data) => {
   return axios({
     method: 'POST',
-    url: '/skills/characters',
+    url: '/skills/characterSkills',
     data: {
       userId: data.userId,
       characterId: data.characterId,
@@ -39,7 +39,7 @@ services.defaultSkill = (data) => {
 services.equipSkill = (data) => {
   return axios({
     method: 'POST',
-    url: '/skills/characters',
+    url: '/skills/characterSkills',
     data: {
       userId: data.userId,
       characterId: data.characterId,
@@ -52,6 +52,20 @@ services.equipSkill = (data) => {
       buff: data.buff
     }
   });
-}
+};
+
+services.removeSkill = (data) => {
+  return axios({
+    method: 'DELETE',
+    url: `/skills/characterSkills/${data}`
+  });
+};
+
+services.removeCharacterSkills = (data) => {
+  return axios({
+    method: 'DELETE',
+    url: `/skills/characterSkills/character/${data}`
+  });
+};
 
 export default services;

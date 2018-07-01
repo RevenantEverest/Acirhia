@@ -14,7 +14,8 @@ import java.util.Set;
 @Entity @Table(name = "ITEMS")
 public class Item {
 
-    public Item(String itemName, String itemDescription, String itemType,String itemRarity, int attack, int defense, int levelRequirement, int worth) {
+    public Item(String itemName, String itemDescription, String itemType,String itemRarity, int attack, int defense,
+                int levelRequirement, String slot, int worth) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.itemType = itemType;
@@ -22,6 +23,7 @@ public class Item {
         this.attack = attack;
         this.defense = defense;
         this.levelRequirement = levelRequirement;
+        this.slot = slot;
         this.worth = worth;
     }
 
@@ -49,6 +51,9 @@ public class Item {
 
     @Column(name = "LEVEL_REQUIREMENT")
     private int levelRequirement;
+
+    @Column(name = "SLOT")
+    private String slot;
 
     @Column(name = "WORTH")
     private int worth;

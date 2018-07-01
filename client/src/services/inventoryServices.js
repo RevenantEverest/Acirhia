@@ -24,6 +24,7 @@ services.addToInventory = (data) => {
       attack: data.attack,
       defense: data.defense,
       levelRequirement: data.levelRequirement,
+      slot: data.slot,
       worth: data.worth
     }
   })
@@ -32,10 +33,14 @@ services.addToInventory = (data) => {
 services.removeFromInventory = (data) => {
   return axios({
     method: 'DELETE',
-    url: `/gear/inventory/${data}`,
-    data: {
-      id: data
-    }
+    url: `/gear/inventory/${data}`
+  });
+};
+
+services.removeCharacterInventory = (data) => {
+  return axios({
+    method: 'DELETE',
+    url: `/gear/inventory/character/${data}`
   });
 };
 

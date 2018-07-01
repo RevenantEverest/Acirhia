@@ -69,6 +69,7 @@ class Shop extends Component {
                   attack: data.attack,
                   defense: data.defense,
                   levelRequirement: data.levelRequirement,
+                  slot: data.slot,
                   worth: data.worth
                 }
                 inventoryServices.addToInventory(inventory)

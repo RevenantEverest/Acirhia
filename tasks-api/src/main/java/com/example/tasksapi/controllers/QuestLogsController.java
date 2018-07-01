@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 
+import javax.ws.rs.Path;
 import java.util.Optional;
 @RestController
 public class QuestLogsController {
@@ -24,4 +25,16 @@ public class QuestLogsController {
 
     @PostMapping("/questLog")
     public QuestLog addToQuestLog(@RequestBody QuestLog questLog) { return questLogRepository.save(questLog); }
+
+    @DeleteMapping("/questLog/{questId}")
+    public HttpStatus deleteQuestLogEntry(@PathVariable Long questId) {
+        questLogRepository.delete(questId);
+        return HttpStatus.OK;
+    }
+
+    @DeleteMapping("questLog/character/{characterId}")
+    public HttpStatus deleteQuestLog(@PathVariable Long characterId) {
+        questLogRepository.deleteByCharacterId(characterId);
+        return HttpStatus.OK;
+    }
 }

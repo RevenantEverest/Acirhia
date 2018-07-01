@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Inventory {
 
     public Inventory(Long userId, Long characterId, Long itemId, String itemName, String itemDescription, String itemType, String itemRarity,
-                     int attack, int defense, int levelRequirement, int worth) {
+                     int attack, int defense, int levelRequirement, String slot, int worth) {
         this.userId = userId;
         this.characterId = characterId;
         this.itemId = itemId;
@@ -20,6 +20,7 @@ public class Inventory {
         this.attack = attack;
         this.defense = defense;
         this.levelRequirement = levelRequirement;
+        this.slot = slot;
         this.worth = worth;
     }
 
@@ -56,6 +57,9 @@ public class Inventory {
 
     @Column(name = "LEVEL_REQUIREMENT")
     private int levelRequirement;
+
+    @Column(name = "SLOT")
+    private String slot;
 
     @Column(name = "WORTH")
     private int worth;

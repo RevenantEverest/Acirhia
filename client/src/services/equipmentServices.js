@@ -1,4 +1,4 @@
-import axios form 'axios';
+import axios from 'axios';
 const services = {};
 
 services.getEquipment = (data) => {
@@ -24,6 +24,7 @@ services.addEquipment = (data) => {
       attack: data.attack,
       defense: data.defense,
       levelRequirement: data.levelRequirement,
+      slot: data.slot,
       worth: data.worth
     }
   })
@@ -33,6 +34,13 @@ services.removeEquipment = (data) => {
   return axios({
     method: 'DELETE',
     url: `/gear/equipment/${data}`
+  })
+};
+
+services.removeCharacterEquipment = (data) => {
+  return axios({
+    method: 'DELETE',
+    url: `/gear/equipment/character/${data}`
   })
 };
 

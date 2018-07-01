@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import './ChooseCharacter.css';
+
+//Services Imports
 import services from '../../services/userServices';
 import characterServices from '../../services/characterServices';
-import './ChooseCharacter.css';
+import skillServices from '../../services/skillServices';
+import equipmentServices from '../../services/equipmentServices';
+import inventoryServices from '../../services/inventoryServices';
+import questLogServices from '../../services/questLogServices';
 
 class ChooseCharacter extends Component {
 
@@ -25,7 +31,6 @@ class ChooseCharacter extends Component {
   }
 
   handleCharacterSelect(data) {
-    console.log(data);
     this.setState({ selectedCharacter: data.id })
     switch(data.classId) {
       case 1:
@@ -45,12 +50,38 @@ class ChooseCharacter extends Component {
   deleteCharacter() {
     if(this.state.selectedCharacter == null)
       return;
+
+    // inventoryServices.removeCharacterInventory(this.state.selectedCharacter)
+    //   .then(inventory => {
+    //     equipmentServices.removeCharacterEquipment(this.state.selectedCharacter)
+    //       .then(equipment => {
+    //         questLogServices.removeQuestLog(this.state.selectedCharacter)
+    //           .then(questLog => {
+    //             skillServices.removeCharacterSkills(this.state.selectedCharacter)
+    //               .then(characterSkills => {
+    //                 characterServices.deleteCharacter(this.state.selectedCharacter)
+    //                   .then(results => {
+    //                     this.setState({ renderAvatar: '' });
+    //                     this.componentDidMount();
+    //                   })
+    //                   .catch(err => console.log("Failed at Delete Character => ", err));
+    //               })
+    //               .catch(err => console.log("Failed at Remove Character Skills => ", err));
+    //           })
+    //           .catch(err => console.log("Failed at Remove Quest Log => ", err));
+    //       })
+    //       .catch(err => console.log("Failed at Remove Character Equipment => ", err));
+    //   })
+    //   .catch(err => console.log("Failed at Remove Character Inventory => ", err));
+
     characterServices.deleteCharacter(this.state.selectedCharacter)
       .then(results => {
         this.setState({ renderAvatar: '' });
         this.componentDidMount();
       })
-      .catch(err => console.log("Failed at Delete Character => ", err))
+      .catch(err => console.log("Failed at Delete Character => ", err));
+
+
   }
 
   play() {

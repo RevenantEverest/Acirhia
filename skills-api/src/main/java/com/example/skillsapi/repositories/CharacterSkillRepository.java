@@ -9,4 +9,7 @@ public interface CharacterSkillRepository extends CrudRepository<CharacterSkill,
 
     @Query(value = "SELECT * FROM character_skills WHERE character_id = :characterId", nativeQuery = true)
     Iterable<CharacterSkill> findByCharacterId(@Param ("characterId") Long characterId);
+
+    @Query(value = "DELETE FROM character_skills WHERE character_id = :characterId", nativeQuery = true)
+    void deleteByCharacterId(@Param ("characterId") Long characterId);
 }
