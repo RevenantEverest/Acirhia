@@ -1,0 +1,58 @@
+.Archer-idle {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/ArcherStates/ArcherIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Archer-melee-attack {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/ArcherStates/ArcherAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 1s linear backAndForthOne;
+}
+
+.Archer-ranged-attack {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/ArcherStates/ArcherAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Archer-die {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/ArcherStates/ArcherDies.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+/* Ranged Attacks */
+
+.ScatterShot-attack {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  height: 55vh;
+  width: 20%;
+  background-image: url(../../../../res/images/Effects/Arrow.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 1s linear projectile;
+}

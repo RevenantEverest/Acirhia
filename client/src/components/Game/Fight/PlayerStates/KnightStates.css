@@ -1,0 +1,46 @@
+.Knight-idle {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  height: 45vh;
+  width: 30%;
+  background-image: url(../../../../res/images/KnightOneStates/KnightIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Knight-melee-attack {
+  position: absolute;
+  top: 28%;
+  left: 5%;
+  height: 50vh;
+  width: 33%;
+  background-image: url(../../../../res/images/KnightOneStates/KnightAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 1s linear backAndForthOne;
+}
+
+.Knight-ranged-attack {
+  position: absolute;
+  top: 28%;
+  left: 5%;
+  height: 50vh;
+  width: 33%;
+  background-image: url(../../../../res/images/KnightOneStates/KnightAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Knight-die {
+  position: absolute;
+  top: 28%;
+  left: 5%;
+  height: 50vh;
+  width: 33%;
+  background-image: url(../../../../res/images/KnightOneStates/KnightDie.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+/* Ranged Attacks */

@@ -1,0 +1,13 @@
+INSERT INTO INVENTORY (USER_ID, CHARACTER_ID, ITEM_ID, ITEM_NAME, ITEM_DESCRIPTION, ITEM_TYPE, ITEM_RARITY, ATTACK, DEFENSE, LEVEL_REQUIREMENT, WORTH) VALUES (
+  1,
+  1,
+  1,
+  'Shadow Axe of Strength',
+  '',
+  'Weapon',
+  'Rare',
+  12,
+  0,
+  5,
+  45
+);

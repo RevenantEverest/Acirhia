@@ -1,17 +1,3 @@
-INSERT INTO INVENTORY (USER_ID, CHARACTER_ID, ITEM_ID, ITEM_NAME, ITEM_DESCRIPTION, ITEM_TYPE, ITEM_RARITY, ATTACK, DEFENSE, LEVEL_REQUIREMENT, WORTH) VALUES (
-  1,
-  1,
-  1,
-  'Shadow Axe of Strength',
-  '',
-  'Weapon',
-  'Rare',
-  12,
-  0,
-  5,
-  45
-);
-
 INSERT INTO QUESTS (QUEST_NAME, QUEST_DESCRIPTION, QUEST_TYPE, REQUIREMENT) VALUES (
   'Our Village Burns',
   'Please excuse me, traveler. Your help would be much apprecited.
@@ -31,4 +17,18 @@ INSERT INTO QUESTS (QUEST_NAME, QUEST_DESCRIPTION, QUEST_TYPE, REQUIREMENT) VALU
   There''s no big reward at the end of the line, but I think my reward will be more than fair. I hope you return swiftly hero, we believe in you.',
   'Kill',
   10
+);
+
+INSERT INTO ACHIEVEMENTS (ACHIEVEMENT_NAME, ACHIEVEMENT_DESCRIPTION, ACHIEVEMENT_SCORE) VALUES(
+    'Warrior',
+    'Kill 10 Enemies',
+    10
+), (
+    'Fiend',
+    'Kill 50 Enemies',
+    25
+), (
+    'Silver Tongue',
+    'Purchase 20 items from the store',
+    20
 );

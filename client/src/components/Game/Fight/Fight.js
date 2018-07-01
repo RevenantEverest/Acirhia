@@ -14,7 +14,7 @@ import levelUpServices from '../../../services/levelUpServices';
 
 //Component Imports
 import ItemReward from './ItemReward/ItemReward';
-import Attacks from './Attacks/Attacks';
+import PlayerStates from './PlayerStates/PlayerStates';
 
 class Fight extends Component {
 
@@ -40,19 +40,6 @@ class Fight extends Component {
           let playerHealth = document.querySelector('.PlayerHealth-value');
           playerHealth.style.width = `${this.state.characterInfo.health}%`;
         });
-        switch(this.state.characterInfo.classId) {
-          case 1:
-            this.setState({ playerClass: 'Knight' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
-            break;
-          case 2:
-            this.setState({ playerClass: 'Wizard' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
-            break;
-          case 3:
-            this.setState({ playerClass: 'Archer' }, () => this.setState({ playerState: `${this.state.playerClass}-idle` }))
-            break;
-          default:
-            break;
-        }
         enemyServices.getEnemies()
           .then(results => {
             let enemyChosen = results.data[this.RNG(results.data.length)];
@@ -76,12 +63,6 @@ class Fight extends Component {
   playerAttack(dmg) {
     if(this.state.enemyHealth > 0 && this.state.canAttack) {
       this.setState({ canAttack: false });
-
-      this.setState({ playerState: `${this.state.playerClass}-attack` }, () => {
-        setTimeout(() => {
-          this.setState({ playerState: `${this.state.playerClass}-idle` })
-        }, 1000)
-      })
 
       this.setState({ enemyHealth: this.state.enemyHealth - dmg }, () => {
         let enemyHealthDisplay = document.querySelector('.EnemyHealth-value');
@@ -186,6 +167,9 @@ class Fight extends Component {
         }, 3000)
       })
       .catch(err => console.log("Failed at Update Character => ", err));
+
+      characterServices.updateCharacterHealth({ characterId: this.state.characterId, health: 100 })
+        .then(character => {  }).catch(err => console.log("Failed at Update Character Health => ", err));
   }
 
   renderLevelUp() {
@@ -257,17 +241,12 @@ class Fight extends Component {
 
           {this.state.enemyDataRecieved ? this.renderEnemyVitals() : ''}
         </div>
-        <div className="PlayerAvatar">
-          <div className={`${this.state.playerState}`} />
-        </div>
+
+        <PlayerStates userData={this.state.userData} characterId={this.state.characterId} playerAttack={this.playerAttack} />
 
         <div className="EnemyAvatar">
           <div className={`${this.state.enemyState}`} />
         </div>
-
-        {/* Attacks */}
-        {this.state.enemyDataRecieved ? <Attacks userData={this.state.userData} characterId={this.state.characterId}
-                                          enemyData={this.state.enemyInfo} playerAttack={this.playerAttack} /> : <div className="loading" />}
 
         {this.state.levelUp ? this.renderLevelUp() : ''}
         {this.state.victory ? this.renderVictory() : ''}

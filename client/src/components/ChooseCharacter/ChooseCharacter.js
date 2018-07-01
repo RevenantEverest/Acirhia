@@ -47,7 +47,7 @@ class ChooseCharacter extends Component {
       return;
     characterServices.deleteCharacter(this.state.selectedCharacter)
       .then(results => {
-        console.log('Character Deleted => ', results);
+        this.setState({ renderAvatar: '' });
         this.componentDidMount();
       })
       .catch(err => console.log("Failed at Delete Character => ", err))

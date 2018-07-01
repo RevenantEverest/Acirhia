@@ -25,26 +25,50 @@
 /* ===========================================
 /* Knight Skills                            ==
 /* ======================================== */
-.KnightDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/KnightDefault.png); }
-.Berserk-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Berserk.png); }
-.Berserk-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Berserk_UA.png); }
+.KnightDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Knight/KnightDefault.png); }
+.Berserk-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Knight/Berserk.png); }
+.Berserk-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Knight/Berserk_UA.png); }
+
+.Ravage-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Knight/Ravage.png); }
+.Ravage-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Knight/Ravage_UA.png); }
+
+.Lance-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Knight/Berserk.png); }
+.Lance-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Knight/Berserk_UA.png); }
+
+.Cleave-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Knight/Cleave.png); }
+.Cleave-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Knight/Cleave_UA.png); }
 
 /* ===========================================
 /* Wizard Skills                            ==
 /* ======================================== */
-.WizardDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/WizardDefault.png); }
-.Fireball-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Fireball.png); }
-.Fireball-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Fireball_UA.png); }
+.WizardDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Wizard/WizardDefault.png); }
+.Fireball-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Wizard/Fireball.png); }
+.Fireball-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Wizard/Fireball_UA.png); }
+
+.Shadowball-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Wizard/Shadowball.png); }
+.Shadowball-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Wizard/Shadowball_UA.png); }
+
+.ThunderCharge-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Wizard/ThunderCharge.png); }
+.ThunderCharge-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Wizard/ThunderCharge_UA.png); }
+
+.Blizzard-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Wizard/Blizzard.png); }
+.Blizzard-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Wizard/Blizzard_UA.png); }
 
 /* ===========================================
 /* Archer Skills                            ==
 /* ======================================== */
-.ArcherDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/ArcherDefault.png); }
-.ScatterShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/ScatterShot.png); }
-.ScatterShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/ScatterShot_UA.png); }
+.ArcherDefault-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Archer/ArcherDefault.png); }
+.ScatterShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Archer/ScatterShot.png); }
+.ScatterShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Archer/ScatterShot_UA.png); }
 
-.PiercingShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/PiercingShot.png); }
-.PiercingShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/PiercingShot_UA.png); }
+.PiercingShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Archer/PiercingShot.png); }
+.PiercingShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Archer/PiercingShot_UA.png); }
+
+.BladeThrust-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Archer/BladeThrust.png); }
+.BladeThrust-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Archer/BladeThrust_UA.png); }
+
+.PowerShot-icon { background-image: url(../../../../res/images/UI/Icons/Skills/Archer/PowerShot.png); }
+.PowerShot-icon-UA { background-image: url(../../../../res/images/UI/Icons/Skills/UA/Archer/PowerShot_UA.png); }
 
 /* Tool Tip */
 .skill-icon { position: relative; display: inline-block; }

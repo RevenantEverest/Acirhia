@@ -96,10 +96,7 @@ services.updateCharacterGold = (data) => {
 services.deleteCharacter = (data) => {
   return axios({
     method: 'DELETE',
-    url: `/users/characters/${data}`,
-    data: {
-      characterId: data
-    }
+    url: `/users/characters/${data}`
   })
 };
 

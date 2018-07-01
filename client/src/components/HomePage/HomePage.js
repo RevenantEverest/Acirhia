@@ -18,7 +18,7 @@ class HomePage extends Component {
       <div className="HomePage">
         <div className="HomePage-vignette">
           <div className="HomePage-NavBar">
-            <Link to="/login">Login</Link>
+            <Link to="/login"></Link>
           </div>
           <div className="HomePage-Logo" />
           <button className="HomePage-Play" onClick={(e) => this.playGame()}>Start</button>

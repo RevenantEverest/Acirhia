@@ -1,0 +1,58 @@
+.Wizard-idle {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/WizardStates/WizardIdle.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Wizard-melee-attack {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/WizardStates/WizardAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 1s linear backAndForthOne;
+}
+
+.Wizard-ranged-attack {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/WizardStates/WizardAttack.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Wizard-die {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  height: 55vh;
+  width: 30%;
+  background-image: url(../../../../res/images/WizardStates/WizardDie.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+/* Ranged Attacks */
+
+.Fireball-attack {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  height: 55vh;
+  width: 20%;
+  background-image: url(../../../../res/images/Effects/Fireball.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  animation: 1s linear projectile;
+}

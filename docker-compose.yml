@@ -41,7 +41,7 @@ services:
   items-api:
     image: anapsix/alpine-java:8_jdk_unlimited
     ports:
-      - '8083:8083'
+      - '8082:8082'
     working_dir: /app
     volumes:
       - ./items-api:/app
@@ -54,7 +54,7 @@ services:
   enemies-api:
     image: anapsix/alpine-java:8_jdk_unlimited
     ports:
-      - '8084:8084'
+      - '8083:8083'
     working_dir: /app
     volumes:
       - ./enemies-api:/app
@@ -67,7 +67,7 @@ services:
   tasks-api:
     image: anapsix/alpine-java:8_jdk_unlimited
     ports:
-      - '8082:8082'
+      - '8084:8084'
     working_dir: /app
     volumes:
       - ./tasks-api:/app
@@ -77,26 +77,26 @@ services:
     environment:
       - GRADLE_USER_HOME=cache
       - SPRING_PROFILES_ACTIVE=dev
-  achievements-api:
+  skills-api:
     image: anapsix/alpine-java:8_jdk_unlimited
     ports:
       - '8085:8085'
     working_dir: /app
     volumes:
-      - ./achievements-api:/app
+      - ./skills-api:/app
     depends_on:
       - eureka
     command: './gradlew bootRun'
     environment:
       - GRADLE_USER_HOME=cache
       - SPRING_PROFILES_ACTIVE=dev
-  skills-api:
+  gear-api:
     image: anapsix/alpine-java:8_jdk_unlimited
     ports:
       - '8086:8086'
     working_dir: /app
     volumes:
-      - ./skills-api:/app
+      - ./gear-api:/app
     depends_on:
       - eureka
     command: './gradlew bootRun'

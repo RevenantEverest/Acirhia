@@ -1,0 +1,60 @@
+.Attacks-skills-container {
+  position: absolute;
+  height: 12vh;
+  width: 58%;
+  top: 80%;
+  left: 30%;
+}
+
+.Attacks-skills-contents {
+  display: flex;
+}
+
+.Attacks-skill {
+  height: 20vh;
+  width: 10%;
+  flex-direction: row;
+  margin-left: 5%;
+  color: #dedede;
+  text-align: center;
+}
+
+.Attacks-skill-icon {
+  height: 15vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.Attacks-skill-text {
+  margin-top: -10%;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+}
+
+/* ===========================================
+/* Knight Skills                            ==
+/* ======================================== */
+.KnightDefault-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Knight/KnightDefault_hover.png); }
+.Berserk-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Knight/Berserk_hover.png); }
+.Ravage-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Knight/Ravage_hover.png); }
+/* .Lance-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Knight/Lance_hover.png); } */
+.Cleave-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Knight/Cleave_hover.png); }
+
+/* ===========================================
+/* Wizard Skills                            ==
+/* ======================================== */
+.WizardDefault-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Wizard/WizardDefault_hover.png); }
+.Fireball-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Wizard/Fireball_hover.png); }
+.Shadowball-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Wizard/Shadowball_hover.png); }
+.ThunderCharge-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Wizard/ThunderCharge_hover.png); }
+.Blizzard-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Wizard/Blizzard_hover.png); }
+
+/* ===========================================
+/* Archer Skills                            ==
+/* ======================================== */
+.ArcherDefault-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Archer/ArcherDefault_hover.png); }
+.ScatterShot-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Archer/ScatterShot_hover.png); }
+.PiercingShot-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Archer/PiercingShot_hover.png); }
+.BladeThrust-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Archer/BladeThrust_hover.png); }
+.PowerShot-icon:hover { background-image: url(../../../../../res/images/UI/Icons/Skills/Hover/Archer/PowerShot_hover.png); }

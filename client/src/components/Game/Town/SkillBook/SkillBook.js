@@ -36,7 +36,6 @@ class SkillBook extends Component {
   }
 
   equipSkill(el) {
-    console.log("Sup boi");
     if(this.state.characterSkills.length <= 4) {
       let data = {
         userId: this.state.userData.userId,
@@ -73,7 +72,6 @@ class SkillBook extends Component {
       for(let i = 0; i < charS.length; i++) {
         if(charS[i].skillName === el.skillName)
           EquipButton = <button className="AlreadyEquiped-Skill" onClick={(e) => this.unEquipSkill(el)}>Unequip Skill</button>;
-        console.log(charS[i].skillName);
       }
       if(charIn.lvl < el.levelRequirement) {
         ClassIcon = `${(el.skillName).split(" ").join(",").replace(",", "")}-icon-UA`;

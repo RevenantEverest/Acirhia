@@ -26,7 +26,7 @@ public class CharactersController {
 
     @DeleteMapping("/characters/{characterId}")
     public HttpStatus deleteCharacterById(@PathVariable Long characterId) {
-        characterRepository.deleteById(characterId);
+        characterRepository.delete(characterId);
         return HttpStatus.OK;
     }
 

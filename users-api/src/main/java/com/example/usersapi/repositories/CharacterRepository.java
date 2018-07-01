@@ -20,6 +20,4 @@ public interface CharacterRepository extends CrudRepository<Character, Long> {
 
     @Query(value = "SELECT * FROM characters WHERE id = :characterId", nativeQuery = true)
     Iterable<Character> findById(@Param("characterId") Long characterId);
-
-    void deleteById(Long characterId);
 }
