@@ -36,7 +36,7 @@ class SkillBook extends Component {
   }
 
   equipSkill(el) {
-    if(this.state.characterSkills.length <= 4) {
+    if(this.state.characterSkills.length < 4) {
       let data = {
         userId: this.state.userData.userId,
         characterId: this.state.characterId,

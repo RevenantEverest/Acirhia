@@ -172,18 +172,6 @@ class Fight extends Component {
         .then(character => {  }).catch(err => console.log("Failed at Update Character Health => ", err));
   }
 
-  renderLevelUp() {
-    return(
-      <div className="LevelUp" />
-    );
-  }
-
-  renderVictory() {
-    return(
-      <div className="Victory" />
-    );
-  }
-
   renderDefeat() {
     return(
       <div className="Defeat">
@@ -248,8 +236,8 @@ class Fight extends Component {
           <div className={`${this.state.enemyState}`} />
         </div>
 
-        {this.state.levelUp ? this.renderLevelUp() : ''}
-        {this.state.victory ? this.renderVictory() : ''}
+        {this.state.levelUp ? <div className="LevelUp" /> : ''}
+        {this.state.victory ? <div className="Victory" /> : ''}
         {this.state.defeat ? this.renderDefeat() : ''}
         {this.state.renderRewards ? this.renderRewards() : ''}
       </div>

@@ -75,14 +75,18 @@ class PlayerStates extends Component {
     if(el.skillType === "Melee")
       this.setState({ currentState: this.state.playerStates.meleeAttack }, () => {
         let dmg = el.baseDamage + (this.state.characterInfo.attack * 2);
-        this.props.playerAttack(dmg);
-        setTimeout(() => this.setState({ currentState: this.state.playerStates.idle }), 1000);
+        setTimeout(() => {
+          this.props.playerAttack(dmg);
+          this.setState({ currentState: this.state.playerStates.idle })
+        }, 1000);
       });
     else if(el.skillType === "Ranged" || el.skillType === "Spell")
       this.setState({ rangedAttack: `${el.skillName.split(" ").join(",").replace(",", "")}-attack`, currentState: this.state.playerStates.rangedAttack }, () => {
         let dmg = el.baseDamage + (this.state.characterInfo.attack * 2);
-        this.props.playerAttack(dmg);
-        setTimeout(() => this.setState({ rangedAttack: '', currentState: this.state.playerStates.idle }), 1000);
+        setTimeout(() => {
+          this.props.playerAttack(dmg);
+          this.setState({ rangedAttack: '', currentState: this.state.playerStates.idle })
+        }, 1000);
       });
   }
 

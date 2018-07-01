@@ -12,13 +12,20 @@ services.acceptQuest = (data) => {
       questDescription: data.questDescription,
       questType: data.questType,
       requirement: data.requirement,
-      aquired: data.quired
+      acquired: data.acquired
     }
   });
 };
 
 services.getCharacterQuests = (data) => {
   return axios.get(`/tasks/questLog/characters/${data}`);
+};
+
+services.removeQuest = (data) => {
+  return axios({
+    method: 'DELETE',
+    url: `/tasks/questLog/${data}`
+  });
 };
 
 export default services;
