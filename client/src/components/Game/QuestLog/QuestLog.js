@@ -136,7 +136,9 @@ class QuestLog extends Component {
           <div className="QuestLog-quest" key={idx}>
             <h3 className="QuestLog-questName">{el.questName}</h3>
             <h3 className="QuestLog-questType">{el.questType}</h3>
-            <h3 className="QuestLog-requirements">Requirements: {el.acquired} / {el.requirement}</h3>
+            <h3 className="QuestLog-requirements">
+              Requirements: {el.acquired >= el.requirement ? el.requirement : el.acquired} / {el.requirement}
+          </h3>
             {el.aquired >= el.requirement ? <button className="QuestLog-completeQuest" onClick={(e) => this.completeQuest(el)}>Complete Quest</button> : <button className="QuestLog-abandonQuest" onClick={(e) => this.abandonQuest(el)}>Abandon Quest</button>}
           </div>
         );

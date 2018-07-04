@@ -46,7 +46,7 @@ class Login extends Component {
           <input className="Login-password" type="password" name="password" onChange={this.handleChange} />
           <input classname="Login-submit" type="submit" value="Login" />
         </form>
-        <p className="Login-register">Don't have an account? You can sign up <Link to="/register">here</Link></p>
+        {/* <p className="Login-register">Don't have an account? You can sign up <Link to="/register">here</Link></p> */}
         {this.state.fireRedirect ? <Redirect to="/" /> : ''}
       </div>
     );

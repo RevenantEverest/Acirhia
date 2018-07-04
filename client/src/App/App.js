@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 //Component Imports
@@ -20,27 +19,19 @@ class App extends Component {
         userId: 1
       }
     }
+    this.renderGame = this.renderGame.bind(this);
+  }
+
+  renderGame() {
+    this.setState({ renderGame: true })
   }
 
   render() {
     return (
       <div className="App">
-        <Router>
           <div className="AppContents">
-            <Route exact path="/" component={
-              () => (<HomePage userData={this.state.userData} />)
-            } />
-
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-
-            <Route exact path="/game" component={
-              () => (<Game userData={this.state.userData} />)
-            } />
-
-            <Route exact path="/tile" component={TileBoard} />
+            {this.state.renderGame ? <Game userData={this.state.userData} /> : <HomePage userData={this.state.userData} renderGame={this.renderGame}/>}
           </div>
-        </Router>
       </div>
     );
   }

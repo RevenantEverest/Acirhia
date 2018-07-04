@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import './HomePage.css';
 
 class HomePage extends Component {
@@ -23,7 +22,6 @@ class HomePage extends Component {
             <div className="HomePage-Account-container">
               <h1 className="HomePage-Account-header">Account</h1>
               <div className="HomePage-Account-dropdown">
-                <Link />
               </div>
             </div>
           </div>
@@ -31,7 +29,7 @@ class HomePage extends Component {
           <div className="HomePage-header-container">
             <button className="HomePage-Play" onClick={(e) => this.playGame()}>Start</button>
           </div>
-          {this.state.fireRedirect ? <Redirect to="/game" /> : ''}
+          {this.state.fireRedirect ? this.props.renderGame() : ''}
         </div>
       </div>
     );

@@ -40,7 +40,7 @@ class Register extends Component {
           <input className="Register-password" type="password" name="password" onChange={this.handleChange} />
           <input className="Register-submit" type="submit" value="Register" />
         </form>
-        <p className="Register-login">Already have an account? You can login <Link to="/login">here</Link></p>
+        {/* <p className="Register-login">Already have an account? You can login <Link to="/login">here</Link></p> */}
         {this.state.fireRedirect ? <Redirect to="/" /> : ''}
       </div>
     );
