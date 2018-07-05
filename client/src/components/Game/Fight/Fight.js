@@ -11,6 +11,8 @@ import itemServices from '../../../services/itemServices';
 import inventoryServices from '../../../services/inventoryServices';
 import characterServices from '../../../services/characterServices';
 import levelUpServices from '../../../services/levelUpServices';
+import questLogServices from '../../../services/questLogServices';
+import trackQuestServices from '../../../services/trackQuestServices';
 
 //Component Imports
 import ItemReward from './ItemReward/ItemReward';
@@ -72,6 +74,7 @@ class Fight extends Component {
           enemyHealthDisplay.style.width = "0%";
           this.setState({ victory: true, enemyState: 'Enemy-die' });
           this.itemReward();
+          this.trackQuest();
           return;
         }else {
           setTimeout(() => {
@@ -108,6 +111,21 @@ class Fight extends Component {
         }
       })
     }
+  }
+
+  trackQuest() {
+    questLogServices.getCharacterQuests(this.state.characterId)
+      .then(questLog => {
+        this.setState({ questLog: questLog.data }, () => {
+          trackQuestServices.trackKillQuest({
+            questLog: this.state.questLog,
+            enemyInfo: this.state.enemyInfo,
+            userId: this.state.userData.userId,
+            characterId: this.state.characterId
+          })
+        });
+      })
+      .catch(err => console.log("Failed at Get Character Quests => ", err));
   }
 
   itemReward() {

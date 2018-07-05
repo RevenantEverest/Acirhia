@@ -1,13 +1,17 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
+
+//Menus
+const mainMenuTemplate = require('./menus/mainMenuTemplate');
 
 let win;
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 1920,
+    height: 1080,
+    icon: './res/images/wolf.png'
   });
 
   const startURL = process.env.ELECTRON_START_URL || url.format({
@@ -17,6 +21,8 @@ function createWindow() {
 
   });
   win.loadURL(startURL);
+  // const mainMenu = Menu.buildFromTemplate(mainMenuTemplate.template);
+  // Menu.setApplicationMenu(mainMenu);
 
   win.on('closed', () => {
     win = null

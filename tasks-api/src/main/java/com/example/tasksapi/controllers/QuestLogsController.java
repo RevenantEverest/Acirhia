@@ -26,6 +26,18 @@ public class QuestLogsController {
     @PostMapping("/questLog")
     public QuestLog addToQuestLog(@RequestBody QuestLog questLog) { return questLogRepository.save(questLog); }
 
+
+    //Update Quest Log entry Acquired Column
+    @PatchMapping("/questLog/{questId}")
+    public QuestLog updateQuest(@PathVariable Long questId, @RequestBody QuestLog questRequest) {
+
+        QuestLog questFromDb = questLogRepository.findOne(questId);
+
+        questFromDb.setAcquired(questRequest.getAcquired());
+
+        return questLogRepository.save(questFromDb);
+    }
+
     @DeleteMapping("/questLog/{questId}")
     public HttpStatus deleteQuestLogEntry(@PathVariable Long questId) {
         questLogRepository.delete(questId);

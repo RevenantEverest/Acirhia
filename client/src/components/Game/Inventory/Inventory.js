@@ -6,6 +6,7 @@ import inventoryServices from '../../../services/inventoryServices';
 import characterServices from '../../../services/characterServices';
 import itemServices from '../../../services/itemServices';
 import equipmentServices from '../../../services/equipmentServices';
+import useItemServices from '../../../services/useItemServices';
 
 class Inventory extends Component {
 
@@ -167,23 +168,18 @@ class Inventory extends Component {
       .catch(err => console.log("Failed at Remove Equipment => ", err));
   }
 
-  useItem(data) {
-    itemServices.getItemById(data.id)
-      .then(results => {
-        if(results.data[0].itemName === "Health Potion") {
-          console.log("Inventory Character Info => ",this.state.characterInfo);
-          let updateCharacter = {
-            characterId: this.state.characterInfo.id,
-            health: this.state.characterInfo.health + 50
-          }
-          characterServices.updateCharacterHealth(updateCharacter)
-            .then(results => {
-              this.props.reRenderStats(false);
-            })
-            .catch(err => console.log("Failed at Update Character => ", err));
-        }
+  useItem(el) {
+    inventoryServices.removeFromInventory(el.id)
+      .then(item => {
+        useItemServices.useItem({
+          itemName: el.itemName,
+          userId: this.state.userData.userId,
+          characterId: this.state.characterId,
+          characterHealth: this.state.characterInfo.health
+        });
+        this.componentDidMount();
       })
-      .catch(err => console.log("Failed at Get Item By Id => ", err));
+      .catch(err => console.log("Failed at Remove From Inventory => ", err));
   }
 
   renderCannotEquip() {

@@ -21,6 +21,16 @@ services.getCharacterQuests = (data) => {
   return axios.get(`/tasks/questLog/characters/${data}`);
 };
 
+services.updateQuest = (data) => {
+  return axios({
+    method: 'PATCH',
+    url: `/tasks/questLog/${data.questId}`,
+    data: {
+      acquired: data.acquired
+    }
+  })
+};
+
 services.removeQuest = (data) => {
   return axios({
     method: 'DELETE',
